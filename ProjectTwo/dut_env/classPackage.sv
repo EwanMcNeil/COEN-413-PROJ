@@ -6,12 +6,13 @@ package classes;
 	class Transaction;
 		static int errorCount = 0;
 		static int posCount = 0;
-		rand bit [0:1] port;		//used to see which port it is on
-		//logic [0:1] port;
+		//rand bit [0:1] port;		//used to see which port it is on
+		logic [0:1] port;
 		rand bit [0:3] cmd;
 		rand bit [0:31] data_in_1;
 		rand bit [0:31] data_in_2;
-    		randc logic [0:1] tag_in;
+    		//randc logic [0:1] tag_in;
+		logic [0:1] tag_in;
 
 		//outputs of device 
 		logic [0:1] resp;
@@ -21,15 +22,21 @@ package classes;
 		//0001 add, 0010 sub, 0101 shift left, 0110 shift right
 		constraint commandValid {((cmd == 1) || (cmd == 2) || (cmd == 5) || (cmd ==6));}
 		//constraint commandValid {(cmd == 1);}
-		constraint portValid{((port == 0) || (port == 1) || (port == 2) || (port ==3));}
+		//constraint portValid{((port == 0) || (port == 1) || (port == 2) || (port ==3));}
 		constraint tagValid{((tag_in == 0) || (tag_in == 1) || (tag_in == 2)  || (tag_in == 3));}
 		constraint dataOne{data_in_1 > 1; data_in_1 < 100;}
 		constraint dataTwo{data_in_2 > 1; data_in_2 < 100;}
 
 		//TODO make the random values be made by the generator
-		function new(logic [0:1] inPort = 0, logic [0:1] inTag = 0);
+		/*function new(logic [0:1] inPort = 0, logic [0:1] inTag = 0);
 			port = '{default:inPort};
 			tag_in = '{default:inTag};
+		endfunction*/
+
+		function new(logic [0:1] inPort, logic [0:1] inTag);
+			port = inPort;
+			tag_in = inTag;
+			//$display("new transaction Port:%b tag:%b",port,tag_in);
 		endfunction
 
 		function void displayInputs();
@@ -248,7 +255,7 @@ package classes;
 
 			//TODO wait for equal tag
 			@(IF.cb.out_resp2)
-				fresh = new(2'b00,IF.req2_tag_in);
+				fresh = new(2'b01,IF.req2_tag_in);
 				fresh.resp = IF.out_resp2;
 				fresh.data_out = IF.out_data2;
 				fresh.tag_out = IF.out_tag2;
@@ -265,7 +272,7 @@ package classes;
 
 			//TODO wait for equal tag
 			@(IF.cb.out_resp3)
-				fresh = new(2'b00,IF.req3_tag_in);
+				fresh = new(2'b10,IF.req3_tag_in);
 				fresh.resp = IF.out_resp3;
 				fresh.data_out = IF.out_data3;
 				fresh.tag_out = IF.out_tag3;
@@ -282,7 +289,7 @@ package classes;
 
 			//TODO wait for equal tag
 			@(IF.cb.out_resp4)
-				fresh = new(2'b00,IF.req4_tag_in);
+				fresh = new(2'b11,IF.req4_tag_in);
 				fresh.resp = IF.out_resp4;
 				fresh.data_out = IF.out_data4;
 				fresh.tag_out = IF.out_tag4;
@@ -403,14 +410,14 @@ package classes;
 		task run();
 			for(int i = 0; i < 1; i++)begin
 				$display("T: %0t [Generator] making a new object", $time);
-				trans = new(0);
+				trans = new(2'b00, 2'b00);
 				trans.randomize();
 				trans.displayInputs();
 				driverSingleMB.put(trans);
 				@(drv_done);
 
 				//make a copy here
-				temp = new();
+				temp = new(2'b00, 2'b00);
 				temp.copy(trans);
 
 				scoreboardMB.put(temp);
