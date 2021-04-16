@@ -11,7 +11,7 @@
 ## Initial check-in
 ##
 #####################################################
-FILES = calc2_top.v classPackage.sv testBench.sv top.sv
+FILES = hdl/calc2_top.v design/shifter.v design/priority.v design/mux_out.v design/holdreg.v design/alu_output_stage.v design/alu_input_stage.v design/adder.v dut_env/classPackage.sv dut_env/dut_if.sv testBench.sv hdl/top.sv
 TOPLEVEL = Top
 
 include Makefile_non_DPI

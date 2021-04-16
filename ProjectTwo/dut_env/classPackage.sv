@@ -6,12 +6,12 @@ package classes;
 	class Transaction;
 		static int errorCount = 0;
 		static int posCount = 0;
-		//rand bit [0:1] port;		//used to see which port it is on
-		logic [0:1] port;
+		rand bit [0:1] port;		//used to see which port it is on
+		//logic [0:1] port;
 		rand bit [0:3] cmd;
 		rand bit [0:31] data_in_1;
 		rand bit [0:31] data_in_2;
-    		logic [0:1] tag_in;
+    		randc logic [0:1] tag_in;
 
 		//outputs of device 
 		logic [0:1] resp;
@@ -19,21 +19,20 @@ package classes;
 		logic [0:1] tag_out;
 		
 		//0001 add, 0010 sub, 0101 shift left, 0110 shift right
-		//constraint commandValid {((cmd == 1) || (cmd == 2) || (cmd == 5) || (cmd ==6));}
-		constraint commandValid {(cmd == 6);}
-		//constraint portValid{((port == 0) || (port == 1) || (port == 2) || (port ==3));}
-		constraint tagValid{((tag_in == 0) || (tag_in == 1) || (tag_in == 2)  ||(tag_in == 3));}
-		constraint dataOne{ data_in_1 > 1; data_in_1 < 100;}
-		constraint dataTwo{ data_in_2 > 1; data_in_2 < 100;}
+		constraint commandValid {((cmd == 1) || (cmd == 2) || (cmd == 5) || (cmd ==6));}
+		//constraint commandValid {(cmd == 1);}
+		constraint portValid{((port == 0) || (port == 1) || (port == 2) || (port ==3));}
+		constraint tagValid{((tag_in == 0) || (tag_in == 1) || (tag_in == 2)  || (tag_in == 3));}
+		constraint dataOne{data_in_1 > 1; data_in_1 < 100;}
+		constraint dataTwo{data_in_2 > 1; data_in_2 < 100;}
 
 		//TODO make the random values be made by the generator
-		function new(logic [0:1] inPort, logic [0:1] inTag);
-			port = inPort;
-			tag_in = inTag;
+		function new(logic [0:1] inPort = 0, logic [0:1] inTag = 0);
+			port = '{default:inPort};
+			tag_in = '{default:inTag};
 		endfunction
 
-
-		function displayInputs();
+		function void displayInputs();
 			 $display("T: %0t [Transaction] port: %b cmd: %b data_in_1: %0d data_in_2: %0d tag_in: %b", $time, port, cmd, data_in_1, data_in_2, tag_in);
 		endfunction
 
@@ -128,6 +127,8 @@ package classes;
 			fork
 				watchInputOne();
 				watchInputTwo();
+				watchInputThree();
+				watchInputFour();
 		 	join
 		endtask
 			
@@ -164,7 +165,7 @@ package classes;
 		   		
 				//make a new transaction object
 				$display("T: %0t [Monitor] seeing new transaction on port 1", $time);
-				fresh = new(2'b00,IF.cb.req2_tag_in);		//port is 00 and pass new tag in
+				fresh = new(2'b01,IF.cb.req2_tag_in);		//port is 01 and pass new tag in
 				fresh.cmd = IF.cb.req2_cmd_in;
 				fresh.data_in_1 = IF.cb.req2_data_in;
 	
@@ -187,7 +188,7 @@ package classes;
 		   		
 				//make a new transaction object
 				$display("T: %0t [Monitor] seeing new transaction on port 2", $time);
-				fresh = new(2'b00,IF.cb.req3_tag_in);		//port is 00 and pass new tag in
+				fresh = new(2'b10,IF.cb.req3_tag_in);		//port is 01 and pass new tag in
 				fresh.cmd = IF.cb.req3_cmd_in;
 				fresh.data_in_1 = IF.cb.req3_data_in;
 	
@@ -210,7 +211,7 @@ package classes;
 		   		
 				//make a new transaction object
 				$display("T: %0t [Monitor] seeing new transaction on port 3", $time);
-				fresh = new(2'b00,IF.cb.req4_tag_in);		//port is 00 and pass new tag in
+				fresh = new(2'b11,IF.cb.req4_tag_in);		//port is 01 and pass new tag in
 				fresh.cmd = IF.cb.req4_cmd_in;
 				fresh.data_in_1 = IF.cb.req4_data_in;
 	
@@ -236,7 +237,7 @@ package classes;
 				fresh.tag_out = IF.out_tag1;
 			
 			$display("T: %0t [Monitor] received response on port 0", $time);
-			$display("T: %0t [Monitor] Resp: %b Data: %0d Tag: %b", $time, fresh.resp, fresh.data_out, fresh.tag_out);
+			$display("T: %0t [Monitor] Resp: %b Data: %0d Tag out: %b", $time, fresh.resp, fresh.data_out, fresh.tag_out);
 
 			//TODO
 			//then send over to the scoreboard
@@ -253,7 +254,7 @@ package classes;
 				fresh.tag_out = IF.out_tag2;
 			
 			$display("T: %0t [Monitor] received response on port 1", $time);
-			$display("T: %0t [Monitor] Resp: %b Data: %0d Tag: %b", $time, fresh.resp, fresh.data_out, fresh.tag_out);
+			$display("T: %0t [Monitor] Resp: %b Data: %0d Tag out: %b", $time, fresh.resp, fresh.data_out, fresh.tag_out);
 
 			//TODO
 			//then send over to the scoreboard
@@ -270,7 +271,7 @@ package classes;
 				fresh.tag_out = IF.out_tag3;
 			
 			$display("T: %0t [Monitor] received response on port 2", $time);
-			$display("T: %0t [Monitor] Resp: %b Data: %0d Tag: %b", $time, fresh.resp, fresh.data_out, fresh.tag_out);
+			$display("T: %0t [Monitor] Resp: %b Data: %0d Tag out: %b", $time, fresh.resp, fresh.data_out, fresh.tag_out);
 
 			//TODO
 			//then send over to the scoreboard
@@ -287,7 +288,7 @@ package classes;
 				fresh.tag_out = IF.out_tag4;
 			
 			$display("T: %0t [Monitor] received response on port 3", $time);
-			$display("T: %0t [Monitor] Resp: %b Data: %0d Tag: %b", $time, fresh.resp, fresh.data_out, fresh.tag_out);
+			$display("T: %0t [Monitor] Resp: %b Data: %0d Tag out: %b", $time, fresh.resp, fresh.data_out, fresh.tag_out);
 
 			//TODO
 			//then send over to the scoreboard
@@ -334,7 +335,7 @@ package classes;
      				Transaction ref_item;
 				scoreboardMB.get(ref_item);
 
-				$display("[Scoreboard] cmd: %0d data1: %0d data2: %0d", ref_item.cmd, ref_item.data_in_1, ref_item.data_in_2);
+				$display("T: %0t [Scoreboard] cmd: %b tag: %b data1: %0d data2: %0d", $time, ref_item.cmd, ref_item.tag_in, ref_item.data_in_1, ref_item.data_in_2);
 
 				//Calculate the expected results
 				if (ref_item.cmd == 1) begin
@@ -376,15 +377,13 @@ package classes;
 		mailbox MNtocheckerMB;
 
 		task run();
-
    			forever begin
 				Transaction SBoutput, MNoutput;
 
 				SBtocheckerMB.get(SBoutput);
 				
 				$display("T: %0t [Checker] Scoreboard output is %0d", $time, SBoutput.data_out);
-      				//SBoutput.displayInputs();
-				end
+			end
 		endtask
 	endclass
 
@@ -393,60 +392,31 @@ package classes;
 	///
 
 	//generator
-	//maybe we should do both, bundles and signel ones
+	//maybe we should do both, bundles and signal ones
 	//generator generates bundles of transactions 
 	class Generator;
 		mailbox driverSingleMB;
 		mailbox scoreboardMB;
 		event drv_done;
 		Transaction trans, temp;
-
-		task run();
-			//going to comment loop for now to just test one operation
-			//for(int i = 0; i < 2; i++)begin
-				$display("T: %0t [Generator] making a new object", $time);
-				//if (i == 0)
-					trans = new(2'b00,2'b00);
-				    
-				//commenting other cases for now
-/*			
-				else if(i == 1)
-					trans = new(2'b00,2'b01);
-
-				//else if(i == 2)
-					//trans = new(2'b00,2'b10);
-
-				//else if(i == 3)
-				    	//trans = new(2'b00,2'b11);
-*/
-
-				    	trans.randomize();
-				    	trans.displayInputs();
-				    	driverSingleMB.put(trans);
-					@(drv_done);
-
-				//make a copy here
-				  	temp = new(2'b00,2'b00);
-				  	temp.copy(trans);
-
-				    	scoreboardMB.put(temp);
-				
-				   
-			//this end is for the for loop above, commenting out for now
-			//end
-		endtask
 			
-		/*task run();
-			for(int i = 0; i < 2; i++)begin
+		task run();
+			for(int i = 0; i < 1; i++)begin
 				$display("T: %0t [Generator] making a new object", $time);
-				trans = new(2'b01,2'b00);
+				trans = new(0);
 				trans.randomize();
 				trans.displayInputs();
 				driverSingleMB.put(trans);
 				@(drv_done);
+
+				//make a copy here
+				temp = new();
+				temp.copy(trans);
+
+				scoreboardMB.put(temp);
 			end
 
 			$display("T: %0t [Generator] done generation of transactions", $time);
-		endtask*/
+		endtask
 	endclass
 endpackage

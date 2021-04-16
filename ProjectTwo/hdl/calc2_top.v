@@ -2,13 +2,13 @@
 // Module:  Top-level wiriring
 // Author:  Naseer Siddique
 
-`include "adder.v"
-`include "alu_input_stage.v"
-`include "alu_output_stage.v"
-`include "holdreg.v"
-`include "mux_out.v"
-`include "priority.v"
-`include "shifter.v"
+`include "design/adder.v"
+`include "design/alu_input_stage.v"
+`include "design/alu_output_stage.v"
+`include "design/holdreg.v"
+`include "design/mux_out.v"
+`include "design/priority.v"
+`include "design/shifter.v"
  
 
 module calc2_top ( out_data1, out_data2, out_data3, out_data4, out_resp1, out_resp2, out_resp3, out_resp4, out_tag1, out_tag2, out_tag3, out_tag4, scan_out, a_clk, b_clk, c_clk, req1_cmd_in, req1_data_in, req1_tag_in, req2_cmd_in, req2_data_in, req2_tag_in, req3_cmd_in, req3_data_in, req3_tag_in, req4_cmd_in, req4_data_in, req4_tag_in, reset, scan_in);
