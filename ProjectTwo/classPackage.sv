@@ -42,6 +42,11 @@ package classes;
 				 $display("T: %0t [Transaction] port: %b tag_out: %b", $time, port, tag_in);
 		endfunction
 
+		function displayAll();
+			 $display("T: %0t [Transaction] port: %b cmd: %b data_in_1: %0d data_in_2: %0d tag_in: %b , resp: %b  tag_out: %0d data_out: %b ,", $time, port, cmd, data_in_1, data_in_2, tag_in,resp,tag_out, data_out);
+
+		endfunction
+
 		//added a deep copy function
 		function void copy(Transaction tmp);
 			this.port =tmp.port;
@@ -595,6 +600,7 @@ package classes;
 		mailbox SBtocheckerMB;
 		mailbox MNtocheckerMB;
 		Transaction compareTranQueue[$];
+		Transaction monitorQueue[$];
 
 		task run();
 
@@ -620,9 +626,19 @@ package classes;
 			
 				$display("T: %0t [Checker] Asserting Checkdone number of transactions checked:", $time, testCount);
 				$display("T: %0t [Checker] Number of transactions unseen", $time, compareTranQueue.size());
+				
 
-				foreach(compareTranQueue[i])  $display("\tScoreboardTransaction[%0d] = %0d",i,compareTranQueue[i].displayInputs());
+				$display("Scoreboard Transactions seen : %0d ", compareTranQueue.size());
+				foreach(compareTranQueue[i])begin 
+					
+					compareTranQueue[i].displayAll();
+				end
+				$display("Monitor Transactions seen: %0d ",monitorQueue.size() );
+				foreach(monitorQueue[i])begin 
+					monitorQueue[i].displayAll();
+				end
 				testCount = 0;
+				monitorQueue.delete();
 				compareTranQueue.delete();
 				->check_done;	
 			
@@ -679,7 +695,9 @@ package classes;
 						$display("T: %0t [Checker] CORRECT, port  %0d with tag %0d data is %0d should be %0d", $time, fromDUT.port,fromDUT.tag_out,fromDUT.data_out,compareTo.data_out);
 					end
 					
-					compareTranQueue.delete(index);
+					monitorQueue.push_back(fromDUT);
+					//compareTranQueue.delete(index);
+					//dont need to delete
 			end
 
 
@@ -739,14 +757,14 @@ package classes;
 			
 			//Max of 16 possible commands running at once
 			//doing it so theres always min of two
-			portOneCount = $urandom_range(0,4);
-			portTwoCount = $urandom_range(0,4);
-			portThreeCount = $urandom_range(0,4);
-			portFourCount = $urandom_range(0,4);
-			portOneTagCount = 2'b00;
-			portTwoTagCount = 2'b00;
-			portThreeTagCount= 2'b00;
-			portFourTagCount= 2'b00;
+			portOneCount = $urandom_range(3,4);
+			portTwoCount = $urandom_range(3,4);
+			portThreeCount = $urandom_range(3,4);
+			portFourCount = $urandom_range(3,4);
+			portOneTagCount = 2'b11;
+			portTwoTagCount = 2'b11;
+			portThreeTagCount= 2'b11;
+			portFourTagCount= 2'b11;
 			
 
 			for(int i = 0; i < portOneCount; i ++)begin
@@ -762,7 +780,7 @@ package classes;
 				  	temp.copy(trans);
 				    	scoreboardMB.put(temp);
 				    	driverSingleMB.put(trans);
-					portOneTagCount = portOneTagCount +1;
+					portOneTagCount = portOneTagCount -1;
 			
 			end	
 
@@ -777,7 +795,7 @@ package classes;
 				  	temp.copy(trans);
 				    	scoreboardMB.put(temp);
 				    	driverSingleMB.put(trans);
-					portTwoTagCount = portTwoTagCount +1;
+					portTwoTagCount = portTwoTagCount -1;
 			
 			end	
 
@@ -793,7 +811,7 @@ package classes;
 				  	temp.copy(trans);
 				    	scoreboardMB.put(temp);
 				    	driverSingleMB.put(trans);
-					portThreeTagCount = portThreeTagCount +1;
+					portThreeTagCount = portThreeTagCount -1;
 			end	
 
 
@@ -808,7 +826,7 @@ package classes;
 				  	temp.copy(trans);
 				    	scoreboardMB.put(temp);
 				    	driverSingleMB.put(trans);
-					portFourTagCount = portFourTagCount + 1;
+					portFourTagCount = portFourTagCount -1;
 			end	
 				//make a copy here
 			->gen_done;
