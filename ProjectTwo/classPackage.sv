@@ -39,7 +39,7 @@ package classes;
 		endfunction
 
 		function displayTagPort();
-				 $display("T: %0t [Transaction] port: %b tag_out: %b", $time, port, tag_out);
+				 $display("T: %0t [Transaction] port: %b tag_out: %b", $time, port, tag_in);
 		endfunction
 
 		//added a deep copy function
@@ -191,8 +191,15 @@ package classes;
 				IF.cb.req4_data_in <= tranFour.data_in_2;
 				end
 
+			
 			$display("T: %0t [Driver] LOOP", $time);
 				end
+
+			//give it a couple cycles before ending
+			for(int i =0; i < 30; i++)begin
+				@(posedge IF.c_clk);
+			end
+
 			$display("T: %0t [Driver] Drive done asserted", $time);
 			->drv_done;
 			end
@@ -408,7 +415,7 @@ package classes;
 				MNtocheckerMB.put(fresh);
 				$display("T: %0t [Monitor] Finished inside", $time);
 			  end
-			  #500 $display("T: %0t [Monitor] ERROR timeout", $time);
+			  #800 $display("T: %0t [Monitor] ERROR timeout", $time);
 			join_any
 			disable timeout_block;
 			end
@@ -433,7 +440,7 @@ package classes;
 				MNtocheckerMB.put(fresh);
 				$display("T: %0t [Monitor] Finished inside", $time);
 			  end
-			  #500 $display("T: %0t [Monitor] ERROR timeout", $time);
+			  #800 $display("T: %0t [Monitor] ERROR timeout", $time);
 			join_any
 			disable timeout_block;
 			end
@@ -460,7 +467,7 @@ package classes;
 				MNtocheckerMB.put(fresh);
 				$display("T: %0t [Monitor] Finished inside", $time);
 			  end
-			  #500 $display("T: %0t [Monitor] ERROR timeout", $time);
+			  #800 $display("T: %0t [Monitor] ERROR timeout", $time);
 			join_any
 			disable timeout_block;
 			end
@@ -486,7 +493,7 @@ package classes;
 				MNtocheckerMB.put(fresh);
 				$display("T: %0t [Monitor] Finished inside", $time);
 			  end
-			  #500 $display("T: %0t [Monitor] ERROR timeout", $time);
+			  #800 $display("T: %0t [Monitor] ERROR timeout", $time);
 			join_any
 			disable timeout_block;
 			end
@@ -610,10 +617,7 @@ package classes;
 		task waitDriver();
 			forever begin
 				@(drv_done);
-				while(1)begin
-				if(compareTranQueue.size() == 0)begin
-				//TODO time out if no signal is coming
-				
+			
 				$display("T: %0t [Checker] Asserting Checkdone number of transactions checked:", $time, testCount);
 				$display("T: %0t [Checker] Number of transactions unseen", $time, compareTranQueue.size());
 
@@ -621,9 +625,7 @@ package classes;
 				testCount = 0;
 				compareTranQueue.delete();
 				->check_done;	
-				break;
-				end
-				end
+			
 			end
 			endtask
 
@@ -660,8 +662,8 @@ package classes;
 			Transaction fromScore[$];
 			int indexes[$];
 			int index;
-			fromScore = compareTranQueue.find() with (item.port == fromDUT.port && item.tag_out == fromDUT.tag_out);
-			indexes = compareTranQueue.find_index() with (item.port == fromDUT.port && item.tag_out == fromDUT.tag_out);
+			fromScore = compareTranQueue.find() with (item.port == fromDUT.port && item.tag_in == fromDUT.tag_in);
+			indexes = compareTranQueue.find_index() with (item.port == fromDUT.port && item.tag_in == fromDUT.tag_in);
 			
 			if(fromScore.size == 0)begin
 				$display("T: %0t [Checker]No data found for command on Port %0d with tag %0d", $time, fromDUT.port,fromDUT.tag_out);
