@@ -54,6 +54,11 @@ package classes;
     			this.data_in_1 = tmp.data_in_1;
    			this.data_in_2 = tmp.data_in_2;
     			this.tag_in = tmp.tag_in;
+
+			//adding outputs to compy
+			this.data_out = tmp.data_out;
+			this.resp = tmp.resp;
+			this.tag_out = tmp.tag_out;
   		endfunction
 	endclass
 		
@@ -250,7 +255,7 @@ package classes;
 	//but multiple commands could be running so maybe fork a new internally?
 	class Monitor;
 		//link to the interface
-
+		
 		virtual dut_IF IF;
 			
 		//TODO 
@@ -259,6 +264,12 @@ package classes;
 		event mon_done;
 		event drv_done;
 		int threadCount;
+		int transactionCount;
+
+		Transaction portOne[$];
+		Transaction portTwo[$];
+		Transaction portThree[$];
+		Transaction portFour[$];
 
 		task run();
 			$display("T: %0t [Monitor] starting...", $time);
@@ -269,6 +280,10 @@ package classes;
 				watchInputTwo();
 				watchInputThree();
 				watchInputFour();
+				watchOutputOne();
+				watchOutputTwo();
+				watchOutputThree();
+				watchOutputFour();
 				//waitDriver();
 		 	join
 
@@ -299,9 +314,9 @@ package classes;
 				$display("T: %0t [Monitor] watching port one", $time);
 		   		@(IF.cb.req1_data_in);
 				if(IF.reset == 0)begin
-		   		
+		   		transactionCount = transactionCount +1;
 				//make a new transaction object
-				$display("T: %0t [Monitor] seeing new transaction on port 1", $time);
+				$display("T: %0t [Monitor] seeing new transaction on port 1 total trans: %0d", $time, transactionCount);
 				fresh = new();		//port is 00 and pass new tag in
 				fresh.port = 2'b00;
 				fresh.tag_in = IF.cb.req1_tag_in;
@@ -312,12 +327,7 @@ package classes;
 				fresh.data_in_2 = IF.cb.req1_data_in;
 				fresh.displayInputs();
 
-		  		fork
-					watchOutputOne(fresh);
-					threadCount = threadCount +1;
-		  		join_none
-				$display("T: %0t [Monitor] after fork", $time);
-		  		//join none so the watchInputOne is restarted
+		  		portOne.push_front(fresh);
 				end
 	         	end
 		endtask
@@ -328,8 +338,9 @@ package classes;
 				$display("T: %0t [Monitor] watching port two", $time);
 		   		@(IF.cb.req2_data_in);
 		   		if(IF.reset == 0)begin
+				transactionCount = transactionCount +1;
 				//make a new transaction object
-				$display("T: %0t [Monitor] seeing new transaction on port 2", $time);
+				$display("T: %0t [Monitor] seeing new transaction on port 2 total trans: %0d", $time, transactionCount);
 				fresh = new();		//port is 01 and pass new tag in
 				fresh.port = 2'b01;
 				fresh.tag_in = IF.cb.req2_tag_in;
@@ -340,9 +351,7 @@ package classes;
 				fresh.data_in_2 = IF.cb.req2_data_in;
 				fresh.displayInputs();
 
-		  		fork
-					watchOutputTwo(fresh);
-		  		join_none
+		  		portTwo.push_front(fresh);
 		  		//join none so the watchInputTwo is restarted
 				end
 	         	end
@@ -354,8 +363,9 @@ package classes;
 
 		   		@(IF.cb.req3_data_in);
 		   		if(IF.reset == 0)begin
+				transactionCount = transactionCount +1;
 				//make a new transaction object
-				$display("T: %0t [Monitor] seeing new transaction on port 3", $time);
+				$display("T: %0t [Monitor] seeing new transaction on port 3 total trans: %0d", $time, transactionCount);
 				fresh = new();		//port is 10 and pass new tag in
 				fresh.port = 2'b10;
 				fresh.tag_in = IF.cb.req3_tag_in;
@@ -366,9 +376,7 @@ package classes;
 				fresh.data_in_2 = IF.cb.req3_data_in;
 				fresh.displayInputs();
 
-		  		fork
-					watchOutputThree(fresh);
-		  		join_none
+		  		portThree.push_front(fresh);
 				end
 		  		//join none so the watchInputThree is restarted
 	         	end
@@ -380,8 +388,9 @@ package classes;
 				
 		   		@(IF.cb.req4_data_in);
 		   		if(IF.reset == 0)begin
+				transactionCount = transactionCount +1;
 				//make a new transaction object
-				$display("T: %0t [Monitor] seeing new transaction on port 4", $time);
+				$display("T: %0t [Monitor] seeing new transaction on port 4 total trans: %0d", $time, transactionCount);
 				fresh = new();		//port is 10 and pass new tag in
 				fresh.port = 2'b11;
 				fresh.tag_in = IF.cb.req4_tag_in;
@@ -392,117 +401,145 @@ package classes;
 				fresh.data_in_2 = IF.cb.req4_data_in;
 				fresh.displayInputs();
 
-		  		fork
-					
-					watchOutputFour(fresh);
-		  		join_none
+		  		portFour.push_front(fresh);
 				end
 		  		//join none so the watchInputFour is restarted
 	         	end
 		endtask
 
-		task watchOutputOne(Transaction fresh);
-
-	$display("T: %0t [Monitor] waiting for response on port 1", $time);
-			
-		   fork
-			begin 
-			   fork : timeout_block
-		           begin
-				wait(IF.cb.out_tag1 == fresh.tag_in);
+		task watchOutputOne();
+			Transaction fresh[$];
+				Transaction fromDUT;
+			int indexQ[$];
+			int index;
+			forever begin
 				
-				fresh.resp = IF.cb.out_resp1;
-				fresh.data_out = IF.cb.out_data1;
-				fresh.tag_out = IF.cb.out_tag1;
+				@(IF.cb.out_tag1);
+				if(IF.reset == 0)begin
+				fresh = portOne.find() with (item.tag_in == IF.cb.out_tag1);
+				
+
+				if(fresh.size > 0)begin
+				indexQ = portOne.find_index() with (item.tag_in == IF.cb.out_tag1);
+				index = indexQ.pop_front();
+				portOne.delete(index);
+				fromDUT = fresh.pop_front();
+				fromDUT.resp = IF.cb.out_resp1;
+				fromDUT.data_out = IF.cb.out_data1;
+				fromDUT.tag_out = IF.cb.out_tag1;
 			
 				$display("T: %0t [Monitor] received response on port 1", $time);
-				$display("T: %0t [Monitor] Resp: %b Data: %0d Tag: %b", $time, fresh.resp, fresh.data_out, fresh.tag_out);
-				MNtocheckerMB.put(fresh);
-				$display("T: %0t [Monitor] Finished inside", $time);
-			  end
-			  #800 $display("T: %0t [Monitor] ERROR timeout", $time);
-			join_any
-			disable timeout_block;
+				
+				MNtocheckerMB.put(fromDUT);
+				end
+				else begin
+					$display("T: %0t [Monitor] Error, no input tage matches output tag", $time);
+				end
+			 
 			end
-			join_none
+		end
 		endtask
 
-		task watchOutputTwo(Transaction fresh);	
-
-		$display("T: %0t [Monitor] waiting for response on port 2", $time);
-		fork
-			begin 
-			   fork : timeout_block
-		           begin
-				wait(IF.cb.out_tag2 == fresh.tag_in);
+		task watchOutputTwo();	
+			Transaction fresh[$];
+				Transaction fromDUT;
+			int index;
+			int indexQ[$];
+			forever begin
+			
+				@(IF.cb.out_tag2);
+				if(IF.reset == 0)begin
+				fresh = portTwo.find() with (item.tag_in == IF.cb.out_tag2);
 				
-				fresh.resp = IF.cb.out_resp2;
-				fresh.data_out = IF.cb.out_data2;
-				fresh.tag_out = IF.cb.out_tag2;
+				if(fresh.size > 0)begin
+				indexQ = portTwo.find_index() with (item.tag_in == IF.cb.out_tag2);
+				index = indexQ.pop_front();
+				portTwo.delete(index);
+		
+				fromDUT = fresh.pop_front();
+				fromDUT.resp = IF.cb.out_resp2;
+				fromDUT.data_out = IF.cb.out_data2;
+				fromDUT.tag_out = IF.cb.out_tag2;
 			
 				$display("T: %0t [Monitor] received response on port 2", $time);
-				$display("T: %0t [Monitor] Resp: %b Data: %0d Tag: %b", $time, fresh.resp, fresh.data_out, fresh.tag_out);
-				MNtocheckerMB.put(fresh);
-				$display("T: %0t [Monitor] Finished inside", $time);
-			  end
-			  #800 $display("T: %0t [Monitor] ERROR timeout", $time);
-			join_any
-			disable timeout_block;
+				
+				MNtocheckerMB.put(fromDUT);
+				end
+				else begin
+					$display("T: %0t [Monitor] Error, no input tage matches output tag", $time);
+				end
+			 
 			end
-			join_none
+			end
 
 			
 		endtask
 
-		task watchOutputThree(Transaction fresh);
-			
-			$display("T: %0t [Monitor] waiting for response on port 3", $time);
-		fork
-			begin 
-			   fork : timeout_block
-		           begin
-				wait(IF.cb.out_tag3 == fresh.tag_in);
+		task watchOutputThree();
+			Transaction fresh[$];
+				Transaction fromDUT;
+			int index;
+			int indexQ[$];
+			forever begin
 				
-				fresh.resp = IF.cb.out_resp3;
-				fresh.data_out = IF.cb.out_data3;
-				fresh.tag_out = IF.cb.out_tag3;
+				@(IF.cb.out_tag3);
+				if(IF.reset == 0)begin
+				fresh = portThree.find() with (item.tag_in == IF.cb.out_tag3);
+				
+		
+				if(fresh.size > 0)begin
+				indexQ = portThree.find_index() with (item.tag_in == IF.cb.out_tag3);
+				index = indexQ.pop_front();
+				portThree.delete(index);
+				fromDUT = fresh.pop_front();
+				fromDUT.resp = IF.cb.out_resp3;
+				fromDUT.data_out = IF.cb.out_data3;
+				fromDUT.tag_out = IF.cb.out_tag3;
 			
 				$display("T: %0t [Monitor] received response on port 3", $time);
-				$display("T: %0t [Monitor] Resp: %b Data: %0d Tag: %b", $time, fresh.resp, fresh.data_out, fresh.tag_out);
-				MNtocheckerMB.put(fresh);
-				$display("T: %0t [Monitor] Finished inside", $time);
-			  end
-			  #800 $display("T: %0t [Monitor] ERROR timeout", $time);
-			join_any
-			disable timeout_block;
+				
+				MNtocheckerMB.put(fromDUT);
+				end
+				else begin
+					$display("T: %0t [Monitor] Error, no input tage matches output tag", $time);
+				end
+			 
 			end
-			join_none
-			
+			end
 		endtask
 
-		task watchOutputFour(Transaction fresh);
+		task watchOutputFour();
+			Transaction fresh[$];
+				Transaction fromDUT;
+				int index;
+				int indexQ[$];
 
-		$display("T: %0t [Monitor] waiting for response on port 4", $time);
-		fork
-			begin 
-			   fork : timeout_block
-		           begin
-				wait(IF.cb.out_tag2 == fresh.tag_in);
+				forever begin
 				
-				fresh.resp = IF.cb.out_resp4;
-				fresh.data_out = IF.cb.out_data4;
-				fresh.tag_out = IF.cb.out_tag4;
+				@(IF.cb.out_tag4);
+				if(IF.reset == 0)begin
+				fresh = portFour.find() with (item.tag_in == IF.cb.out_tag4);
+				
+		
+				if(fresh.size > 0)begin
+				indexQ = portFour.find_index() with (item.tag_in == IF.cb.out_tag4);
+				index = indexQ.pop_front();
+				portFour.delete(index);
+				fromDUT = fresh.pop_front();
+				fromDUT.resp = IF.cb.out_resp4;
+				fromDUT.data_out = IF.cb.out_data4;
+				fromDUT.tag_out = IF.cb.out_tag4;
 			
 				$display("T: %0t [Monitor] received response on port 4", $time);
-				$display("T: %0t [Monitor] Resp: %b Data: %0d Tag: %b", $time, fresh.resp, fresh.data_out, fresh.tag_out);
-				MNtocheckerMB.put(fresh);
-				$display("T: %0t [Monitor] Finished inside", $time);
-			  end
-			  #800 $display("T: %0t [Monitor] ERROR timeout", $time);
-			join_any
-			disable timeout_block;
+				
+				MNtocheckerMB.put(fromDUT);
+				end
+				else begin
+					$display("T: %0t [Monitor] Error, no input tage matches output tag", $time);
+				end
+			 
 			end
-			join_none
+				end
 		endtask
 	endclass
 
@@ -654,6 +691,8 @@ package classes;
 				$display("T: %0t [Checker] Recieved transaction from Scoreboard", $time);
 				SBoutput.displayTagPort();
 				
+				
+				
 				compareTranQueue.push_back(SBoutput);
 			end
 
@@ -662,9 +701,13 @@ package classes;
 		task recieveFromMonitor();
 			forever begin
 				Transaction MNoutput;
+				Transaction fromDUT;
+				fromDUT = new();
 				MNtocheckerMB.get(MNoutput);
 				$display("T: %0t [Checker] Recieved transaction from Monitor", $time);
 				MNoutput.displayTagPort();
+				fromDUT.copy(MNoutput);
+				monitorQueue.push_back(fromDUT);
 				testCount = testCount +1;
 				fork
 					compareTrans(MNoutput);
@@ -695,7 +738,6 @@ package classes;
 						$display("T: %0t [Checker] CORRECT, port  %0d with tag %0d data is %0d should be %0d", $time, fromDUT.port,fromDUT.tag_out,fromDUT.data_out,compareTo.data_out);
 					end
 					
-					monitorQueue.push_back(fromDUT);
 					//compareTranQueue.delete(index);
 					//dont need to delete
 			end
