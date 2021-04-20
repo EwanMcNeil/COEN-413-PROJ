@@ -21,7 +21,7 @@ package classes;
 		
 		//0001 add, 0010 sub, 0101 shift left, 0110 shift right
 		constraint commandValid {((cmd == 1) || (cmd == 2) || (cmd == 5) || (cmd ==6));}
-		//constraint commandValid {(cmd == 6);}
+		//constraint commandValid {(cmd == 1);}
 		constraint portValid{((port == 0) || (port == 1) || (port == 2) || (port ==3));}
 		constraint tagValid{((tag_in == 0) || (tag_in == 1) || (tag_in == 2)  ||(tag_in == 3));}
 		constraint dataOne{ data_in_1 > 1; data_in_1 < 100;}
@@ -206,7 +206,7 @@ package classes;
 				end
 
 			//give it a couple cycles before ending
-			for(int i =0; i < 30; i++)begin
+			for(int i =0; i < 10; i++)begin
 				@(posedge IF.c_clk);
 			end
 
@@ -284,7 +284,9 @@ package classes;
 				watchOutputTwo();
 				watchOutputThree();
 				watchOutputFour();
-				//waitDriver();
+			
+			
+				waitDriver();
 		 	join
 
 
@@ -293,16 +295,42 @@ package classes;
 			task waitDriver();
 			//not quite sure if this is setup correctly
 			forever begin
-				$display("T: %0t [Monitor] Waiting for driver", $time);
+				
 				@(drv_done);
-				$display("T: %0t [Monitor] Drive done asserted, waiting for final signals", $time);
-					
-				for(int i = 0 ; i < 50; i++)begin
-					@(IF.c_clk);
+
+				if (portOne.size() > 0)begin
+				$display("T: %0t [Monitor]Port One Commands not responded to: ", $time);
+				foreach(portOne[i])begin 
+					portOne[i].displayAll();
+				end
+				portOne.delete();
+				end
+				if (portTwo.size() > 0)begin
+				$display("T: %0t [Monitor]Port Two Commands not responded to: ", $time);
+				foreach(portTwo[i])begin 
+					portTwo[i].displayAll();
+				end
+				portTwo.delete();
+				end
+				if( portThree.size() > 0)begin
+				$display("T: %0t [Monitor]Port Three Commands not responded to: ", $time);
+				foreach(portThree[i])begin 
+					portThree[i].displayAll();
+				end
+				portThree.delete();
+				end
+				if (portFour.size() > 0)begin
+				$display("T: %0t [Monitor]Port One Commands not responded to: ", $time);
+				foreach(portFour[i])begin 
+					portFour[i].displayAll();
+				end
+				portFour.delete();
+	
 				end
 
-				->mon_done;
-				$display("T: %0t [Monitor] Monitor finished", $time);
+
+				//->mon_done;
+				//$display("T: %0t [Monitor] Monitor finished", $time);
 				
 			end
 			endtask
@@ -312,18 +340,19 @@ package classes;
 			forever begin
 				Transaction fresh;
 				$display("T: %0t [Monitor] watching port one", $time);
-		   		@(IF.cb.req1_data_in);
+		   		@(IF.cb.req1_tag_in);
 				if(IF.reset == 0)begin
 		   		transactionCount = transactionCount +1;
 				//make a new transaction object
-				$display("T: %0t [Monitor] seeing new transaction on port 1 total trans: %0d", $time, transactionCount);
+				$display("T: %0t [Monitor] seeing new transaction on port Tag total trans: %0d", $time,IF.cb.req1_tag_in );
 				fresh = new();		//port is 00 and pass new tag in
 				fresh.port = 2'b00;
 				fresh.tag_in = IF.cb.req1_tag_in;
 				fresh.cmd = IF.cb.req1_cmd_in;
 				fresh.data_in_1 = IF.cb.req1_data_in;
 	
-		  		@(IF.cb.req1_data_in)
+		  		@(posedge IF.cb)
+				@(posedge IF.cb)
 				fresh.data_in_2 = IF.cb.req1_data_in;
 				fresh.displayInputs();
 
@@ -334,25 +363,26 @@ package classes;
 
 		task watchInputTwo();
 			forever begin
+				
 				Transaction fresh;
-				$display("T: %0t [Monitor] watching port two", $time);
-		   		@(IF.cb.req2_data_in);
-		   		if(IF.reset == 0)begin
-				transactionCount = transactionCount +1;
+				$display("T: %0t [Monitor] watching port Two", $time);
+		   		@(IF.cb.req2_tag_in);
+				if(IF.reset == 0)begin
+		   		transactionCount = transactionCount +1;
 				//make a new transaction object
-				$display("T: %0t [Monitor] seeing new transaction on port 2 total trans: %0d", $time, transactionCount);
-				fresh = new();		//port is 01 and pass new tag in
+				$display("T: %0t [Monitor] seeing new transaction on port Two with Tag : %0d", $time,IF.cb.req2_tag_in );
+				fresh = new();		//port is 00 and pass new tag in
 				fresh.port = 2'b01;
 				fresh.tag_in = IF.cb.req2_tag_in;
 				fresh.cmd = IF.cb.req2_cmd_in;
 				fresh.data_in_1 = IF.cb.req2_data_in;
 	
-		  		@(IF.cb.req2_data_in)
+		  		@(posedge IF.cb)
+				@(posedge IF.cb)
 				fresh.data_in_2 = IF.cb.req2_data_in;
 				fresh.displayInputs();
 
-		  		portTwo.push_front(fresh);
-		  		//join none so the watchInputTwo is restarted
+		  		portOne.push_front(fresh);
 				end
 	         	end
 		endtask
@@ -361,18 +391,20 @@ package classes;
 			forever begin
 				Transaction fresh;
 
-		   		@(IF.cb.req3_data_in);
+		   		@(IF.cb.req3_tag_in);
 		   		if(IF.reset == 0)begin
 				transactionCount = transactionCount +1;
 				//make a new transaction object
-				$display("T: %0t [Monitor] seeing new transaction on port 3 total trans: %0d", $time, transactionCount);
+				
 				fresh = new();		//port is 10 and pass new tag in
 				fresh.port = 2'b10;
 				fresh.tag_in = IF.cb.req3_tag_in;
 				fresh.cmd = IF.cb.req3_cmd_in;
 				fresh.data_in_1 = IF.cb.req3_data_in;
 	
-		  		@(IF.cb.req3_data_in)
+		  		@(posedge IF.cb)
+				@(posedge IF.cb)
+				$display("T: %0t [Monitor] seeing new transaction on port R", $time);
 				fresh.data_in_2 = IF.cb.req3_data_in;
 				fresh.displayInputs();
 
@@ -386,36 +418,39 @@ package classes;
 			forever begin
 				Transaction fresh;
 				
-		   		@(IF.cb.req4_data_in);
+		   		@(IF.cb.req4_tag_in);
 		   		if(IF.reset == 0)begin
 				transactionCount = transactionCount +1;
 				//make a new transaction object
-				$display("T: %0t [Monitor] seeing new transaction on port 4 total trans: %0d", $time, transactionCount);
+				$display("T: %0t [Monitor] seeing new transaction on port 4 with tag: %0d", $time, IF.cb.req4_tag_in);
 				fresh = new();		//port is 10 and pass new tag in
 				fresh.port = 2'b11;
 				fresh.tag_in = IF.cb.req4_tag_in;
 				fresh.cmd = IF.cb.req4_cmd_in;
 				fresh.data_in_1 = IF.cb.req4_data_in;
 	
-		  		@(IF.cb.req4_data_in)
+		  		@(posedge IF.cb)
+				@(posedge IF.cb)
 				fresh.data_in_2 = IF.cb.req4_data_in;
 				fresh.displayInputs();
 
 		  		portFour.push_front(fresh);
 				end
-		  		//join none so the watchInputFour is restarted
+		  		
 	         	end
 		endtask
 
 		task watchOutputOne();
 			Transaction fresh[$];
-				Transaction fromDUT;
+			Transaction fromDUT;
 			int indexQ[$];
 			int index;
 			forever begin
 				
-				@(IF.cb.out_tag1);
-				if(IF.reset == 0)begin
+				@(IF.cb.out_resp1);
+			
+				if(IF.reset == 0 && IF.cb.out_resp1 != 2'b00)begin
+				$display("T: %0t [Monitor]Port One Response Asserted %d", $time,IF.cb.out_resp1);
 				fresh = portOne.find() with (item.tag_in == IF.cb.out_tag1);
 				
 
@@ -428,12 +463,10 @@ package classes;
 				fromDUT.data_out = IF.cb.out_data1;
 				fromDUT.tag_out = IF.cb.out_tag1;
 			
-				$display("T: %0t [Monitor] received response on port 1", $time);
 				
 				MNtocheckerMB.put(fromDUT);
-				end
-				else begin
-					$display("T: %0t [Monitor] Error, no input tage matches output tag", $time);
+				end else begin
+					$display("T: %0t [Monitor]Port One: ERROR Response Recieved with No matching command", $time);
 				end
 			 
 			end
@@ -447,8 +480,9 @@ package classes;
 			int indexQ[$];
 			forever begin
 			
-				@(IF.cb.out_tag2);
-				if(IF.reset == 0)begin
+				@(IF.cb.out_resp2);
+				if(IF.reset == 0 & IF.cb.out_resp2 != 2'b00)begin
+				$display("T: %0t [Monitor]Port Two Response Asserted %d", $time,IF.cb.out_resp2);
 				fresh = portTwo.find() with (item.tag_in == IF.cb.out_tag2);
 				
 				if(fresh.size > 0)begin
@@ -466,7 +500,7 @@ package classes;
 				MNtocheckerMB.put(fromDUT);
 				end
 				else begin
-					$display("T: %0t [Monitor] Error, no input tage matches output tag", $time);
+					$display("T: %0t [Monitor]Port Two: ERROR Response Recieved with No matching command", $time);
 				end
 			 
 			end
@@ -482,8 +516,10 @@ package classes;
 			int indexQ[$];
 			forever begin
 				
-				@(IF.cb.out_tag3);
-				if(IF.reset == 0)begin
+				@(IF.cb.out_resp3);
+				
+				if(IF.reset == 0 && IF.cb.out_resp3 != 2'b00)begin
+				$display("T: %0t [Monitor]Port Three Response Asserted %d", $time,IF.cb.out_resp3);
 				fresh = portThree.find() with (item.tag_in == IF.cb.out_tag3);
 				
 		
@@ -501,7 +537,7 @@ package classes;
 				MNtocheckerMB.put(fromDUT);
 				end
 				else begin
-					$display("T: %0t [Monitor] Error, no input tage matches output tag", $time);
+					$display("T: %0t [Monitor]Port Two: ERROR Response Recieved with No matching command", $time);
 				end
 			 
 			end
@@ -516,8 +552,10 @@ package classes;
 
 				forever begin
 				
-				@(IF.cb.out_tag4);
-				if(IF.reset == 0)begin
+				@(IF.cb.out_resp4);
+				
+				if(IF.reset == 0 && IF.cb.out_resp4 != 2'b00)begin
+				$display("T: %0t [Monitor]Port Four Response Asserted %d", $time,IF.cb.out_resp4);
 				fresh = portFour.find() with (item.tag_in == IF.cb.out_tag4);
 				
 		
@@ -535,7 +573,7 @@ package classes;
 				MNtocheckerMB.put(fromDUT);
 				end
 				else begin
-					$display("T: %0t [Monitor] Error, no input tage matches output tag", $time);
+					$display("T: %0t [Monitor]Port Two: ERROR Response Recieved with No matching command", $time);
 				end
 			 
 			end
@@ -619,6 +657,9 @@ package classes;
 				end
 				ref_item.tag_out = ref_item.tag_in;
 
+
+				//TODO do the resp setting
+
 				SBtocheckerMB.put(ref_item);
 			end
  		endtask
@@ -659,20 +700,23 @@ package classes;
 
 		task waitDriver();
 			forever begin
+				Transaction compare;
 				@(drv_done);
 			
-				$display("T: %0t [Checker] Asserting Checkdone number of transactions checked:", $time, testCount);
-				$display("T: %0t [Checker] Number of transactions unseen", $time, compareTranQueue.size());
 				
 
-				$display("Scoreboard Transactions seen : %0d ", compareTranQueue.size());
-				foreach(compareTranQueue[i])begin 
+				$display("[Checker] Transactions from scoreboard seen : %0d ", compareTranQueue.size());
+				$display("[Checker] Transactions from monitor seen : %0d ",monitorQueue.size() );
+
+				$display("[Checker] Running Comparison  : %0d ",monitorQueue.size());
+
+				
+				while(monitorQueue.size > 0)begin 
+					compare = monitorQueue.pop_front();
+					$display("[Checker] Monitor Transaction recieved:");
+					compare.displayAll();
+					compareTrans(compare);
 					
-					compareTranQueue[i].displayAll();
-				end
-				$display("Monitor Transactions seen: %0d ",monitorQueue.size() );
-				foreach(monitorQueue[i])begin 
-					monitorQueue[i].displayAll();
 				end
 				testCount = 0;
 				monitorQueue.delete();
@@ -690,9 +734,6 @@ package classes;
 				SBtocheckerMB.get(SBoutput); //blocking call
 				$display("T: %0t [Checker] Recieved transaction from Scoreboard", $time);
 				SBoutput.displayTagPort();
-				
-				
-				
 				compareTranQueue.push_back(SBoutput);
 			end
 
@@ -709,9 +750,7 @@ package classes;
 				fromDUT.copy(MNoutput);
 				monitorQueue.push_back(fromDUT);
 				testCount = testCount +1;
-				fork
-					compareTrans(MNoutput);
-				join_none
+				
 			end
 
 		endtask;
@@ -729,14 +768,16 @@ package classes;
 			end
 			else begin
 				index = indexes.pop_front();
-					$display("T: %0t [Checker]DATA FOUND for command on Port %0d with tag %0d", $time, fromDUT.port,fromDUT.tag_out);
+					$display("T: %0t [Checker] Comparing with Scoreboard reference:", $time);
 					compareTo =  fromScore.pop_front();
+					compareTo.displayAll();
 					if(compareTo.data_out != fromDUT.data_out)begin
 						$display("T: %0t [Checker]ERROR, port %0d with tag %0d data is %0d should be %0d", $time, fromDUT.port,fromDUT.tag_out,fromDUT.data_out,compareTo.data_out);
 					end
 					else begin
 						$display("T: %0t [Checker] CORRECT, port  %0d with tag %0d data is %0d should be %0d", $time, fromDUT.port,fromDUT.tag_out,fromDUT.data_out,compareTo.data_out);
 					end
+					
 					
 					//compareTranQueue.delete(index);
 					//dont need to delete
@@ -799,10 +840,10 @@ package classes;
 			
 			//Max of 16 possible commands running at once
 			//doing it so theres always min of two
-			portOneCount = $urandom_range(3,4);
-			portTwoCount = $urandom_range(3,4);
-			portThreeCount = $urandom_range(3,4);
-			portFourCount = $urandom_range(3,4);
+			portOneCount = $urandom_range(1,2);
+			portTwoCount = $urandom_range(1,2);
+			portThreeCount = $urandom_range(1,2);
+			portFourCount = $urandom_range(1,2);
 			portOneTagCount = 2'b11;
 			portTwoTagCount = 2'b11;
 			portThreeTagCount= 2'b11;
