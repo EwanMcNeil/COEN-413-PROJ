@@ -1,13 +1,12 @@
-program testBench(dut_IF.TEST IF);
-	import classes::*;
+import classes::*;
+
+class environment;
 	Generator generator;
-	//Agent agent;
 	Scoreboard scoreboard;
 	Checker checkerOB;
 	Monitor monitor;
 	DriverSingle driverS;
 
-	//mailbox driverMB;
 	mailbox scoreboardMB; 
 	mailbox driverSingleMB;
 	mailbox SBtocheckerMB;
@@ -19,9 +18,11 @@ program testBench(dut_IF.TEST IF);
 	event check_done;
 	event test_done;
 
-    	initial begin
+	virtual dut_IF IF;
+	
+	function new(virtual dut_IF vif);
+		IF = vif;
 
-		//driverMB = new();
 		scoreboardMB = new();
 		driverSingleMB = new();
 		SBtocheckerMB = new();
@@ -34,7 +35,6 @@ program testBench(dut_IF.TEST IF);
 		generator.gen_done = gen_done;
 		generator.test_done = test_done;
 		
-
 		checkerOB = new();
 		checkerOB.SBtocheckerMB = SBtocheckerMB;
 		checkerOB.MNtocheckerMB = MNtocheckerMB;
@@ -55,16 +55,13 @@ program testBench(dut_IF.TEST IF);
 		driverS.drv_done = drv_done;
 		driverS.gen_done = gen_done;
 		
-
-		
-
 		//going to use the same mailbox as the driver for now
 		scoreboard = new();
 		scoreboard.scoreboardMB = scoreboardMB;
 		scoreboard.SBtocheckerMB = SBtocheckerMB;
+	endfunction
 
-        	reset();
-
+	task run();
 	 	fork
         		monitor.run();
 			driverS.run();
@@ -72,9 +69,7 @@ program testBench(dut_IF.TEST IF);
 			scoreboard.run();
 			checkerOB.run();
     		join
-
-		$display("End of program");
-	end
+	endtask
 
 	task reset();
         	IF.reset = 1; 
@@ -104,4 +99,4 @@ program testBench(dut_IF.TEST IF);
 		@(IF.c_clk);
    		@(IF.c_clk);	
     	endtask
-endprogram
+endclass
