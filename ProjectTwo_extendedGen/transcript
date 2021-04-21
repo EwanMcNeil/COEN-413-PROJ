@@ -1,0 +1,2446 @@
+# vsim -do {run -all} -c -novopt Top 
+# //  Questa Sim-64
+# //  Version 10.1e linux_x86_64 Jun 11 2013
+# //
+# //  Copyright 1991-2013 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/work.Top
+# Loading sv_std.std
+# Loading work.Top
+# Refreshing /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/work.dut_IF
+# Loading work.dut_IF
+# Refreshing /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/work.calc2_top
+# Loading work.calc2_top
+# Refreshing /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/work.adder
+# Loading work.adder
+# Refreshing /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/work.alu_input_stage
+# Loading work.alu_input_stage
+# Refreshing /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/work.alu_output_stage
+# Loading work.alu_output_stage
+# Refreshing /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/work.holdreg
+# Loading work.holdreg
+# Refreshing /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/work.mux_out
+# Loading work.mux_out
+# Refreshing /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/work.priority
+# Loading work.priority
+# Refreshing /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/work.shifter
+# Loading work.shifter
+# Refreshing /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/work.test
+# Refreshing /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/work.classes
+# Loading work.classes
+# ** Warning: (vsim-PLI-3691) classPackage.sv(918): Expected a system task, not a system function '$fgets'.
+#         Region: /classes::Generator::run
+# ** Warning: (vsim-PLI-3691) classPackage.sv(923): Expected a system task, not a system function '$fgets'.
+#         Region: /classes::Generator::run
+# Loading work.test
+# ** Warning: (vsim-8441) classPackage.sv(407): Clocking block output IF.cb.req1_cmd_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(408): Clocking block output IF.cb.req1_data_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(399): Clocking block output IF.cb.req1_tag_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(433): Clocking block output IF.cb.req2_cmd_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(434): Clocking block output IF.cb.req2_data_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(425): Clocking block output IF.cb.req2_tag_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(458): Clocking block output IF.cb.req3_cmd_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(459): Clocking block output IF.cb.req3_data_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(450): Clocking block output IF.cb.req3_tag_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(485): Clocking block output IF.cb.req4_cmd_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(486): Clocking block output IF.cb.req4_data_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(477): Clocking block output IF.cb.req4_tag_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(93): Clocking block output #parent#.IF.cb.req1_cmd_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(97): Clocking block output #parent#.IF.cb.req1_data_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(101): Clocking block output #parent#.IF.cb.req1_tag_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(94): Clocking block output #parent#.IF.cb.req2_cmd_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(98): Clocking block output #parent#.IF.cb.req2_data_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(102): Clocking block output #parent#.IF.cb.req2_tag_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(95): Clocking block output #parent#.IF.cb.req3_cmd_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(99): Clocking block output #parent#.IF.cb.req3_data_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(103): Clocking block output #parent#.IF.cb.req3_tag_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(96): Clocking block output #parent#.IF.cb.req4_cmd_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(100): Clocking block output #parent#.IF.cb.req4_data_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(104): Clocking block output #parent#.IF.cb.req4_tag_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(93): Clocking block output #parent#.IF.cb.req1_cmd_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(97): Clocking block output #parent#.IF.cb.req1_data_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(101): Clocking block output #parent#.IF.cb.req1_tag_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(94): Clocking block output #parent#.IF.cb.req2_cmd_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(98): Clocking block output #parent#.IF.cb.req2_data_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(102): Clocking block output #parent#.IF.cb.req2_tag_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(95): Clocking block output #parent#.IF.cb.req3_cmd_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(99): Clocking block output #parent#.IF.cb.req3_data_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(103): Clocking block output #parent#.IF.cb.req3_tag_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(96): Clocking block output #parent#.IF.cb.req4_cmd_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(100): Clocking block output #parent#.IF.cb.req4_data_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-8441) classPackage.sv(104): Clocking block output #parent#.IF.cb.req4_tag_in is not legal in this
+# or another expression.
+#         Region: /classes
+# ** Warning: (vsim-3017) top.sv(16): [TFMPC] - Too few port connections. Expected 30, found 26.
+#         Region: /Top/DUT
+# ** Warning: (vsim-3722) top.sv(16): [TFMPC] - Missing connection for port 'scan_out'.
+# ** Warning: (vsim-3722) top.sv(16): [TFMPC] - Missing connection for port 'a_clk'.
+# ** Warning: (vsim-3722) top.sv(16): [TFMPC] - Missing connection for port 'b_clk'.
+# ** Warning: (vsim-3722) top.sv(16): [TFMPC] - Missing connection for port 'scan_in'.
+# ** Warning: (vsim-3017) calc2_top.v(275): [TFMPC] - Too few port connections. Expected 41, found 40.
+#         Region: /Top/DUT/priority1
+# run -all 
+# Top is running
+# T: 0 [Monitor] starting...
+# T: 0 [Monitor] watching port one
+# T: 0 [Monitor] watching port Two
+# T: 0 [Driver] starting...
+# T: 0 [Generator] Running 10 random scenerio
+# T: 0 [Generator] Making Test # 0
+# T: 0 [Transaction] port: 00 cmd: 0010 data_in_1: 83 data_in_2: 81 tag_in: 11
+# T: 0 [Transaction] port: 00 cmd: 0101 data_in_1: 40 data_in_2: 58 tag_in: 10
+# T: 0 [Transaction] port: 01 cmd: 0001 data_in_1: 82 data_in_2: 21 tag_in: 11
+# T: 0 [Transaction] port: 01 cmd: 0110 data_in_1: 96 data_in_2: 22 tag_in: 10
+# T: 0 [Transaction] port: 01 cmd: 0001 data_in_1: 90 data_in_2: 79 tag_in: 01
+# T: 0 [Transaction] port: 10 cmd: 0110 data_in_1: 33 data_in_2: 21 tag_in: 11
+# T: 0 [Transaction] port: 10 cmd: 0010 data_in_1: 2 data_in_2: 6 tag_in: 10
+# T: 0 [Transaction] port: 10 cmd: 0101 data_in_1: 30 data_in_2: 33 tag_in: 01
+# T: 0 [Transaction] port: 10 cmd: 0001 data_in_1: 79 data_in_2: 75 tag_in: 00
+# T: 0 [Transaction] port: 11 cmd: 0001 data_in_1: 38 data_in_2: 75 tag_in: 11
+# [Scoreboard] cmd: 2 data1: 83 data2: 81
+# T: 0 [Scoreboard] expected answer 2
+# [Scoreboard] cmd: 5 data1: 40 data2: 58
+# T: 0 [Scoreboard] expected answer 0
+# [Scoreboard] cmd: 1 data1: 82 data2: 21
+# T: 0 [Scoreboard] expected answer 103
+# [Scoreboard] cmd: 6 data1: 96 data2: 22
+# T: 0 [Scoreboard] expected answer 0
+# [Scoreboard] cmd: 1 data1: 90 data2: 79
+# T: 0 [Scoreboard] expected answer 169
+# [Scoreboard] cmd: 6 data1: 33 data2: 21
+# T: 0 [Scoreboard] expected answer 0
+# [Scoreboard] cmd: 2 data1: 2 data2: 6
+# [Scoreboard] cmd: 5 data1: 30 data2: 33
+# [Scoreboard] cmd: 1 data1: 79 data2: 75
+# [Scoreboard] cmd: 1 data1: 38 data2: 75
+# T: 0 [Checker] Recieved transaction from Scoreboard
+# T: 0 [Transaction] port: 00 tag_out: 11
+# T: 0 [Checker] Recieved transaction from Scoreboard
+# T: 0 [Transaction] port: 00 tag_out: 10
+# T: 0 [Checker] Recieved transaction from Scoreboard
+# T: 0 [Transaction] port: 01 tag_out: 11
+# T: 0 [Checker] Recieved transaction from Scoreboard
+# T: 0 [Transaction] port: 01 tag_out: 10
+# T: 0 [Checker] Recieved transaction from Scoreboard
+# T: 0 [Transaction] port: 01 tag_out: 01
+# T: 0 [Checker] Recieved transaction from Scoreboard
+# T: 0 [Transaction] port: 10 tag_out: 11
+# T: 0 [Checker] Recieved transaction from Scoreboard
+# T: 0 [Transaction] port: 10 tag_out: 10
+# T: 0 [Checker] Recieved transaction from Scoreboard
+# T: 0 [Transaction] port: 10 tag_out: 01
+# T: 0 [Checker] Recieved transaction from Scoreboard
+# T: 0 [Transaction] port: 10 tag_out: 00
+# T: 0 [Checker] Recieved transaction from Scoreboard
+# T: 0 [Transaction] port: 11 tag_out: 11
+# T: 0 [Driver] Driver Reseting DUT
+# T: 0 [Monitor] watching port Two
+# T: 0 [Monitor] watching port one
+# T: 350 [Driver] receiving transaction from Generator
+# T: 350 [Driver] port: 00 cmd: 0010 Data1: 83 Data2: 81 Tag: 11
+# T: 350 [Driver] receiving transaction from Generator
+# T: 350 [Driver] port: 00 cmd: 0101 Data1: 40 Data2: 58 Tag: 10
+# T: 350 [Driver] receiving transaction from Generator
+# T: 350 [Driver] port: 01 cmd: 0001 Data1: 82 Data2: 21 Tag: 11
+# T: 350 [Driver] receiving transaction from Generator
+# T: 350 [Driver] port: 01 cmd: 0110 Data1: 96 Data2: 22 Tag: 10
+# T: 350 [Driver] receiving transaction from Generator
+# T: 350 [Driver] port: 01 cmd: 0001 Data1: 90 Data2: 79 Tag: 01
+# T: 350 [Driver] receiving transaction from Generator
+# T: 350 [Driver] port: 10 cmd: 0110 Data1: 33 Data2: 21 Tag: 11
+# T: 350 [Driver] receiving transaction from Generator
+# T: 350 [Driver] port: 10 cmd: 0010 Data1: 2 Data2: 6 Tag: 10
+# T: 350 [Driver] receiving transaction from Generator
+# T: 350 [Driver] port: 10 cmd: 0101 Data1: 30 Data2: 33 Tag: 01
+# T: 350 [Driver] receiving transaction from Generator
+# T: 350 [Driver] port: 10 cmd: 0001 Data1: 79 Data2: 75 Tag: 00
+# T: 350 [Driver] receiving transaction from Generator
+# T: 350 [Driver] port: 11 cmd: 0001 Data1: 38 Data2: 75 Tag: 11
+# T: 450 [Driver] Driving set of commands
+# T: 450 [Monitor] seeing new transaction on port 4 with tag: 3
+# T: 450 [Monitor] seeing new transaction on port Two with Tag : 3
+# T: 450 [Monitor] seeing new transaction on port Tag total trans: 3
+# T: 550 [Driver] LOOP
+# T: 650 [Transaction] port: 11 cmd: 0001 data_in_1: 38 data_in_2: 75 tag_in: 11
+# T: 650 [Monitor] seeing new transaction on port R
+# T: 650 [Transaction] port: 10 cmd: 0110 data_in_1: 33 data_in_2: 21 tag_in: 11
+# T: 650 [Transaction] port: 01 cmd: 0001 data_in_1: 82 data_in_2: 21 tag_in: 11
+# T: 650 [Monitor] watching port Two
+# T: 650 [Transaction] port: 00 cmd: 0010 data_in_1: 83 data_in_2: 81 tag_in: 11
+# T: 650 [Monitor] watching port one
+# T: 650 [Driver] Driving set of commands
+# T: 650 [Monitor] seeing new transaction on port Two with Tag : 2
+# T: 650 [Monitor] seeing new transaction on port Tag total trans: 2
+# T: 750 [Driver] LOOP
+# T: 850 [Monitor] seeing new transaction on port R
+# T: 850 [Transaction] port: 10 cmd: 0010 data_in_1: 2 data_in_2: 6 tag_in: 10
+# T: 850 [Transaction] port: 01 cmd: 0110 data_in_1: 96 data_in_2: 22 tag_in: 10
+# T: 850 [Monitor] watching port Two
+# T: 850 [Transaction] port: 00 cmd: 0101 data_in_1: 40 data_in_2: 58 tag_in: 10
+# T: 850 [Monitor] watching port one
+# T: 850 [Monitor]Port Three Response Asserted 1
+# T: 850 [Monitor] received response on port 3
+# T: 850 [Monitor]Port One Response Asserted 1
+# T: 850 [Driver] Driving set of commands
+# T: 850 [Checker] Recieved transaction from Monitor
+# T: 850 [Transaction] port: 10 tag_out: 11
+# T: 850 [Checker] Recieved transaction from Monitor
+# T: 850 [Transaction] port: 00 tag_out: 11
+# T: 850 [Monitor] seeing new transaction on port Two with Tag : 1
+# T: 950 [Monitor]Port Two Response Asserted 1
+# T: 950 [Monitor] received response on port 2
+# T: 950 [Driver] LOOP
+# T: 950 [Checker] Recieved transaction from Monitor
+# T: 950 [Transaction] port: 01 tag_out: 11
+# T: 1050 [Monitor] seeing new transaction on port R
+# T: 1050 [Transaction] port: 10 cmd: 0101 data_in_1: 30 data_in_2: 33 tag_in: 01
+# T: 1050 [Transaction] port: 01 cmd: 0001 data_in_1: 90 data_in_2: 79 tag_in: 01
+# T: 1050 [Monitor] watching port Two
+# T: 1050 [Monitor]Port Four Response Asserted 1
+# T: 1050 [Monitor] received response on port 4
+# T: 1050 [Monitor]Port One Response Asserted 1
+# T: 1050 [Driver] Driving set of commands
+# T: 1050 [Checker] Recieved transaction from Monitor
+# T: 1050 [Transaction] port: 11 tag_out: 11
+# T: 1050 [Checker] Recieved transaction from Monitor
+# T: 1050 [Transaction] port: 00 tag_out: 10
+# T: 1150 [Monitor]Port Three Response Asserted 2
+# T: 1150 [Monitor] received response on port 3
+# T: 1150 [Monitor]Port Two Response Asserted 1
+# T: 1150 [Monitor] received response on port 2
+# T: 1150 [Driver] LOOP
+# T: 1150 [Checker] Recieved transaction from Monitor
+# T: 1150 [Transaction] port: 10 tag_out: 10
+# T: 1150 [Checker] Recieved transaction from Monitor
+# T: 1150 [Transaction] port: 01 tag_out: 10
+# T: 1250 [Monitor] seeing new transaction on port R
+# T: 1250 [Transaction] port: 10 cmd: 0001 data_in_1: 79 data_in_2: 75 tag_in: 00
+# T: 1250 [Monitor]Port One Response Asserted 2
+# T: 1250 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 1350 [Monitor]Port Four Response Asserted 1
+# T: 1350 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 1350 [Monitor]Port Two Response Asserted 2
+# T: 1350 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 1450 [Monitor]Port Three Response Asserted 1
+# T: 1450 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 1550 [Monitor]Port Four Response Asserted 1
+# T: 1550 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 1550 [Monitor]Port Three Response Asserted 2
+# T: 1550 [Monitor] received response on port 3
+# T: 1550 [Checker] Recieved transaction from Monitor
+# T: 1550 [Transaction] port: 10 tag_out: 00
+# 
+# 
+# T: 2150 [Coverage] Current total coverage is 60.94
+# 
+# 
+# T: 2150 [Coverage] Port One:
+# T: 2150 [Coverage] CMD coverage is 100.00
+# T: 2150 [Coverage] TAG coverage is 75.00
+# T: 2150 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 2150 [Coverage] Port Two:
+# T: 2150 [Coverage] CMD coverage is 100.00
+# T: 2150 [Coverage] TAG coverage is 100.00
+# T: 2150 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 2150 [Coverage] Port Three:
+# T: 2150 [Coverage] CMD coverage is 100.00
+# T: 2150 [Coverage] TAG coverage is 100.00
+# T: 2150 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 2150 [Coverage] Port Four:
+# T: 2150 [Coverage] CMD coverage is 100.00
+# T: 2150 [Coverage] TAG coverage is 50.00
+# T: 2150 [Coverage] DATA coverage is 1.56
+# T: 2150 [Driver] Drive done asserted
+# 
+# 
+# T: 2150 [Monitor]Port Two Commands not responded to: 
+# T: 2150 [Transaction] port: 01 cmd: 0001 data_in_1: 90 data_in_2: 79 tag_in: 01 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# T: 2150 [Monitor]Port Three Commands not responded to: 
+# T: 2150 [Transaction] port: 10 cmd: 0101 data_in_1: 30 data_in_2: 33 tag_in: 01 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# [Checker] Transactions from scoreboard seen : 10 
+# [Checker] Transactions from monitor seen : 8 
+# [Checker] Running Comparison  : 8 
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 2150 [Transaction] port: 10 cmd: 0110 data_in_1: 33 data_in_2: 21 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# T: 2150 [Checker] Comparing with Scoreboard reference:
+# T: 2150 [Transaction] port: 10 cmd: 0110 data_in_1: 33 data_in_2: 21 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 2150 [Transaction] port: 00 cmd: 0010 data_in_1: 83 data_in_2: 81 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# T: 2150 [Checker] Comparing with Scoreboard reference:
+# T: 2150 [Transaction] port: 00 cmd: 0010 data_in_1: 83 data_in_2: 81 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000010 ,
+# [Checker]ERROR, data is 0 should be 2
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 2150 [Transaction] port: 01 cmd: 0001 data_in_1: 82 data_in_2: 21 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000101010 ,
+# T: 2150 [Checker] Comparing with Scoreboard reference:
+# T: 2150 [Transaction] port: 01 cmd: 0001 data_in_1: 82 data_in_2: 21 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000001100111 ,
+# [Checker]ERROR, data is 42 should be 103
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 2150 [Transaction] port: 11 cmd: 0001 data_in_1: 38 data_in_2: 75 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000010010110 ,
+# T: 2150 [Checker] Comparing with Scoreboard reference:
+# T: 2150 [Transaction] port: 11 cmd: 0001 data_in_1: 38 data_in_2: 75 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000001110001 ,
+# [Checker]ERROR, data is 150 should be 113
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 2150 [Transaction] port: 00 cmd: 0101 data_in_1: 40 data_in_2: 58 tag_in: 10 , resp: 01  tag_out: 2 data_out: 11101000000000000000000000000000 ,
+# T: 2150 [Checker] Comparing with Scoreboard reference:
+# T: 2150 [Transaction] port: 00 cmd: 0101 data_in_1: 40 data_in_2: 58 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker]ERROR, data is 3892314112 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 2150 [Transaction] port: 10 cmd: 0010 data_in_1: 2 data_in_2: 6 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 2150 [Checker] Comparing with Scoreboard reference:
+# T: 2150 [Transaction] port: 10 cmd: 0010 data_in_1: 2 data_in_2: 6 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]CORRECT, Resp is 2 should be 2
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 2150 [Transaction] port: 01 cmd: 0110 data_in_1: 96 data_in_2: 22 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 2150 [Checker] Comparing with Scoreboard reference:
+# T: 2150 [Transaction] port: 01 cmd: 0110 data_in_1: 96 data_in_2: 22 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 2150 [Transaction] port: 10 cmd: 0001 data_in_1: 79 data_in_2: 75 tag_in: 00 , resp: 10  tag_out: 0 data_out: 00000000000000000000000000000000 ,
+# T: 2150 [Checker] Comparing with Scoreboard reference:
+# T: 2150 [Transaction] port: 10 cmd: 0001 data_in_1: 79 data_in_2: 75 tag_in: 00 , resp: 01  tag_out: 0 data_out: 00000000000000000000000010011010 ,
+# [Checker]ERROR, data is 0 should be 154
+# [Checker]ERROR, Resp is 2 should be 1
+# T: 2150 [Generator] Making Test # 1
+# T: 2150 [Transaction] port: 00 cmd: 0010 data_in_1: 71 data_in_2: 57 tag_in: 11
+# T: 2150 [Transaction] port: 00 cmd: 0001 data_in_1: 88 data_in_2: 28 tag_in: 10
+# T: 2150 [Transaction] port: 00 cmd: 0101 data_in_1: 18 data_in_2: 86 tag_in: 01
+# T: 2150 [Transaction] port: 00 cmd: 0101 data_in_1: 73 data_in_2: 97 tag_in: 00
+# T: 2150 [Transaction] port: 01 cmd: 0101 data_in_1: 37 data_in_2: 71 tag_in: 11
+# T: 2150 [Transaction] port: 01 cmd: 0010 data_in_1: 28 data_in_2: 12 tag_in: 10
+# T: 2150 [Transaction] port: 10 cmd: 0101 data_in_1: 48 data_in_2: 23 tag_in: 11
+# T: 2150 [Transaction] port: 10 cmd: 0001 data_in_1: 29 data_in_2: 44 tag_in: 10
+# T: 2150 [Transaction] port: 11 cmd: 0010 data_in_1: 47 data_in_2: 71 tag_in: 11
+# T: 2150 [Transaction] port: 11 cmd: 0101 data_in_1: 11 data_in_2: 70 tag_in: 10
+# T: 2150 [Driver] Driver Reseting DUT
+# [Scoreboard] cmd: 2 data1: 71 data2: 57
+# [Scoreboard] cmd: 1 data1: 88 data2: 28
+# [Scoreboard] cmd: 5 data1: 18 data2: 86
+# [Scoreboard] cmd: 5 data1: 73 data2: 97
+# [Scoreboard] cmd: 5 data1: 37 data2: 71
+# [Scoreboard] cmd: 2 data1: 28 data2: 12
+# [Scoreboard] cmd: 5 data1: 48 data2: 23
+# [Scoreboard] cmd: 1 data1: 29 data2: 44
+# [Scoreboard] cmd: 2 data1: 47 data2: 71
+# [Scoreboard] cmd: 5 data1: 11 data2: 70
+# T: 2150 [Checker] Recieved transaction from Scoreboard
+# T: 2150 [Transaction] port: 00 tag_out: 11
+# T: 2150 [Checker] Recieved transaction from Scoreboard
+# T: 2150 [Transaction] port: 00 tag_out: 10
+# T: 2150 [Checker] Recieved transaction from Scoreboard
+# T: 2150 [Transaction] port: 00 tag_out: 01
+# T: 2150 [Checker] Recieved transaction from Scoreboard
+# T: 2150 [Transaction] port: 00 tag_out: 00
+# T: 2150 [Checker] Recieved transaction from Scoreboard
+# T: 2150 [Transaction] port: 01 tag_out: 11
+# T: 2150 [Checker] Recieved transaction from Scoreboard
+# T: 2150 [Transaction] port: 01 tag_out: 10
+# T: 2150 [Checker] Recieved transaction from Scoreboard
+# T: 2150 [Transaction] port: 10 tag_out: 11
+# T: 2150 [Checker] Recieved transaction from Scoreboard
+# T: 2150 [Transaction] port: 10 tag_out: 10
+# T: 2150 [Checker] Recieved transaction from Scoreboard
+# T: 2150 [Transaction] port: 11 tag_out: 11
+# T: 2150 [Checker] Recieved transaction from Scoreboard
+# T: 2150 [Transaction] port: 11 tag_out: 10
+# T: 2150 [Monitor] watching port Two
+# T: 2150 [Monitor] watching port one
+# T: 2500 [Driver] receiving transaction from Generator
+# T: 2500 [Driver] port: 00 cmd: 0010 Data1: 71 Data2: 57 Tag: 11
+# T: 2500 [Driver] receiving transaction from Generator
+# T: 2500 [Driver] port: 00 cmd: 0001 Data1: 88 Data2: 28 Tag: 10
+# T: 2500 [Driver] receiving transaction from Generator
+# T: 2500 [Driver] port: 00 cmd: 0101 Data1: 18 Data2: 86 Tag: 01
+# T: 2500 [Driver] receiving transaction from Generator
+# T: 2500 [Driver] port: 00 cmd: 0101 Data1: 73 Data2: 97 Tag: 00
+# T: 2500 [Driver] receiving transaction from Generator
+# T: 2500 [Driver] port: 01 cmd: 0101 Data1: 37 Data2: 71 Tag: 11
+# T: 2500 [Driver] receiving transaction from Generator
+# T: 2500 [Driver] port: 01 cmd: 0010 Data1: 28 Data2: 12 Tag: 10
+# T: 2500 [Driver] receiving transaction from Generator
+# T: 2500 [Driver] port: 10 cmd: 0101 Data1: 48 Data2: 23 Tag: 11
+# T: 2500 [Driver] receiving transaction from Generator
+# T: 2500 [Driver] port: 10 cmd: 0001 Data1: 29 Data2: 44 Tag: 10
+# T: 2500 [Driver] receiving transaction from Generator
+# T: 2500 [Driver] port: 11 cmd: 0010 Data1: 47 Data2: 71 Tag: 11
+# T: 2500 [Driver] receiving transaction from Generator
+# T: 2500 [Driver] port: 11 cmd: 0101 Data1: 11 Data2: 70 Tag: 10
+# T: 2550 [Driver] Driving set of commands
+# T: 2550 [Monitor] seeing new transaction on port 4 with tag: 3
+# T: 2550 [Monitor] seeing new transaction on port Two with Tag : 3
+# T: 2550 [Monitor] seeing new transaction on port Tag total trans: 3
+# T: 2650 [Driver] LOOP
+# T: 2750 [Transaction] port: 11 cmd: 0010 data_in_1: 47 data_in_2: 71 tag_in: 11
+# T: 2750 [Monitor] seeing new transaction on port R
+# T: 2750 [Transaction] port: 10 cmd: 0101 data_in_1: 48 data_in_2: 23 tag_in: 11
+# T: 2750 [Transaction] port: 01 cmd: 0101 data_in_1: 37 data_in_2: 71 tag_in: 11
+# T: 2750 [Monitor] watching port Two
+# T: 2750 [Transaction] port: 00 cmd: 0010 data_in_1: 71 data_in_2: 57 tag_in: 11
+# T: 2750 [Monitor] watching port one
+# T: 2750 [Driver] Driving set of commands
+# T: 2750 [Monitor] seeing new transaction on port 4 with tag: 2
+# T: 2750 [Monitor] seeing new transaction on port Two with Tag : 2
+# T: 2750 [Monitor] seeing new transaction on port Tag total trans: 2
+# T: 2850 [Driver] LOOP
+# T: 2950 [Transaction] port: 11 cmd: 0101 data_in_1: 11 data_in_2: 70 tag_in: 10
+# T: 2950 [Monitor] seeing new transaction on port R
+# T: 2950 [Transaction] port: 10 cmd: 0001 data_in_1: 29 data_in_2: 44 tag_in: 10
+# T: 2950 [Transaction] port: 01 cmd: 0010 data_in_1: 28 data_in_2: 12 tag_in: 10
+# T: 2950 [Monitor] watching port Two
+# T: 2950 [Transaction] port: 00 cmd: 0001 data_in_1: 88 data_in_2: 28 tag_in: 10
+# T: 2950 [Monitor] watching port one
+# T: 2950 [Monitor]Port Two Response Asserted 1
+# T: 2950 [Monitor] received response on port 2
+# T: 2950 [Monitor]Port One Response Asserted 1
+# T: 2950 [Driver] Driving set of commands
+# T: 2950 [Checker] Recieved transaction from Monitor
+# T: 2950 [Transaction] port: 01 tag_out: 11
+# T: 2950 [Checker] Recieved transaction from Monitor
+# T: 2950 [Transaction] port: 00 tag_out: 11
+# T: 2950 [Monitor] seeing new transaction on port Tag total trans: 1
+# T: 3050 [Monitor]Port Four Response Asserted 1
+# T: 3050 [Monitor] received response on port 4
+# T: 3050 [Monitor]Port Three Response Asserted 1
+# T: 3050 [Monitor] received response on port 3
+# T: 3050 [Driver] LOOP
+# T: 3050 [Checker] Recieved transaction from Monitor
+# T: 3050 [Transaction] port: 11 tag_out: 11
+# T: 3050 [Checker] Recieved transaction from Monitor
+# T: 3050 [Transaction] port: 10 tag_out: 11
+# T: 3150 [Transaction] port: 00 cmd: 0101 data_in_1: 18 data_in_2: 86 tag_in: 01
+# T: 3150 [Monitor] watching port one
+# T: 3150 [Monitor]Port Two Response Asserted 1
+# T: 3150 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 3150 [Monitor]Port One Response Asserted 1
+# T: 3150 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 3150 [Driver] Driving set of commands
+# T: 3150 [Monitor] seeing new transaction on port Tag total trans: 0
+# T: 3250 [Monitor]Port Four Response Asserted 1
+# T: 3250 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 3250 [Monitor]Port Three Response Asserted 1
+# T: 3250 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 3250 [Monitor]Port Two Response Asserted 2
+# T: 3250 [Monitor] received response on port 2
+# T: 3250 [Monitor]Port One Response Asserted 2
+# T: 3250 [Driver] LOOP
+# T: 3250 [Checker] Recieved transaction from Monitor
+# T: 3250 [Transaction] port: 01 tag_out: 10
+# T: 3250 [Checker] Recieved transaction from Monitor
+# T: 3250 [Transaction] port: 00 tag_out: 10
+# T: 3350 [Transaction] port: 00 cmd: 0101 data_in_1: 73 data_in_2: 97 tag_in: 00
+# T: 3350 [Monitor] watching port one
+# T: 3350 [Monitor]Port Three Response Asserted 2
+# T: 3350 [Monitor] received response on port 3
+# T: 3350 [Monitor]Port One Response Asserted 1
+# T: 3350 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 3350 [Checker] Recieved transaction from Monitor
+# T: 3350 [Transaction] port: 10 tag_out: 10
+# T: 3450 [Monitor]Port Four Response Asserted 2
+# T: 3450 [Monitor] received response on port 4
+# T: 3450 [Monitor]Port Two Response Asserted 1
+# T: 3450 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 3450 [Monitor]Port One Response Asserted 2
+# T: 3450 [Checker] Recieved transaction from Monitor
+# T: 3450 [Transaction] port: 11 tag_out: 10
+# T: 3450 [Checker] Recieved transaction from Monitor
+# T: 3450 [Transaction] port: 00 tag_out: 01
+# T: 3550 [Monitor]Port Three Response Asserted 1
+# T: 3550 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 3550 [Monitor]Port Two Response Asserted 2
+# T: 3550 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 3650 [Monitor]Port Three Response Asserted 2
+# T: 3650 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 3950 [Monitor]Port One Response Asserted 1
+# T: 3950 [Checker] Recieved transaction from Monitor
+# T: 3950 [Transaction] port: 00 tag_out: 00
+# T: 4050 [Monitor]Port One Response Asserted 2
+# T: 4050 [Monitor]Port One: ERROR Response Recieved with No matching command
+# 
+# 
+# T: 4250 [Coverage] Current total coverage is 65.10
+# 
+# 
+# T: 4250 [Coverage] Port One:
+# T: 4250 [Coverage] CMD coverage is 100.00
+# T: 4250 [Coverage] TAG coverage is 100.00
+# T: 4250 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 4250 [Coverage] Port Two:
+# T: 4250 [Coverage] CMD coverage is 100.00
+# T: 4250 [Coverage] TAG coverage is 100.00
+# T: 4250 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 4250 [Coverage] Port Three:
+# T: 4250 [Coverage] CMD coverage is 100.00
+# T: 4250 [Coverage] TAG coverage is 100.00
+# T: 4250 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 4250 [Coverage] Port Four:
+# T: 4250 [Coverage] CMD coverage is 100.00
+# T: 4250 [Coverage] TAG coverage is 75.00
+# T: 4250 [Coverage] DATA coverage is 1.56
+# T: 4250 [Driver] Drive done asserted
+# 
+# 
+# [Checker] Transactions from scoreboard seen : 10 
+# [Checker] Transactions from monitor seen : 10 
+# [Checker] Running Comparison  : 10 
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 4250 [Transaction] port: 01 cmd: 0101 data_in_1: 37 data_in_2: 71 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000010001110000000 ,
+# T: 4250 [Checker] Comparing with Scoreboard reference:
+# T: 4250 [Transaction] port: 01 cmd: 0101 data_in_1: 37 data_in_2: 71 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker]ERROR, data is 9088 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 4250 [Transaction] port: 00 cmd: 0010 data_in_1: 71 data_in_2: 57 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# T: 4250 [Checker] Comparing with Scoreboard reference:
+# T: 4250 [Transaction] port: 00 cmd: 0010 data_in_1: 71 data_in_2: 57 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000001110 ,
+# [Checker]ERROR, data is 0 should be 14
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 4250 [Transaction] port: 11 cmd: 0010 data_in_1: 47 data_in_2: 71 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# T: 4250 [Checker] Comparing with Scoreboard reference:
+# T: 4250 [Transaction] port: 11 cmd: 0010 data_in_1: 47 data_in_2: 71 tag_in: 11 , resp: 10  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 1 should be 2
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 4250 [Transaction] port: 10 cmd: 0101 data_in_1: 48 data_in_2: 23 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00001011100000000000000000000000 ,
+# T: 4250 [Checker] Comparing with Scoreboard reference:
+# T: 4250 [Transaction] port: 10 cmd: 0101 data_in_1: 48 data_in_2: 23 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00011000000000000000000000000000 ,
+# [Checker]ERROR, data is 192937984 should be 402653184
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 4250 [Transaction] port: 01 cmd: 0010 data_in_1: 28 data_in_2: 12 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 4250 [Checker] Comparing with Scoreboard reference:
+# T: 4250 [Transaction] port: 01 cmd: 0010 data_in_1: 28 data_in_2: 12 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000010000 ,
+# [Checker]ERROR, data is 0 should be 16
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 4250 [Transaction] port: 00 cmd: 0001 data_in_1: 88 data_in_2: 28 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 4250 [Checker] Comparing with Scoreboard reference:
+# T: 4250 [Transaction] port: 00 cmd: 0001 data_in_1: 88 data_in_2: 28 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000001110100 ,
+# [Checker]ERROR, data is 0 should be 116
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 4250 [Transaction] port: 10 cmd: 0001 data_in_1: 29 data_in_2: 44 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 4250 [Checker] Comparing with Scoreboard reference:
+# T: 4250 [Transaction] port: 10 cmd: 0001 data_in_1: 29 data_in_2: 44 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000001001001 ,
+# [Checker]ERROR, data is 0 should be 73
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 4250 [Transaction] port: 11 cmd: 0101 data_in_1: 11 data_in_2: 70 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 4250 [Checker] Comparing with Scoreboard reference:
+# T: 4250 [Transaction] port: 11 cmd: 0101 data_in_1: 11 data_in_2: 70 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 4250 [Transaction] port: 00 cmd: 0101 data_in_1: 18 data_in_2: 86 tag_in: 01 , resp: 10  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# T: 4250 [Checker] Comparing with Scoreboard reference:
+# T: 4250 [Transaction] port: 00 cmd: 0101 data_in_1: 18 data_in_2: 86 tag_in: 01 , resp: 01  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 4250 [Transaction] port: 00 cmd: 0101 data_in_1: 73 data_in_2: 97 tag_in: 00 , resp: 01  tag_out: 0 data_out: 00000000000000000000000000000000 ,
+# T: 4250 [Checker] Comparing with Scoreboard reference:
+# T: 4250 [Transaction] port: 00 cmd: 0101 data_in_1: 73 data_in_2: 97 tag_in: 00 , resp: 01  tag_out: 0 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# T: 4250 [Generator] Making Test # 10
+# T: 4250 [Transaction] port: 00 cmd: 0101 data_in_1: 63 data_in_2: 20 tag_in: 11
+# T: 4250 [Transaction] port: 00 cmd: 0101 data_in_1: 21 data_in_2: 91 tag_in: 10
+# T: 4250 [Transaction] port: 00 cmd: 0010 data_in_1: 47 data_in_2: 21 tag_in: 01
+# T: 4250 [Transaction] port: 01 cmd: 0110 data_in_1: 33 data_in_2: 97 tag_in: 11
+# T: 4250 [Transaction] port: 01 cmd: 0010 data_in_1: 76 data_in_2: 52 tag_in: 10
+# T: 4250 [Transaction] port: 01 cmd: 0101 data_in_1: 58 data_in_2: 30 tag_in: 01
+# T: 4250 [Transaction] port: 01 cmd: 0101 data_in_1: 93 data_in_2: 17 tag_in: 00
+# T: 4250 [Transaction] port: 10 cmd: 0001 data_in_1: 18 data_in_2: 85 tag_in: 11
+# T: 4250 [Driver] Driver Reseting DUT
+# [Scoreboard] cmd: 5 data1: 63 data2: 20
+# [Scoreboard] cmd: 5 data1: 21 data2: 91
+# [Scoreboard] cmd: 2 data1: 47 data2: 21
+# [Scoreboard] cmd: 6 data1: 33 data2: 97
+# [Scoreboard] cmd: 2 data1: 76 data2: 52
+# [Scoreboard] cmd: 5 data1: 58 data2: 30
+# [Scoreboard] cmd: 5 data1: 93 data2: 17
+# [Scoreboard] cmd: 1 data1: 18 data2: 85
+# T: 4250 [Checker] Recieved transaction from Scoreboard
+# T: 4250 [Transaction] port: 00 tag_out: 11
+# T: 4250 [Checker] Recieved transaction from Scoreboard
+# T: 4250 [Transaction] port: 00 tag_out: 10
+# T: 4250 [Checker] Recieved transaction from Scoreboard
+# T: 4250 [Transaction] port: 00 tag_out: 01
+# T: 4250 [Checker] Recieved transaction from Scoreboard
+# T: 4250 [Transaction] port: 01 tag_out: 11
+# T: 4250 [Checker] Recieved transaction from Scoreboard
+# T: 4250 [Transaction] port: 01 tag_out: 10
+# T: 4250 [Checker] Recieved transaction from Scoreboard
+# T: 4250 [Transaction] port: 01 tag_out: 01
+# T: 4250 [Checker] Recieved transaction from Scoreboard
+# T: 4250 [Transaction] port: 01 tag_out: 00
+# T: 4250 [Checker] Recieved transaction from Scoreboard
+# T: 4250 [Transaction] port: 10 tag_out: 11
+# T: 4250 [Monitor] watching port Two
+# T: 4600 [Driver] receiving transaction from Generator
+# T: 4600 [Driver] port: 00 cmd: 0101 Data1: 63 Data2: 20 Tag: 11
+# T: 4600 [Driver] receiving transaction from Generator
+# T: 4600 [Driver] port: 00 cmd: 0101 Data1: 21 Data2: 91 Tag: 10
+# T: 4600 [Driver] receiving transaction from Generator
+# T: 4600 [Driver] port: 00 cmd: 0010 Data1: 47 Data2: 21 Tag: 01
+# T: 4600 [Driver] receiving transaction from Generator
+# T: 4600 [Driver] port: 01 cmd: 0110 Data1: 33 Data2: 97 Tag: 11
+# T: 4600 [Driver] receiving transaction from Generator
+# T: 4600 [Driver] port: 01 cmd: 0010 Data1: 76 Data2: 52 Tag: 10
+# T: 4600 [Driver] receiving transaction from Generator
+# T: 4600 [Driver] port: 01 cmd: 0101 Data1: 58 Data2: 30 Tag: 01
+# T: 4600 [Driver] receiving transaction from Generator
+# T: 4600 [Driver] port: 01 cmd: 0101 Data1: 93 Data2: 17 Tag: 00
+# T: 4600 [Driver] receiving transaction from Generator
+# T: 4600 [Driver] port: 10 cmd: 0001 Data1: 18 Data2: 85 Tag: 11
+# T: 4650 [Driver] Driving set of commands
+# T: 4650 [Monitor] seeing new transaction on port Two with Tag : 3
+# T: 4650 [Monitor] seeing new transaction on port Tag total trans: 3
+# T: 4750 [Driver] LOOP
+# T: 4850 [Monitor] seeing new transaction on port R
+# T: 4850 [Transaction] port: 10 cmd: 0001 data_in_1: 18 data_in_2: 85 tag_in: 11
+# T: 4850 [Transaction] port: 01 cmd: 0110 data_in_1: 33 data_in_2: 97 tag_in: 11
+# T: 4850 [Monitor] watching port Two
+# T: 4850 [Transaction] port: 00 cmd: 0101 data_in_1: 63 data_in_2: 20 tag_in: 11
+# T: 4850 [Monitor] watching port one
+# T: 4850 [Driver] Driving set of commands
+# T: 4850 [Monitor] seeing new transaction on port Two with Tag : 2
+# T: 4850 [Monitor] seeing new transaction on port Tag total trans: 2
+# T: 4950 [Driver] LOOP
+# T: 5050 [Transaction] port: 01 cmd: 0010 data_in_1: 76 data_in_2: 52 tag_in: 10
+# T: 5050 [Monitor] watching port Two
+# T: 5050 [Transaction] port: 00 cmd: 0101 data_in_1: 21 data_in_2: 91 tag_in: 10
+# T: 5050 [Monitor] watching port one
+# T: 5050 [Monitor]Port Three Response Asserted 1
+# T: 5050 [Monitor] received response on port 3
+# T: 5050 [Monitor]Port One Response Asserted 1
+# T: 5050 [Driver] Driving set of commands
+# T: 5050 [Checker] Recieved transaction from Monitor
+# T: 5050 [Transaction] port: 10 tag_out: 11
+# T: 5050 [Checker] Recieved transaction from Monitor
+# T: 5050 [Transaction] port: 00 tag_out: 11
+# T: 5050 [Monitor] seeing new transaction on port Two with Tag : 1
+# T: 5050 [Monitor] seeing new transaction on port Tag total trans: 1
+# T: 5150 [Monitor]Port Two Response Asserted 1
+# T: 5150 [Monitor] received response on port 2
+# T: 5150 [Driver] LOOP
+# T: 5150 [Checker] Recieved transaction from Monitor
+# T: 5150 [Transaction] port: 01 tag_out: 11
+# T: 5250 [Transaction] port: 01 cmd: 0101 data_in_1: 58 data_in_2: 30 tag_in: 01
+# T: 5250 [Monitor] watching port Two
+# T: 5250 [Transaction] port: 00 cmd: 0010 data_in_1: 47 data_in_2: 21 tag_in: 01
+# T: 5250 [Monitor] watching port one
+# T: 5250 [Monitor]Port One Response Asserted 1
+# T: 5250 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 5250 [Driver] Driving set of commands
+# T: 5250 [Monitor] seeing new transaction on port Two with Tag : 0
+# T: 5350 [Monitor]Port Three Response Asserted 1
+# T: 5350 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 5350 [Monitor]Port One Response Asserted 2
+# T: 5350 [Driver] LOOP
+# T: 5350 [Checker] Recieved transaction from Monitor
+# T: 5350 [Transaction] port: 00 tag_out: 10
+# T: 5450 [Transaction] port: 01 cmd: 0101 data_in_1: 93 data_in_2: 17 tag_in: 00
+# T: 5450 [Monitor] watching port Two
+# T: 5450 [Monitor]Port Two Response Asserted 2
+# T: 5450 [Monitor] received response on port 2
+# T: 5450 [Monitor]Port One Response Asserted 1
+# T: 5450 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 5450 [Checker] Recieved transaction from Monitor
+# T: 5450 [Transaction] port: 01 tag_out: 10
+# T: 5550 [Monitor]Port One Response Asserted 2
+# T: 5550 [Checker] Recieved transaction from Monitor
+# T: 5550 [Transaction] port: 00 tag_out: 01
+# 
+# 
+# T: 6350 [Coverage] Current total coverage is 65.10
+# 
+# 
+# T: 6350 [Coverage] Port One:
+# T: 6350 [Coverage] CMD coverage is 100.00
+# T: 6350 [Coverage] TAG coverage is 100.00
+# T: 6350 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 6350 [Coverage] Port Two:
+# T: 6350 [Coverage] CMD coverage is 100.00
+# T: 6350 [Coverage] TAG coverage is 100.00
+# T: 6350 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 6350 [Coverage] Port Three:
+# T: 6350 [Coverage] CMD coverage is 100.00
+# T: 6350 [Coverage] TAG coverage is 100.00
+# T: 6350 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 6350 [Coverage] Port Four:
+# T: 6350 [Coverage] CMD coverage is 100.00
+# T: 6350 [Coverage] TAG coverage is 75.00
+# T: 6350 [Coverage] DATA coverage is 1.56
+# T: 6350 [Driver] Drive done asserted
+# 
+# 
+# T: 6350 [Monitor]Port Two Commands not responded to: 
+# T: 6350 [Transaction] port: 01 cmd: 0101 data_in_1: 93 data_in_2: 17 tag_in: 00 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# T: 6350 [Transaction] port: 01 cmd: 0101 data_in_1: 58 data_in_2: 30 tag_in: 01 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# [Checker] Transactions from scoreboard seen : 8 
+# [Checker] Transactions from monitor seen : 6 
+# [Checker] Running Comparison  : 6 
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 6350 [Transaction] port: 10 cmd: 0001 data_in_1: 18 data_in_2: 85 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000010101010 ,
+# T: 6350 [Checker] Comparing with Scoreboard reference:
+# T: 6350 [Transaction] port: 10 cmd: 0001 data_in_1: 18 data_in_2: 85 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000001100111 ,
+# [Checker]ERROR, data is 170 should be 103
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 6350 [Transaction] port: 00 cmd: 0101 data_in_1: 63 data_in_2: 20 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000001010000000000000000000000 ,
+# T: 6350 [Checker] Comparing with Scoreboard reference:
+# T: 6350 [Transaction] port: 00 cmd: 0101 data_in_1: 63 data_in_2: 20 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000011111100000000000000000000 ,
+# [Checker]ERROR, data is 20971520 should be 66060288
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 6350 [Transaction] port: 01 cmd: 0110 data_in_1: 33 data_in_2: 97 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000110000 ,
+# T: 6350 [Checker] Comparing with Scoreboard reference:
+# T: 6350 [Transaction] port: 01 cmd: 0110 data_in_1: 33 data_in_2: 97 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker]ERROR, data is 48 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 6350 [Transaction] port: 00 cmd: 0101 data_in_1: 21 data_in_2: 91 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 6350 [Checker] Comparing with Scoreboard reference:
+# T: 6350 [Transaction] port: 00 cmd: 0101 data_in_1: 21 data_in_2: 91 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 6350 [Transaction] port: 01 cmd: 0010 data_in_1: 76 data_in_2: 52 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 6350 [Checker] Comparing with Scoreboard reference:
+# T: 6350 [Transaction] port: 01 cmd: 0010 data_in_1: 76 data_in_2: 52 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000011000 ,
+# [Checker]ERROR, data is 0 should be 24
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 6350 [Transaction] port: 00 cmd: 0010 data_in_1: 47 data_in_2: 21 tag_in: 01 , resp: 10  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# T: 6350 [Checker] Comparing with Scoreboard reference:
+# T: 6350 [Transaction] port: 00 cmd: 0010 data_in_1: 47 data_in_2: 21 tag_in: 01 , resp: 01  tag_out: 1 data_out: 00000000000000000000000000011010 ,
+# [Checker]ERROR, data is 0 should be 26
+# [Checker]ERROR, Resp is 2 should be 1
+# T: 6350 [Generator] Making Test # 11
+# T: 6350 [Transaction] port: 00 cmd: 0010 data_in_1: 82 data_in_2: 81 tag_in: 11
+# T: 6350 [Transaction] port: 00 cmd: 0001 data_in_1: 97 data_in_2: 77 tag_in: 10
+# T: 6350 [Transaction] port: 00 cmd: 0101 data_in_1: 20 data_in_2: 42 tag_in: 01
+# T: 6350 [Transaction] port: 00 cmd: 0110 data_in_1: 51 data_in_2: 89 tag_in: 00
+# T: 6350 [Transaction] port: 01 cmd: 0001 data_in_1: 81 data_in_2: 93 tag_in: 11
+# T: 6350 [Transaction] port: 10 cmd: 0001 data_in_1: 77 data_in_2: 7 tag_in: 11
+# T: 6350 [Transaction] port: 10 cmd: 0110 data_in_1: 7 data_in_2: 91 tag_in: 10
+# T: 6350 [Transaction] port: 10 cmd: 0110 data_in_1: 70 data_in_2: 26 tag_in: 01
+# T: 6350 [Transaction] port: 11 cmd: 0001 data_in_1: 19 data_in_2: 76 tag_in: 11
+# T: 6350 [Transaction] port: 11 cmd: 0010 data_in_1: 68 data_in_2: 22 tag_in: 10
+# T: 6350 [Driver] Driver Reseting DUT
+# [Scoreboard] cmd: 2 data1: 82 data2: 81
+# [Scoreboard] cmd: 1 data1: 97 data2: 77
+# [Scoreboard] cmd: 5 data1: 20 data2: 42
+# [Scoreboard] cmd: 6 data1: 51 data2: 89
+# [Scoreboard] cmd: 1 data1: 81 data2: 93
+# [Scoreboard] cmd: 1 data1: 77 data2: 7
+# [Scoreboard] cmd: 6 data1: 7 data2: 91
+# [Scoreboard] cmd: 6 data1: 70 data2: 26
+# [Scoreboard] cmd: 1 data1: 19 data2: 76
+# [Scoreboard] cmd: 2 data1: 68 data2: 22
+# T: 6350 [Checker] Recieved transaction from Scoreboard
+# T: 6350 [Transaction] port: 00 tag_out: 11
+# T: 6350 [Checker] Recieved transaction from Scoreboard
+# T: 6350 [Transaction] port: 00 tag_out: 10
+# T: 6350 [Checker] Recieved transaction from Scoreboard
+# T: 6350 [Transaction] port: 00 tag_out: 01
+# T: 6350 [Checker] Recieved transaction from Scoreboard
+# T: 6350 [Transaction] port: 00 tag_out: 00
+# T: 6350 [Checker] Recieved transaction from Scoreboard
+# T: 6350 [Transaction] port: 01 tag_out: 11
+# T: 6350 [Checker] Recieved transaction from Scoreboard
+# T: 6350 [Transaction] port: 10 tag_out: 11
+# T: 6350 [Checker] Recieved transaction from Scoreboard
+# T: 6350 [Transaction] port: 10 tag_out: 10
+# T: 6350 [Checker] Recieved transaction from Scoreboard
+# T: 6350 [Transaction] port: 10 tag_out: 01
+# T: 6350 [Checker] Recieved transaction from Scoreboard
+# T: 6350 [Transaction] port: 11 tag_out: 11
+# T: 6350 [Checker] Recieved transaction from Scoreboard
+# T: 6350 [Transaction] port: 11 tag_out: 10
+# T: 6350 [Monitor] watching port one
+# T: 6700 [Driver] receiving transaction from Generator
+# T: 6700 [Driver] port: 00 cmd: 0010 Data1: 82 Data2: 81 Tag: 11
+# T: 6700 [Driver] receiving transaction from Generator
+# T: 6700 [Driver] port: 00 cmd: 0001 Data1: 97 Data2: 77 Tag: 10
+# T: 6700 [Driver] receiving transaction from Generator
+# T: 6700 [Driver] port: 00 cmd: 0101 Data1: 20 Data2: 42 Tag: 01
+# T: 6700 [Driver] receiving transaction from Generator
+# T: 6700 [Driver] port: 00 cmd: 0110 Data1: 51 Data2: 89 Tag: 00
+# T: 6700 [Driver] receiving transaction from Generator
+# T: 6700 [Driver] port: 01 cmd: 0001 Data1: 81 Data2: 93 Tag: 11
+# T: 6700 [Driver] receiving transaction from Generator
+# T: 6700 [Driver] port: 10 cmd: 0001 Data1: 77 Data2: 7 Tag: 11
+# T: 6700 [Driver] receiving transaction from Generator
+# T: 6700 [Driver] port: 10 cmd: 0110 Data1: 7 Data2: 91 Tag: 10
+# T: 6700 [Driver] receiving transaction from Generator
+# T: 6700 [Driver] port: 10 cmd: 0110 Data1: 70 Data2: 26 Tag: 01
+# T: 6700 [Driver] receiving transaction from Generator
+# T: 6700 [Driver] port: 11 cmd: 0001 Data1: 19 Data2: 76 Tag: 11
+# T: 6700 [Driver] receiving transaction from Generator
+# T: 6700 [Driver] port: 11 cmd: 0010 Data1: 68 Data2: 22 Tag: 10
+# T: 6750 [Driver] Driving set of commands
+# T: 6750 [Monitor] seeing new transaction on port 4 with tag: 3
+# T: 6750 [Monitor] seeing new transaction on port Two with Tag : 3
+# T: 6750 [Monitor] seeing new transaction on port Tag total trans: 3
+# T: 6850 [Driver] LOOP
+# T: 6950 [Transaction] port: 11 cmd: 0001 data_in_1: 19 data_in_2: 76 tag_in: 11
+# T: 6950 [Monitor] seeing new transaction on port R
+# T: 6950 [Transaction] port: 10 cmd: 0001 data_in_1: 77 data_in_2: 7 tag_in: 11
+# T: 6950 [Transaction] port: 01 cmd: 0001 data_in_1: 81 data_in_2: 93 tag_in: 11
+# T: 6950 [Monitor] watching port Two
+# T: 6950 [Transaction] port: 00 cmd: 0010 data_in_1: 82 data_in_2: 81 tag_in: 11
+# T: 6950 [Monitor] watching port one
+# T: 6950 [Driver] Driving set of commands
+# T: 6950 [Monitor] seeing new transaction on port 4 with tag: 2
+# T: 6950 [Monitor] seeing new transaction on port Tag total trans: 2
+# T: 7050 [Driver] LOOP
+# T: 7150 [Transaction] port: 11 cmd: 0010 data_in_1: 68 data_in_2: 22 tag_in: 10
+# T: 7150 [Monitor] seeing new transaction on port R
+# T: 7150 [Transaction] port: 10 cmd: 0110 data_in_1: 7 data_in_2: 91 tag_in: 10
+# T: 7150 [Transaction] port: 00 cmd: 0001 data_in_1: 97 data_in_2: 77 tag_in: 10
+# T: 7150 [Monitor] watching port one
+# T: 7150 [Monitor]Port One Response Asserted 1
+# T: 7150 [Driver] Driving set of commands
+# T: 7150 [Checker] Recieved transaction from Monitor
+# T: 7150 [Transaction] port: 00 tag_out: 11
+# T: 7150 [Monitor] seeing new transaction on port Tag total trans: 1
+# T: 7250 [Monitor]Port Two Response Asserted 1
+# T: 7250 [Monitor] received response on port 2
+# T: 7250 [Driver] LOOP
+# T: 7250 [Checker] Recieved transaction from Monitor
+# T: 7250 [Transaction] port: 01 tag_out: 11
+# T: 7350 [Monitor] seeing new transaction on port R
+# T: 7350 [Transaction] port: 10 cmd: 0110 data_in_1: 70 data_in_2: 26 tag_in: 01
+# T: 7350 [Transaction] port: 00 cmd: 0101 data_in_1: 20 data_in_2: 42 tag_in: 01
+# T: 7350 [Monitor] watching port one
+# T: 7350 [Monitor]Port Three Response Asserted 1
+# T: 7350 [Monitor] received response on port 3
+# T: 7350 [Driver] Driving set of commands
+# T: 7350 [Checker] Recieved transaction from Monitor
+# T: 7350 [Transaction] port: 10 tag_out: 11
+# T: 7350 [Monitor] seeing new transaction on port Tag total trans: 0
+# T: 7450 [Monitor]Port Four Response Asserted 1
+# T: 7450 [Monitor] received response on port 4
+# T: 7450 [Monitor]Port Three Response Asserted 2
+# T: 7450 [Monitor] received response on port 3
+# T: 7450 [Monitor]Port One Response Asserted 2
+# T: 7450 [Driver] LOOP
+# T: 7450 [Checker] Recieved transaction from Monitor
+# T: 7450 [Transaction] port: 11 tag_out: 11
+# T: 7450 [Checker] Recieved transaction from Monitor
+# T: 7450 [Transaction] port: 10 tag_out: 10
+# T: 7450 [Checker] Recieved transaction from Monitor
+# T: 7450 [Transaction] port: 00 tag_out: 10
+# T: 7550 [Transaction] port: 00 cmd: 0110 data_in_1: 51 data_in_2: 89 tag_in: 00
+# T: 7550 [Monitor] watching port one
+# T: 7550 [Monitor]Port Four Response Asserted 2
+# T: 7550 [Monitor] received response on port 4
+# T: 7550 [Monitor]Port One Response Asserted 1
+# T: 7550 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 7550 [Checker] Recieved transaction from Monitor
+# T: 7550 [Transaction] port: 11 tag_out: 10
+# T: 7650 [Monitor]Port Two Response Asserted 1
+# T: 7650 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 7650 [Monitor]Port One Response Asserted 2
+# T: 7650 [Checker] Recieved transaction from Monitor
+# T: 7650 [Transaction] port: 00 tag_out: 01
+# T: 7750 [Monitor]Port Three Response Asserted 1
+# T: 7750 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 7850 [Monitor]Port Four Response Asserted 1
+# T: 7850 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 7850 [Monitor]Port Three Response Asserted 2
+# T: 7850 [Monitor] received response on port 3
+# T: 7850 [Checker] Recieved transaction from Monitor
+# T: 7850 [Transaction] port: 10 tag_out: 01
+# T: 7950 [Monitor]Port Four Response Asserted 2
+# T: 7950 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 7950 [Monitor]Port One Response Asserted 1
+# T: 7950 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 8050 [Monitor]Port Two Response Asserted 1
+# T: 8050 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 8050 [Monitor]Port One Response Asserted 2
+# T: 8050 [Checker] Recieved transaction from Monitor
+# T: 8050 [Transaction] port: 00 tag_out: 00
+# T: 8150 [Monitor]Port Four Response Asserted 1
+# T: 8150 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 8250 [Monitor]Port Four Response Asserted 2
+# T: 8250 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 8250 [Monitor]Port Two Response Asserted 1
+# T: 8250 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# 
+# 
+# T: 8450 [Coverage] Current total coverage is 65.10
+# 
+# 
+# T: 8450 [Coverage] Port One:
+# T: 8450 [Coverage] CMD coverage is 100.00
+# T: 8450 [Coverage] TAG coverage is 100.00
+# T: 8450 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 8450 [Coverage] Port Two:
+# T: 8450 [Coverage] CMD coverage is 100.00
+# T: 8450 [Coverage] TAG coverage is 100.00
+# T: 8450 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 8450 [Coverage] Port Three:
+# T: 8450 [Coverage] CMD coverage is 100.00
+# T: 8450 [Coverage] TAG coverage is 100.00
+# T: 8450 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 8450 [Coverage] Port Four:
+# T: 8450 [Coverage] CMD coverage is 100.00
+# T: 8450 [Coverage] TAG coverage is 75.00
+# T: 8450 [Coverage] DATA coverage is 1.56
+# T: 8450 [Driver] Drive done asserted
+# 
+# 
+# [Checker] Transactions from scoreboard seen : 10 
+# [Checker] Transactions from monitor seen : 10 
+# [Checker] Running Comparison  : 10 
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 8450 [Transaction] port: 00 cmd: 0010 data_in_1: 82 data_in_2: 81 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# T: 8450 [Checker] Comparing with Scoreboard reference:
+# T: 8450 [Transaction] port: 00 cmd: 0010 data_in_1: 82 data_in_2: 81 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000001 ,
+# [Checker]ERROR, data is 0 should be 1
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 8450 [Transaction] port: 01 cmd: 0001 data_in_1: 81 data_in_2: 93 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000010111010 ,
+# T: 8450 [Checker] Comparing with Scoreboard reference:
+# T: 8450 [Transaction] port: 01 cmd: 0001 data_in_1: 81 data_in_2: 93 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000010101110 ,
+# [Checker]ERROR, data is 186 should be 174
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 8450 [Transaction] port: 10 cmd: 0001 data_in_1: 77 data_in_2: 7 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000001110 ,
+# T: 8450 [Checker] Comparing with Scoreboard reference:
+# T: 8450 [Transaction] port: 10 cmd: 0001 data_in_1: 77 data_in_2: 7 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000001010100 ,
+# [Checker]ERROR, data is 14 should be 84
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 8450 [Transaction] port: 11 cmd: 0001 data_in_1: 19 data_in_2: 76 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000010011000 ,
+# T: 8450 [Checker] Comparing with Scoreboard reference:
+# T: 8450 [Transaction] port: 11 cmd: 0001 data_in_1: 19 data_in_2: 76 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000001011111 ,
+# [Checker]ERROR, data is 152 should be 95
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 8450 [Transaction] port: 10 cmd: 0110 data_in_1: 7 data_in_2: 91 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 8450 [Checker] Comparing with Scoreboard reference:
+# T: 8450 [Transaction] port: 10 cmd: 0110 data_in_1: 7 data_in_2: 91 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 8450 [Transaction] port: 00 cmd: 0001 data_in_1: 97 data_in_2: 77 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 8450 [Checker] Comparing with Scoreboard reference:
+# T: 8450 [Transaction] port: 00 cmd: 0001 data_in_1: 97 data_in_2: 77 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000010101110 ,
+# [Checker]ERROR, data is 0 should be 174
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 8450 [Transaction] port: 11 cmd: 0010 data_in_1: 68 data_in_2: 22 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 8450 [Checker] Comparing with Scoreboard reference:
+# T: 8450 [Transaction] port: 11 cmd: 0010 data_in_1: 68 data_in_2: 22 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000101110 ,
+# [Checker]ERROR, data is 0 should be 46
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 8450 [Transaction] port: 00 cmd: 0101 data_in_1: 20 data_in_2: 42 tag_in: 01 , resp: 10  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# T: 8450 [Checker] Comparing with Scoreboard reference:
+# T: 8450 [Transaction] port: 00 cmd: 0101 data_in_1: 20 data_in_2: 42 tag_in: 01 , resp: 01  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 8450 [Transaction] port: 10 cmd: 0110 data_in_1: 70 data_in_2: 26 tag_in: 01 , resp: 10  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# T: 8450 [Checker] Comparing with Scoreboard reference:
+# T: 8450 [Transaction] port: 10 cmd: 0110 data_in_1: 70 data_in_2: 26 tag_in: 01 , resp: 01  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 8450 [Transaction] port: 00 cmd: 0110 data_in_1: 51 data_in_2: 89 tag_in: 00 , resp: 10  tag_out: 0 data_out: 00000000000000000000000000000000 ,
+# T: 8450 [Checker] Comparing with Scoreboard reference:
+# T: 8450 [Transaction] port: 00 cmd: 0110 data_in_1: 51 data_in_2: 89 tag_in: 00 , resp: 01  tag_out: 0 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# T: 8450 [Generator] Making Test # 100
+# T: 8450 [Transaction] port: 00 cmd: 0001 data_in_1: 25 data_in_2: 17 tag_in: 11
+# T: 8450 [Transaction] port: 00 cmd: 0110 data_in_1: 45 data_in_2: 6 tag_in: 10
+# T: 8450 [Transaction] port: 00 cmd: 0010 data_in_1: 63 data_in_2: 71 tag_in: 01
+# T: 8450 [Transaction] port: 01 cmd: 0001 data_in_1: 88 data_in_2: 10 tag_in: 11
+# T: 8450 [Transaction] port: 10 cmd: 0101 data_in_1: 15 data_in_2: 89 tag_in: 11
+# T: 8450 [Driver] Driver Reseting DUT
+# [Scoreboard] cmd: 1 data1: 25 data2: 17
+# [Scoreboard] cmd: 6 data1: 45 data2: 6
+# [Scoreboard] cmd: 2 data1: 63 data2: 71
+# [Scoreboard] cmd: 1 data1: 88 data2: 10
+# [Scoreboard] cmd: 5 data1: 15 data2: 89
+# T: 8450 [Checker] Recieved transaction from Scoreboard
+# T: 8450 [Transaction] port: 00 tag_out: 11
+# T: 8450 [Checker] Recieved transaction from Scoreboard
+# T: 8450 [Transaction] port: 00 tag_out: 10
+# T: 8450 [Checker] Recieved transaction from Scoreboard
+# T: 8450 [Transaction] port: 00 tag_out: 01
+# T: 8450 [Checker] Recieved transaction from Scoreboard
+# T: 8450 [Transaction] port: 01 tag_out: 11
+# T: 8450 [Checker] Recieved transaction from Scoreboard
+# T: 8450 [Transaction] port: 10 tag_out: 11
+# T: 8450 [Monitor] watching port Two
+# T: 8800 [Driver] receiving transaction from Generator
+# T: 8800 [Driver] port: 00 cmd: 0001 Data1: 25 Data2: 17 Tag: 11
+# T: 8800 [Driver] receiving transaction from Generator
+# T: 8800 [Driver] port: 00 cmd: 0110 Data1: 45 Data2: 6 Tag: 10
+# T: 8800 [Driver] receiving transaction from Generator
+# T: 8800 [Driver] port: 00 cmd: 0010 Data1: 63 Data2: 71 Tag: 01
+# T: 8800 [Driver] receiving transaction from Generator
+# T: 8800 [Driver] port: 01 cmd: 0001 Data1: 88 Data2: 10 Tag: 11
+# T: 8800 [Driver] receiving transaction from Generator
+# T: 8800 [Driver] port: 10 cmd: 0101 Data1: 15 Data2: 89 Tag: 11
+# T: 8850 [Driver] Driving set of commands
+# T: 8850 [Monitor] seeing new transaction on port Two with Tag : 3
+# T: 8850 [Monitor] seeing new transaction on port Tag total trans: 3
+# T: 8950 [Driver] LOOP
+# T: 9050 [Monitor] seeing new transaction on port R
+# T: 9050 [Transaction] port: 10 cmd: 0101 data_in_1: 15 data_in_2: 89 tag_in: 11
+# T: 9050 [Transaction] port: 01 cmd: 0001 data_in_1: 88 data_in_2: 10 tag_in: 11
+# T: 9050 [Monitor] watching port Two
+# T: 9050 [Transaction] port: 00 cmd: 0001 data_in_1: 25 data_in_2: 17 tag_in: 11
+# T: 9050 [Monitor] watching port one
+# T: 9050 [Driver] Driving set of commands
+# T: 9050 [Monitor] seeing new transaction on port Tag total trans: 2
+# T: 9150 [Driver] LOOP
+# T: 9250 [Transaction] port: 00 cmd: 0110 data_in_1: 45 data_in_2: 6 tag_in: 10
+# T: 9250 [Monitor] watching port one
+# T: 9250 [Monitor]Port Three Response Asserted 1
+# T: 9250 [Monitor] received response on port 3
+# T: 9250 [Monitor]Port One Response Asserted 1
+# T: 9250 [Driver] Driving set of commands
+# T: 9250 [Checker] Recieved transaction from Monitor
+# T: 9250 [Transaction] port: 10 tag_out: 11
+# T: 9250 [Checker] Recieved transaction from Monitor
+# T: 9250 [Transaction] port: 00 tag_out: 11
+# T: 9250 [Monitor] seeing new transaction on port Tag total trans: 1
+# T: 9350 [Monitor]Port Two Response Asserted 1
+# T: 9350 [Monitor] received response on port 2
+# T: 9350 [Driver] LOOP
+# T: 9350 [Checker] Recieved transaction from Monitor
+# T: 9350 [Transaction] port: 01 tag_out: 11
+# T: 9450 [Transaction] port: 00 cmd: 0010 data_in_1: 63 data_in_2: 71 tag_in: 01
+# T: 9450 [Monitor] watching port one
+# T: 9450 [Monitor]Port One Response Asserted 1
+# T: 9450 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 9450 [Driver] Driving set of commands
+# T: 9550 [Monitor]Port Three Response Asserted 1
+# T: 9550 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 9550 [Monitor]Port Two Response Asserted 1
+# T: 9550 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 9550 [Monitor]Port One Response Asserted 2
+# T: 9550 [Driver] LOOP
+# T: 9550 [Checker] Recieved transaction from Monitor
+# T: 9550 [Transaction] port: 00 tag_out: 10
+# 
+# 
+# T: 10550 [Coverage] Current total coverage is 65.10
+# 
+# 
+# T: 10550 [Coverage] Port One:
+# T: 10550 [Coverage] CMD coverage is 100.00
+# T: 10550 [Coverage] TAG coverage is 100.00
+# T: 10550 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 10550 [Coverage] Port Two:
+# T: 10550 [Coverage] CMD coverage is 100.00
+# T: 10550 [Coverage] TAG coverage is 100.00
+# T: 10550 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 10550 [Coverage] Port Three:
+# T: 10550 [Coverage] CMD coverage is 100.00
+# T: 10550 [Coverage] TAG coverage is 100.00
+# T: 10550 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 10550 [Coverage] Port Four:
+# T: 10550 [Coverage] CMD coverage is 100.00
+# T: 10550 [Coverage] TAG coverage is 75.00
+# T: 10550 [Coverage] DATA coverage is 1.56
+# T: 10550 [Driver] Drive done asserted
+# 
+# 
+# T: 10550 [Monitor]Port One Commands not responded to: 
+# T: 10550 [Transaction] port: 00 cmd: 0010 data_in_1: 63 data_in_2: 71 tag_in: 01 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# [Checker] Transactions from scoreboard seen : 5 
+# [Checker] Transactions from monitor seen : 4 
+# [Checker] Running Comparison  : 4 
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 10550 [Transaction] port: 10 cmd: 0101 data_in_1: 15 data_in_2: 89 tag_in: 11 , resp: 01  tag_out: 3 data_out: 10110010000000000000000000000000 ,
+# T: 10550 [Checker] Comparing with Scoreboard reference:
+# T: 10550 [Transaction] port: 10 cmd: 0101 data_in_1: 15 data_in_2: 89 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker]ERROR, data is 2986344448 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 10550 [Transaction] port: 00 cmd: 0001 data_in_1: 25 data_in_2: 17 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000100010 ,
+# T: 10550 [Checker] Comparing with Scoreboard reference:
+# T: 10550 [Transaction] port: 00 cmd: 0001 data_in_1: 25 data_in_2: 17 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000101010 ,
+# [Checker]ERROR, data is 34 should be 42
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 10550 [Transaction] port: 01 cmd: 0001 data_in_1: 88 data_in_2: 10 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000010100 ,
+# T: 10550 [Checker] Comparing with Scoreboard reference:
+# T: 10550 [Transaction] port: 01 cmd: 0001 data_in_1: 88 data_in_2: 10 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000001100010 ,
+# [Checker]ERROR, data is 20 should be 98
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 10550 [Transaction] port: 00 cmd: 0110 data_in_1: 45 data_in_2: 6 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 10550 [Checker] Comparing with Scoreboard reference:
+# T: 10550 [Transaction] port: 00 cmd: 0110 data_in_1: 45 data_in_2: 6 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# T: 10550 [Generator] Making Test # 101
+# T: 10550 [Transaction] port: 00 cmd: 0101 data_in_1: 41 data_in_2: 73 tag_in: 11
+# T: 10550 [Transaction] port: 01 cmd: 0001 data_in_1: 47 data_in_2: 91 tag_in: 11
+# T: 10550 [Transaction] port: 10 cmd: 0001 data_in_1: 14 data_in_2: 97 tag_in: 11
+# T: 10550 [Transaction] port: 10 cmd: 0101 data_in_1: 86 data_in_2: 90 tag_in: 10
+# T: 10550 [Transaction] port: 10 cmd: 0110 data_in_1: 92 data_in_2: 57 tag_in: 01
+# T: 10550 [Transaction] port: 10 cmd: 0010 data_in_1: 4 data_in_2: 90 tag_in: 00
+# T: 10550 [Transaction] port: 11 cmd: 0101 data_in_1: 94 data_in_2: 11 tag_in: 11
+# T: 10550 [Transaction] port: 11 cmd: 0101 data_in_1: 94 data_in_2: 42 tag_in: 10
+# T: 10550 [Transaction] port: 11 cmd: 0001 data_in_1: 30 data_in_2: 89 tag_in: 01
+# T: 10550 [Driver] Driver Reseting DUT
+# [Scoreboard] cmd: 5 data1: 41 data2: 73
+# [Scoreboard] cmd: 1 data1: 47 data2: 91
+# [Scoreboard] cmd: 1 data1: 14 data2: 97
+# [Scoreboard] cmd: 5 data1: 86 data2: 90
+# [Scoreboard] cmd: 6 data1: 92 data2: 57
+# [Scoreboard] cmd: 2 data1: 4 data2: 90
+# [Scoreboard] cmd: 5 data1: 94 data2: 11
+# [Scoreboard] cmd: 5 data1: 94 data2: 42
+# [Scoreboard] cmd: 1 data1: 30 data2: 89
+# T: 10550 [Checker] Recieved transaction from Scoreboard
+# T: 10550 [Transaction] port: 00 tag_out: 11
+# T: 10550 [Checker] Recieved transaction from Scoreboard
+# T: 10550 [Transaction] port: 01 tag_out: 11
+# T: 10550 [Checker] Recieved transaction from Scoreboard
+# T: 10550 [Transaction] port: 10 tag_out: 11
+# T: 10550 [Checker] Recieved transaction from Scoreboard
+# T: 10550 [Transaction] port: 10 tag_out: 10
+# T: 10550 [Checker] Recieved transaction from Scoreboard
+# T: 10550 [Transaction] port: 10 tag_out: 01
+# T: 10550 [Checker] Recieved transaction from Scoreboard
+# T: 10550 [Transaction] port: 10 tag_out: 00
+# T: 10550 [Checker] Recieved transaction from Scoreboard
+# T: 10550 [Transaction] port: 11 tag_out: 11
+# T: 10550 [Checker] Recieved transaction from Scoreboard
+# T: 10550 [Transaction] port: 11 tag_out: 10
+# T: 10550 [Checker] Recieved transaction from Scoreboard
+# T: 10550 [Transaction] port: 11 tag_out: 01
+# T: 10550 [Monitor] watching port Two
+# T: 10550 [Monitor] watching port one
+# T: 10900 [Driver] receiving transaction from Generator
+# T: 10900 [Driver] port: 00 cmd: 0101 Data1: 41 Data2: 73 Tag: 11
+# T: 10900 [Driver] receiving transaction from Generator
+# T: 10900 [Driver] port: 01 cmd: 0001 Data1: 47 Data2: 91 Tag: 11
+# T: 10900 [Driver] receiving transaction from Generator
+# T: 10900 [Driver] port: 10 cmd: 0001 Data1: 14 Data2: 97 Tag: 11
+# T: 10900 [Driver] receiving transaction from Generator
+# T: 10900 [Driver] port: 10 cmd: 0101 Data1: 86 Data2: 90 Tag: 10
+# T: 10900 [Driver] receiving transaction from Generator
+# T: 10900 [Driver] port: 10 cmd: 0110 Data1: 92 Data2: 57 Tag: 01
+# T: 10900 [Driver] receiving transaction from Generator
+# T: 10900 [Driver] port: 10 cmd: 0010 Data1: 4 Data2: 90 Tag: 00
+# T: 10900 [Driver] receiving transaction from Generator
+# T: 10900 [Driver] port: 11 cmd: 0101 Data1: 94 Data2: 11 Tag: 11
+# T: 10900 [Driver] receiving transaction from Generator
+# T: 10900 [Driver] port: 11 cmd: 0101 Data1: 94 Data2: 42 Tag: 10
+# T: 10900 [Driver] receiving transaction from Generator
+# T: 10900 [Driver] port: 11 cmd: 0001 Data1: 30 Data2: 89 Tag: 01
+# T: 10950 [Driver] Driving set of commands
+# T: 10950 [Monitor] seeing new transaction on port 4 with tag: 3
+# T: 10950 [Monitor] seeing new transaction on port Two with Tag : 3
+# T: 10950 [Monitor] seeing new transaction on port Tag total trans: 3
+# T: 11050 [Driver] LOOP
+# T: 11150 [Transaction] port: 11 cmd: 0101 data_in_1: 94 data_in_2: 11 tag_in: 11
+# T: 11150 [Monitor] seeing new transaction on port R
+# T: 11150 [Transaction] port: 10 cmd: 0001 data_in_1: 14 data_in_2: 97 tag_in: 11
+# T: 11150 [Transaction] port: 01 cmd: 0001 data_in_1: 47 data_in_2: 91 tag_in: 11
+# T: 11150 [Monitor] watching port Two
+# T: 11150 [Transaction] port: 00 cmd: 0101 data_in_1: 41 data_in_2: 73 tag_in: 11
+# T: 11150 [Monitor] watching port one
+# T: 11150 [Driver] Driving set of commands
+# T: 11150 [Monitor] seeing new transaction on port 4 with tag: 2
+# T: 11250 [Driver] LOOP
+# T: 11350 [Transaction] port: 11 cmd: 0101 data_in_1: 94 data_in_2: 42 tag_in: 10
+# T: 11350 [Monitor] seeing new transaction on port R
+# T: 11350 [Transaction] port: 10 cmd: 0101 data_in_1: 86 data_in_2: 90 tag_in: 10
+# T: 11350 [Monitor]Port Two Response Asserted 1
+# T: 11350 [Monitor] received response on port 2
+# T: 11350 [Monitor]Port One Response Asserted 1
+# T: 11350 [Driver] Driving set of commands
+# T: 11350 [Checker] Recieved transaction from Monitor
+# T: 11350 [Transaction] port: 01 tag_out: 11
+# T: 11350 [Checker] Recieved transaction from Monitor
+# T: 11350 [Transaction] port: 00 tag_out: 11
+# T: 11350 [Monitor] seeing new transaction on port 4 with tag: 1
+# T: 11450 [Monitor]Port Four Response Asserted 1
+# T: 11450 [Monitor] received response on port 4
+# T: 11450 [Monitor]Port Three Response Asserted 1
+# T: 11450 [Monitor] received response on port 3
+# T: 11450 [Driver] LOOP
+# T: 11450 [Checker] Recieved transaction from Monitor
+# T: 11450 [Transaction] port: 11 tag_out: 11
+# T: 11450 [Checker] Recieved transaction from Monitor
+# T: 11450 [Transaction] port: 10 tag_out: 11
+# T: 11550 [Transaction] port: 11 cmd: 0001 data_in_1: 30 data_in_2: 89 tag_in: 01
+# T: 11550 [Monitor] seeing new transaction on port R
+# T: 11550 [Transaction] port: 10 cmd: 0110 data_in_1: 92 data_in_2: 57 tag_in: 01
+# T: 11550 [Monitor]Port Two Response Asserted 1
+# T: 11550 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 11550 [Monitor]Port One Response Asserted 1
+# T: 11550 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 11550 [Driver] Driving set of commands
+# T: 11650 [Monitor]Port Four Response Asserted 1
+# T: 11650 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 11650 [Monitor]Port Three Response Asserted 1
+# T: 11650 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 11650 [Driver] LOOP
+# T: 11750 [Monitor] seeing new transaction on port R
+# T: 11750 [Transaction] port: 10 cmd: 0010 data_in_1: 4 data_in_2: 90 tag_in: 00
+# T: 11750 [Monitor]Port Four Response Asserted 2
+# T: 11750 [Monitor] received response on port 4
+# T: 11750 [Monitor]Port Three Response Asserted 2
+# T: 11750 [Monitor] received response on port 3
+# T: 11750 [Monitor]Port Two Response Asserted 1
+# T: 11750 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 11750 [Monitor]Port One Response Asserted 1
+# T: 11750 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 11750 [Checker] Recieved transaction from Monitor
+# T: 11750 [Transaction] port: 11 tag_out: 10
+# T: 11750 [Checker] Recieved transaction from Monitor
+# T: 11750 [Transaction] port: 10 tag_out: 10
+# T: 11850 [Monitor]Port Three Response Asserted 1
+# T: 11850 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 11950 [Monitor]Port Four Response Asserted 1
+# T: 11950 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 11950 [Monitor]Port Three Response Asserted 2
+# T: 11950 [Monitor] received response on port 3
+# T: 11950 [Checker] Recieved transaction from Monitor
+# T: 11950 [Transaction] port: 10 tag_out: 01
+# T: 12050 [Monitor]Port Four Response Asserted 2
+# T: 12050 [Monitor] received response on port 4
+# T: 12050 [Monitor]Port One Response Asserted 1
+# T: 12050 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 12050 [Checker] Recieved transaction from Monitor
+# T: 12050 [Transaction] port: 11 tag_out: 01
+# 
+# 
+# T: 12650 [Coverage] Current total coverage is 67.19
+# 
+# 
+# T: 12650 [Coverage] Port One:
+# T: 12650 [Coverage] CMD coverage is 100.00
+# T: 12650 [Coverage] TAG coverage is 100.00
+# T: 12650 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 12650 [Coverage] Port Two:
+# T: 12650 [Coverage] CMD coverage is 100.00
+# T: 12650 [Coverage] TAG coverage is 100.00
+# T: 12650 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 12650 [Coverage] Port Three:
+# T: 12650 [Coverage] CMD coverage is 100.00
+# T: 12650 [Coverage] TAG coverage is 100.00
+# T: 12650 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 12650 [Coverage] Port Four:
+# T: 12650 [Coverage] CMD coverage is 100.00
+# T: 12650 [Coverage] TAG coverage is 100.00
+# T: 12650 [Coverage] DATA coverage is 1.56
+# T: 12650 [Driver] Drive done asserted
+# 
+# 
+# T: 12650 [Monitor]Port Three Commands not responded to: 
+# T: 12650 [Transaction] port: 10 cmd: 0010 data_in_1: 4 data_in_2: 90 tag_in: 00 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# [Checker] Transactions from scoreboard seen : 9 
+# [Checker] Transactions from monitor seen : 8 
+# [Checker] Running Comparison  : 8 
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 12650 [Transaction] port: 01 cmd: 0001 data_in_1: 47 data_in_2: 91 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000010110110 ,
+# T: 12650 [Checker] Comparing with Scoreboard reference:
+# T: 12650 [Transaction] port: 01 cmd: 0001 data_in_1: 47 data_in_2: 91 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000010001010 ,
+# [Checker]ERROR, data is 182 should be 138
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 12650 [Transaction] port: 00 cmd: 0101 data_in_1: 41 data_in_2: 73 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000001001000000000 ,
+# T: 12650 [Checker] Comparing with Scoreboard reference:
+# T: 12650 [Transaction] port: 00 cmd: 0101 data_in_1: 41 data_in_2: 73 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker]ERROR, data is 4608 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 12650 [Transaction] port: 11 cmd: 0101 data_in_1: 94 data_in_2: 11 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000101100000000000 ,
+# T: 12650 [Checker] Comparing with Scoreboard reference:
+# T: 12650 [Transaction] port: 11 cmd: 0101 data_in_1: 94 data_in_2: 11 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000101111000000000000 ,
+# [Checker]ERROR, data is 22528 should be 192512
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 12650 [Transaction] port: 10 cmd: 0001 data_in_1: 14 data_in_2: 97 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000011000010 ,
+# T: 12650 [Checker] Comparing with Scoreboard reference:
+# T: 12650 [Transaction] port: 10 cmd: 0001 data_in_1: 14 data_in_2: 97 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000001101111 ,
+# [Checker]ERROR, data is 194 should be 111
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 12650 [Transaction] port: 11 cmd: 0101 data_in_1: 94 data_in_2: 42 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 12650 [Checker] Comparing with Scoreboard reference:
+# T: 12650 [Transaction] port: 11 cmd: 0101 data_in_1: 94 data_in_2: 42 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 12650 [Transaction] port: 10 cmd: 0101 data_in_1: 86 data_in_2: 90 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 12650 [Checker] Comparing with Scoreboard reference:
+# T: 12650 [Transaction] port: 10 cmd: 0101 data_in_1: 86 data_in_2: 90 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 12650 [Transaction] port: 10 cmd: 0110 data_in_1: 92 data_in_2: 57 tag_in: 01 , resp: 10  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# T: 12650 [Checker] Comparing with Scoreboard reference:
+# T: 12650 [Transaction] port: 10 cmd: 0110 data_in_1: 92 data_in_2: 57 tag_in: 01 , resp: 01  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 12650 [Transaction] port: 11 cmd: 0001 data_in_1: 30 data_in_2: 89 tag_in: 01 , resp: 10  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# T: 12650 [Checker] Comparing with Scoreboard reference:
+# T: 12650 [Transaction] port: 11 cmd: 0001 data_in_1: 30 data_in_2: 89 tag_in: 01 , resp: 01  tag_out: 1 data_out: 00000000000000000000000001110111 ,
+# [Checker]ERROR, data is 0 should be 119
+# [Checker]ERROR, Resp is 2 should be 1
+# T: 12650 [Generator] Making Test # 110
+# T: 12650 [Transaction] port: 00 cmd: 0001 data_in_1: 24 data_in_2: 64 tag_in: 11
+# T: 12650 [Transaction] port: 01 cmd: 0101 data_in_1: 90 data_in_2: 38 tag_in: 11
+# T: 12650 [Transaction] port: 11 cmd: 0101 data_in_1: 6 data_in_2: 36 tag_in: 11
+# T: 12650 [Transaction] port: 11 cmd: 0101 data_in_1: 36 data_in_2: 77 tag_in: 10
+# T: 12650 [Transaction] port: 11 cmd: 0001 data_in_1: 38 data_in_2: 27 tag_in: 01
+# T: 12650 [Transaction] port: 11 cmd: 0101 data_in_1: 42 data_in_2: 75 tag_in: 00
+# T: 12650 [Driver] Driver Reseting DUT
+# [Scoreboard] cmd: 1 data1: 24 data2: 64
+# [Scoreboard] cmd: 5 data1: 90 data2: 38
+# [Scoreboard] cmd: 5 data1: 6 data2: 36
+# [Scoreboard] cmd: 5 data1: 36 data2: 77
+# [Scoreboard] cmd: 1 data1: 38 data2: 27
+# [Scoreboard] cmd: 5 data1: 42 data2: 75
+# T: 12650 [Checker] Recieved transaction from Scoreboard
+# T: 12650 [Transaction] port: 00 tag_out: 11
+# T: 12650 [Checker] Recieved transaction from Scoreboard
+# T: 12650 [Transaction] port: 01 tag_out: 11
+# T: 12650 [Checker] Recieved transaction from Scoreboard
+# T: 12650 [Transaction] port: 11 tag_out: 11
+# T: 12650 [Checker] Recieved transaction from Scoreboard
+# T: 12650 [Transaction] port: 11 tag_out: 10
+# T: 12650 [Checker] Recieved transaction from Scoreboard
+# T: 12650 [Transaction] port: 11 tag_out: 01
+# T: 12650 [Checker] Recieved transaction from Scoreboard
+# T: 12650 [Transaction] port: 11 tag_out: 00
+# T: 12650 [Monitor] watching port Two
+# T: 12650 [Monitor] watching port one
+# T: 13000 [Driver] receiving transaction from Generator
+# T: 13000 [Driver] port: 00 cmd: 0001 Data1: 24 Data2: 64 Tag: 11
+# T: 13000 [Driver] receiving transaction from Generator
+# T: 13000 [Driver] port: 01 cmd: 0101 Data1: 90 Data2: 38 Tag: 11
+# T: 13000 [Driver] receiving transaction from Generator
+# T: 13000 [Driver] port: 11 cmd: 0101 Data1: 6 Data2: 36 Tag: 11
+# T: 13000 [Driver] receiving transaction from Generator
+# T: 13000 [Driver] port: 11 cmd: 0101 Data1: 36 Data2: 77 Tag: 10
+# T: 13000 [Driver] receiving transaction from Generator
+# T: 13000 [Driver] port: 11 cmd: 0001 Data1: 38 Data2: 27 Tag: 01
+# T: 13000 [Driver] receiving transaction from Generator
+# T: 13000 [Driver] port: 11 cmd: 0101 Data1: 42 Data2: 75 Tag: 00
+# T: 13050 [Driver] Driving set of commands
+# T: 13050 [Monitor] seeing new transaction on port 4 with tag: 3
+# T: 13050 [Monitor] seeing new transaction on port Two with Tag : 3
+# T: 13050 [Monitor] seeing new transaction on port Tag total trans: 3
+# T: 13150 [Driver] LOOP
+# T: 13250 [Transaction] port: 11 cmd: 0101 data_in_1: 6 data_in_2: 36 tag_in: 11
+# T: 13250 [Transaction] port: 01 cmd: 0101 data_in_1: 90 data_in_2: 38 tag_in: 11
+# T: 13250 [Monitor] watching port Two
+# T: 13250 [Transaction] port: 00 cmd: 0001 data_in_1: 24 data_in_2: 64 tag_in: 11
+# T: 13250 [Monitor] watching port one
+# T: 13250 [Driver] Driving set of commands
+# T: 13250 [Monitor] seeing new transaction on port 4 with tag: 2
+# T: 13350 [Driver] LOOP
+# T: 13450 [Transaction] port: 11 cmd: 0101 data_in_1: 36 data_in_2: 77 tag_in: 10
+# T: 13450 [Monitor]Port Two Response Asserted 1
+# T: 13450 [Monitor] received response on port 2
+# T: 13450 [Monitor]Port One Response Asserted 1
+# T: 13450 [Driver] Driving set of commands
+# T: 13450 [Checker] Recieved transaction from Monitor
+# T: 13450 [Transaction] port: 01 tag_out: 11
+# T: 13450 [Checker] Recieved transaction from Monitor
+# T: 13450 [Transaction] port: 00 tag_out: 11
+# T: 13450 [Monitor] seeing new transaction on port 4 with tag: 1
+# T: 13550 [Monitor]Port Four Response Asserted 1
+# T: 13550 [Monitor] received response on port 4
+# T: 13550 [Driver] LOOP
+# T: 13550 [Checker] Recieved transaction from Monitor
+# T: 13550 [Transaction] port: 11 tag_out: 11
+# T: 13650 [Transaction] port: 11 cmd: 0001 data_in_1: 38 data_in_2: 27 tag_in: 01
+# T: 13650 [Monitor]Port Two Response Asserted 1
+# T: 13650 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 13650 [Driver] Driving set of commands
+# T: 13650 [Monitor] seeing new transaction on port 4 with tag: 0
+# T: 13750 [Monitor]Port Four Response Asserted 1
+# T: 13750 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 13750 [Driver] LOOP
+# T: 13850 [Transaction] port: 11 cmd: 0101 data_in_1: 42 data_in_2: 75 tag_in: 00
+# T: 13850 [Monitor]Port Four Response Asserted 2
+# T: 13850 [Monitor] received response on port 4
+# T: 13850 [Monitor]Port Two Response Asserted 1
+# T: 13850 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 13850 [Checker] Recieved transaction from Monitor
+# T: 13850 [Transaction] port: 11 tag_out: 10
+# T: 13950 [Monitor]Port Four Response Asserted 1
+# T: 13950 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 14050 [Monitor]Port Four Response Asserted 2
+# T: 14050 [Monitor] received response on port 4
+# T: 14050 [Monitor]Port Two Response Asserted 1
+# T: 14050 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 14050 [Checker] Recieved transaction from Monitor
+# T: 14050 [Transaction] port: 11 tag_out: 01
+# 
+# 
+# T: 14750 [Coverage] Current total coverage is 67.19
+# 
+# 
+# T: 14750 [Coverage] Port One:
+# T: 14750 [Coverage] CMD coverage is 100.00
+# T: 14750 [Coverage] TAG coverage is 100.00
+# T: 14750 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 14750 [Coverage] Port Two:
+# T: 14750 [Coverage] CMD coverage is 100.00
+# T: 14750 [Coverage] TAG coverage is 100.00
+# T: 14750 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 14750 [Coverage] Port Three:
+# T: 14750 [Coverage] CMD coverage is 100.00
+# T: 14750 [Coverage] TAG coverage is 100.00
+# T: 14750 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 14750 [Coverage] Port Four:
+# T: 14750 [Coverage] CMD coverage is 100.00
+# T: 14750 [Coverage] TAG coverage is 100.00
+# T: 14750 [Coverage] DATA coverage is 1.56
+# T: 14750 [Driver] Drive done asserted
+# 
+# 
+# T: 14750 [Monitor]Port One Commands not responded to: 
+# T: 14750 [Transaction] port: 11 cmd: 0101 data_in_1: 42 data_in_2: 75 tag_in: 00 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# [Checker] Transactions from scoreboard seen : 6 
+# [Checker] Transactions from monitor seen : 5 
+# [Checker] Running Comparison  : 5 
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 14750 [Transaction] port: 01 cmd: 0101 data_in_1: 90 data_in_2: 38 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000100110000000 ,
+# T: 14750 [Checker] Comparing with Scoreboard reference:
+# T: 14750 [Transaction] port: 01 cmd: 0101 data_in_1: 90 data_in_2: 38 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker]ERROR, data is 2432 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 14750 [Transaction] port: 00 cmd: 0001 data_in_1: 24 data_in_2: 64 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000010000000 ,
+# T: 14750 [Checker] Comparing with Scoreboard reference:
+# T: 14750 [Transaction] port: 00 cmd: 0001 data_in_1: 24 data_in_2: 64 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000001011000 ,
+# [Checker]ERROR, data is 128 should be 88
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 14750 [Transaction] port: 11 cmd: 0101 data_in_1: 6 data_in_2: 36 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000001001000000 ,
+# T: 14750 [Checker] Comparing with Scoreboard reference:
+# T: 14750 [Transaction] port: 11 cmd: 0101 data_in_1: 6 data_in_2: 36 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker]ERROR, data is 576 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 14750 [Transaction] port: 11 cmd: 0101 data_in_1: 36 data_in_2: 77 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 14750 [Checker] Comparing with Scoreboard reference:
+# T: 14750 [Transaction] port: 11 cmd: 0101 data_in_1: 36 data_in_2: 77 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 14750 [Transaction] port: 11 cmd: 0001 data_in_1: 38 data_in_2: 27 tag_in: 01 , resp: 10  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# T: 14750 [Checker] Comparing with Scoreboard reference:
+# T: 14750 [Transaction] port: 11 cmd: 0001 data_in_1: 38 data_in_2: 27 tag_in: 01 , resp: 01  tag_out: 1 data_out: 00000000000000000000000001000001 ,
+# [Checker]ERROR, data is 0 should be 65
+# [Checker]ERROR, Resp is 2 should be 1
+# T: 14750 [Generator] Making Test # 111
+# T: 14750 [Transaction] port: 00 cmd: 0110 data_in_1: 89 data_in_2: 78 tag_in: 11
+# T: 14750 [Transaction] port: 00 cmd: 0010 data_in_1: 47 data_in_2: 9 tag_in: 10
+# T: 14750 [Transaction] port: 00 cmd: 0001 data_in_1: 10 data_in_2: 40 tag_in: 01
+# T: 14750 [Transaction] port: 00 cmd: 0110 data_in_1: 26 data_in_2: 87 tag_in: 00
+# T: 14750 [Transaction] port: 01 cmd: 0101 data_in_1: 59 data_in_2: 91 tag_in: 11
+# T: 14750 [Transaction] port: 10 cmd: 0110 data_in_1: 36 data_in_2: 97 tag_in: 11
+# T: 14750 [Transaction] port: 10 cmd: 0001 data_in_1: 5 data_in_2: 96 tag_in: 10
+# T: 14750 [Transaction] port: 10 cmd: 0110 data_in_1: 72 data_in_2: 47 tag_in: 01
+# T: 14750 [Transaction] port: 11 cmd: 0010 data_in_1: 81 data_in_2: 60 tag_in: 11
+# T: 14750 [Transaction] port: 11 cmd: 0110 data_in_1: 41 data_in_2: 90 tag_in: 10
+# T: 14750 [Transaction] port: 11 cmd: 0110 data_in_1: 47 data_in_2: 26 tag_in: 01
+# T: 14750 [Transaction] port: 11 cmd: 0110 data_in_1: 13 data_in_2: 43 tag_in: 00
+# T: 14750 [Driver] Driver Reseting DUT
+# [Scoreboard] cmd: 6 data1: 89 data2: 78
+# [Scoreboard] cmd: 2 data1: 47 data2: 9
+# [Scoreboard] cmd: 1 data1: 10 data2: 40
+# [Scoreboard] cmd: 6 data1: 26 data2: 87
+# [Scoreboard] cmd: 5 data1: 59 data2: 91
+# [Scoreboard] cmd: 6 data1: 36 data2: 97
+# [Scoreboard] cmd: 1 data1: 5 data2: 96
+# [Scoreboard] cmd: 6 data1: 72 data2: 47
+# [Scoreboard] cmd: 2 data1: 81 data2: 60
+# [Scoreboard] cmd: 6 data1: 41 data2: 90
+# [Scoreboard] cmd: 6 data1: 47 data2: 26
+# [Scoreboard] cmd: 6 data1: 13 data2: 43
+# T: 14750 [Checker] Recieved transaction from Scoreboard
+# T: 14750 [Transaction] port: 00 tag_out: 11
+# T: 14750 [Checker] Recieved transaction from Scoreboard
+# T: 14750 [Transaction] port: 00 tag_out: 10
+# T: 14750 [Checker] Recieved transaction from Scoreboard
+# T: 14750 [Transaction] port: 00 tag_out: 01
+# T: 14750 [Checker] Recieved transaction from Scoreboard
+# T: 14750 [Transaction] port: 00 tag_out: 00
+# T: 14750 [Checker] Recieved transaction from Scoreboard
+# T: 14750 [Transaction] port: 01 tag_out: 11
+# T: 14750 [Checker] Recieved transaction from Scoreboard
+# T: 14750 [Transaction] port: 10 tag_out: 11
+# T: 14750 [Checker] Recieved transaction from Scoreboard
+# T: 14750 [Transaction] port: 10 tag_out: 10
+# T: 14750 [Checker] Recieved transaction from Scoreboard
+# T: 14750 [Transaction] port: 10 tag_out: 01
+# T: 14750 [Checker] Recieved transaction from Scoreboard
+# T: 14750 [Transaction] port: 11 tag_out: 11
+# T: 14750 [Checker] Recieved transaction from Scoreboard
+# T: 14750 [Transaction] port: 11 tag_out: 10
+# T: 14750 [Checker] Recieved transaction from Scoreboard
+# T: 14750 [Transaction] port: 11 tag_out: 01
+# T: 14750 [Checker] Recieved transaction from Scoreboard
+# T: 14750 [Transaction] port: 11 tag_out: 00
+# T: 14750 [Monitor] watching port Two
+# T: 14750 [Monitor] watching port one
+# T: 15100 [Driver] receiving transaction from Generator
+# T: 15100 [Driver] port: 00 cmd: 0110 Data1: 89 Data2: 78 Tag: 11
+# T: 15100 [Driver] receiving transaction from Generator
+# T: 15100 [Driver] port: 00 cmd: 0010 Data1: 47 Data2: 9 Tag: 10
+# T: 15100 [Driver] receiving transaction from Generator
+# T: 15100 [Driver] port: 00 cmd: 0001 Data1: 10 Data2: 40 Tag: 01
+# T: 15100 [Driver] receiving transaction from Generator
+# T: 15100 [Driver] port: 00 cmd: 0110 Data1: 26 Data2: 87 Tag: 00
+# T: 15100 [Driver] receiving transaction from Generator
+# T: 15100 [Driver] port: 01 cmd: 0101 Data1: 59 Data2: 91 Tag: 11
+# T: 15100 [Driver] receiving transaction from Generator
+# T: 15100 [Driver] port: 10 cmd: 0110 Data1: 36 Data2: 97 Tag: 11
+# T: 15100 [Driver] receiving transaction from Generator
+# T: 15100 [Driver] port: 10 cmd: 0001 Data1: 5 Data2: 96 Tag: 10
+# T: 15100 [Driver] receiving transaction from Generator
+# T: 15100 [Driver] port: 10 cmd: 0110 Data1: 72 Data2: 47 Tag: 01
+# T: 15100 [Driver] receiving transaction from Generator
+# T: 15100 [Driver] port: 11 cmd: 0010 Data1: 81 Data2: 60 Tag: 11
+# T: 15100 [Driver] receiving transaction from Generator
+# T: 15100 [Driver] port: 11 cmd: 0110 Data1: 41 Data2: 90 Tag: 10
+# T: 15100 [Driver] receiving transaction from Generator
+# T: 15100 [Driver] port: 11 cmd: 0110 Data1: 47 Data2: 26 Tag: 01
+# T: 15100 [Driver] receiving transaction from Generator
+# T: 15100 [Driver] port: 11 cmd: 0110 Data1: 13 Data2: 43 Tag: 00
+# T: 15150 [Driver] Driving set of commands
+# T: 15150 [Monitor] seeing new transaction on port 4 with tag: 3
+# T: 15150 [Monitor] seeing new transaction on port Two with Tag : 3
+# T: 15150 [Monitor] seeing new transaction on port Tag total trans: 3
+# T: 15250 [Driver] LOOP
+# T: 15350 [Transaction] port: 11 cmd: 0010 data_in_1: 81 data_in_2: 60 tag_in: 11
+# T: 15350 [Monitor] seeing new transaction on port R
+# T: 15350 [Transaction] port: 10 cmd: 0110 data_in_1: 36 data_in_2: 97 tag_in: 11
+# T: 15350 [Transaction] port: 01 cmd: 0101 data_in_1: 59 data_in_2: 91 tag_in: 11
+# T: 15350 [Monitor] watching port Two
+# T: 15350 [Transaction] port: 00 cmd: 0110 data_in_1: 89 data_in_2: 78 tag_in: 11
+# T: 15350 [Monitor] watching port one
+# T: 15350 [Driver] Driving set of commands
+# T: 15350 [Monitor] seeing new transaction on port 4 with tag: 2
+# T: 15350 [Monitor] seeing new transaction on port Tag total trans: 2
+# T: 15450 [Driver] LOOP
+# T: 15550 [Transaction] port: 11 cmd: 0110 data_in_1: 41 data_in_2: 90 tag_in: 10
+# T: 15550 [Monitor] seeing new transaction on port R
+# T: 15550 [Transaction] port: 10 cmd: 0001 data_in_1: 5 data_in_2: 96 tag_in: 10
+# T: 15550 [Transaction] port: 00 cmd: 0010 data_in_1: 47 data_in_2: 9 tag_in: 10
+# T: 15550 [Monitor] watching port one
+# T: 15550 [Monitor]Port Four Response Asserted 1
+# T: 15550 [Monitor] received response on port 4
+# T: 15550 [Monitor]Port One Response Asserted 1
+# T: 15550 [Driver] Driving set of commands
+# T: 15550 [Checker] Recieved transaction from Monitor
+# T: 15550 [Transaction] port: 11 tag_out: 11
+# T: 15550 [Checker] Recieved transaction from Monitor
+# T: 15550 [Transaction] port: 00 tag_out: 11
+# T: 15550 [Monitor] seeing new transaction on port 4 with tag: 1
+# T: 15550 [Monitor] seeing new transaction on port Tag total trans: 1
+# T: 15650 [Monitor]Port Two Response Asserted 1
+# T: 15650 [Monitor] received response on port 2
+# T: 15650 [Driver] LOOP
+# T: 15650 [Checker] Recieved transaction from Monitor
+# T: 15650 [Transaction] port: 01 tag_out: 11
+# T: 15750 [Transaction] port: 11 cmd: 0110 data_in_1: 47 data_in_2: 26 tag_in: 01
+# T: 15750 [Monitor] seeing new transaction on port R
+# T: 15750 [Transaction] port: 10 cmd: 0110 data_in_1: 72 data_in_2: 47 tag_in: 01
+# T: 15750 [Transaction] port: 00 cmd: 0001 data_in_1: 10 data_in_2: 40 tag_in: 01
+# T: 15750 [Monitor] watching port one
+# T: 15750 [Monitor]Port Three Response Asserted 1
+# T: 15750 [Monitor] received response on port 3
+# T: 15750 [Monitor]Port One Response Asserted 1
+# T: 15750 [Driver] Driving set of commands
+# T: 15750 [Checker] Recieved transaction from Monitor
+# T: 15750 [Transaction] port: 10 tag_out: 11
+# T: 15750 [Checker] Recieved transaction from Monitor
+# T: 15750 [Transaction] port: 00 tag_out: 10
+# T: 15750 [Monitor] seeing new transaction on port 4 with tag: 0
+# T: 15750 [Monitor] seeing new transaction on port Tag total trans: 0
+# T: 15850 [Monitor]Port Four Response Asserted 2
+# T: 15850 [Monitor] received response on port 4
+# T: 15850 [Driver] LOOP
+# T: 15850 [Checker] Recieved transaction from Monitor
+# T: 15850 [Transaction] port: 11 tag_out: 10
+# T: 15950 [Transaction] port: 11 cmd: 0110 data_in_1: 13 data_in_2: 43 tag_in: 00
+# T: 15950 [Transaction] port: 00 cmd: 0110 data_in_1: 26 data_in_2: 87 tag_in: 00
+# T: 15950 [Monitor] watching port one
+# T: 15950 [Monitor]Port Three Response Asserted 2
+# T: 15950 [Monitor] received response on port 3
+# T: 15950 [Monitor]Port Two Response Asserted 1
+# T: 15950 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 15950 [Monitor]Port One Response Asserted 2
+# T: 15950 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 15950 [Checker] Recieved transaction from Monitor
+# T: 15950 [Transaction] port: 10 tag_out: 10
+# T: 16050 [Monitor]Port Three Response Asserted 1
+# T: 16050 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 16150 [Monitor]Port Three Response Asserted 2
+# T: 16150 [Monitor] received response on port 3
+# T: 16150 [Monitor]Port Two Response Asserted 1
+# T: 16150 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 16150 [Checker] Recieved transaction from Monitor
+# T: 16150 [Transaction] port: 10 tag_out: 01
+# T: 16250 [Monitor]Port Four Response Asserted 1
+# T: 16250 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 16350 [Monitor]Port Four Response Asserted 2
+# T: 16350 [Monitor] received response on port 4
+# T: 16350 [Monitor]Port Two Response Asserted 1
+# T: 16350 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 16350 [Checker] Recieved transaction from Monitor
+# T: 16350 [Transaction] port: 11 tag_out: 00
+# T: 16550 [Monitor]Port One Response Asserted 1
+# T: 16550 [Checker] Recieved transaction from Monitor
+# T: 16550 [Transaction] port: 00 tag_out: 00
+# T: 16650 [Monitor]Port One Response Asserted 2
+# T: 16650 [Monitor]Port One: ERROR Response Recieved with No matching command
+# 
+# 
+# T: 16850 [Coverage] Current total coverage is 67.19
+# 
+# 
+# T: 16850 [Coverage] Port One:
+# T: 16850 [Coverage] CMD coverage is 100.00
+# T: 16850 [Coverage] TAG coverage is 100.00
+# T: 16850 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 16850 [Coverage] Port Two:
+# T: 16850 [Coverage] CMD coverage is 100.00
+# T: 16850 [Coverage] TAG coverage is 100.00
+# T: 16850 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 16850 [Coverage] Port Three:
+# T: 16850 [Coverage] CMD coverage is 100.00
+# T: 16850 [Coverage] TAG coverage is 100.00
+# T: 16850 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 16850 [Coverage] Port Four:
+# T: 16850 [Coverage] CMD coverage is 100.00
+# T: 16850 [Coverage] TAG coverage is 100.00
+# T: 16850 [Coverage] DATA coverage is 1.56
+# T: 16850 [Driver] Drive done asserted
+# 
+# 
+# T: 16850 [Monitor]Port One Commands not responded to: 
+# T: 16850 [Transaction] port: 00 cmd: 0001 data_in_1: 10 data_in_2: 40 tag_in: 01 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# T: 16850 [Monitor]Port One Commands not responded to: 
+# T: 16850 [Transaction] port: 11 cmd: 0110 data_in_1: 47 data_in_2: 26 tag_in: 01 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# [Checker] Transactions from scoreboard seen : 12 
+# [Checker] Transactions from monitor seen : 10 
+# [Checker] Running Comparison  : 10 
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 16850 [Transaction] port: 11 cmd: 0010 data_in_1: 81 data_in_2: 60 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# T: 16850 [Checker] Comparing with Scoreboard reference:
+# T: 16850 [Transaction] port: 11 cmd: 0010 data_in_1: 81 data_in_2: 60 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000010101 ,
+# [Checker]ERROR, data is 0 should be 21
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 16850 [Transaction] port: 00 cmd: 0110 data_in_1: 89 data_in_2: 78 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# T: 16850 [Checker] Comparing with Scoreboard reference:
+# T: 16850 [Transaction] port: 00 cmd: 0110 data_in_1: 89 data_in_2: 78 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 16850 [Transaction] port: 01 cmd: 0101 data_in_1: 59 data_in_2: 91 tag_in: 11 , resp: 01  tag_out: 3 data_out: 11011000000000000000000000000000 ,
+# T: 16850 [Checker] Comparing with Scoreboard reference:
+# T: 16850 [Transaction] port: 01 cmd: 0101 data_in_1: 59 data_in_2: 91 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker]ERROR, data is 3623878656 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 16850 [Transaction] port: 10 cmd: 0110 data_in_1: 36 data_in_2: 97 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000110000 ,
+# T: 16850 [Checker] Comparing with Scoreboard reference:
+# T: 16850 [Transaction] port: 10 cmd: 0110 data_in_1: 36 data_in_2: 97 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker]ERROR, data is 48 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 16850 [Transaction] port: 00 cmd: 0010 data_in_1: 47 data_in_2: 9 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 16850 [Checker] Comparing with Scoreboard reference:
+# T: 16850 [Transaction] port: 00 cmd: 0010 data_in_1: 47 data_in_2: 9 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000100110 ,
+# [Checker]ERROR, data is 0 should be 38
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 16850 [Transaction] port: 11 cmd: 0110 data_in_1: 41 data_in_2: 90 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 16850 [Checker] Comparing with Scoreboard reference:
+# T: 16850 [Transaction] port: 11 cmd: 0110 data_in_1: 41 data_in_2: 90 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 16850 [Transaction] port: 10 cmd: 0001 data_in_1: 5 data_in_2: 96 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 16850 [Checker] Comparing with Scoreboard reference:
+# T: 16850 [Transaction] port: 10 cmd: 0001 data_in_1: 5 data_in_2: 96 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000001100101 ,
+# [Checker]ERROR, data is 0 should be 101
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 16850 [Transaction] port: 10 cmd: 0110 data_in_1: 72 data_in_2: 47 tag_in: 01 , resp: 10  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# T: 16850 [Checker] Comparing with Scoreboard reference:
+# T: 16850 [Transaction] port: 10 cmd: 0110 data_in_1: 72 data_in_2: 47 tag_in: 01 , resp: 01  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 16850 [Transaction] port: 11 cmd: 0110 data_in_1: 13 data_in_2: 43 tag_in: 00 , resp: 10  tag_out: 0 data_out: 00000000000000000000000000000000 ,
+# T: 16850 [Checker] Comparing with Scoreboard reference:
+# T: 16850 [Transaction] port: 11 cmd: 0110 data_in_1: 13 data_in_2: 43 tag_in: 00 , resp: 01  tag_out: 0 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 16850 [Transaction] port: 00 cmd: 0110 data_in_1: 26 data_in_2: 87 tag_in: 00 , resp: 01  tag_out: 0 data_out: 00000000000000000000000000000000 ,
+# T: 16850 [Checker] Comparing with Scoreboard reference:
+# T: 16850 [Transaction] port: 00 cmd: 0110 data_in_1: 26 data_in_2: 87 tag_in: 00 , resp: 01  tag_out: 0 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# T: 16850 [Generator] Making Test # 1000
+# T: 16850 [Transaction] port: 00 cmd: 0110 data_in_1: 74 data_in_2: 86 tag_in: 11
+# T: 16850 [Transaction] port: 00 cmd: 0010 data_in_1: 33 data_in_2: 86 tag_in: 10
+# T: 16850 [Transaction] port: 00 cmd: 0110 data_in_1: 44 data_in_2: 9 tag_in: 01
+# T: 16850 [Transaction] port: 00 cmd: 0001 data_in_1: 73 data_in_2: 42 tag_in: 00
+# T: 16850 [Transaction] port: 01 cmd: 0101 data_in_1: 15 data_in_2: 83 tag_in: 11
+# T: 16850 [Transaction] port: 01 cmd: 0010 data_in_1: 37 data_in_2: 15 tag_in: 10
+# T: 16850 [Transaction] port: 01 cmd: 0101 data_in_1: 93 data_in_2: 94 tag_in: 01
+# T: 16850 [Transaction] port: 01 cmd: 0101 data_in_1: 15 data_in_2: 11 tag_in: 00
+# T: 16850 [Transaction] port: 10 cmd: 0010 data_in_1: 21 data_in_2: 26 tag_in: 11
+# T: 16850 [Transaction] port: 10 cmd: 0001 data_in_1: 88 data_in_2: 20 tag_in: 10
+# T: 16850 [Transaction] port: 10 cmd: 0110 data_in_1: 99 data_in_2: 11 tag_in: 01
+# T: 16850 [Transaction] port: 10 cmd: 0101 data_in_1: 43 data_in_2: 85 tag_in: 00
+# T: 16850 [Driver] Driver Reseting DUT
+# [Scoreboard] cmd: 6 data1: 74 data2: 86
+# [Scoreboard] cmd: 2 data1: 33 data2: 86
+# [Scoreboard] cmd: 6 data1: 44 data2: 9
+# [Scoreboard] cmd: 1 data1: 73 data2: 42
+# [Scoreboard] cmd: 5 data1: 15 data2: 83
+# [Scoreboard] cmd: 2 data1: 37 data2: 15
+# [Scoreboard] cmd: 5 data1: 93 data2: 94
+# [Scoreboard] cmd: 5 data1: 15 data2: 11
+# [Scoreboard] cmd: 2 data1: 21 data2: 26
+# [Scoreboard] cmd: 1 data1: 88 data2: 20
+# [Scoreboard] cmd: 6 data1: 99 data2: 11
+# [Scoreboard] cmd: 5 data1: 43 data2: 85
+# T: 16850 [Checker] Recieved transaction from Scoreboard
+# T: 16850 [Transaction] port: 00 tag_out: 11
+# T: 16850 [Checker] Recieved transaction from Scoreboard
+# T: 16850 [Transaction] port: 00 tag_out: 10
+# T: 16850 [Checker] Recieved transaction from Scoreboard
+# T: 16850 [Transaction] port: 00 tag_out: 01
+# T: 16850 [Checker] Recieved transaction from Scoreboard
+# T: 16850 [Transaction] port: 00 tag_out: 00
+# T: 16850 [Checker] Recieved transaction from Scoreboard
+# T: 16850 [Transaction] port: 01 tag_out: 11
+# T: 16850 [Checker] Recieved transaction from Scoreboard
+# T: 16850 [Transaction] port: 01 tag_out: 10
+# T: 16850 [Checker] Recieved transaction from Scoreboard
+# T: 16850 [Transaction] port: 01 tag_out: 01
+# T: 16850 [Checker] Recieved transaction from Scoreboard
+# T: 16850 [Transaction] port: 01 tag_out: 00
+# T: 16850 [Checker] Recieved transaction from Scoreboard
+# T: 16850 [Transaction] port: 10 tag_out: 11
+# T: 16850 [Checker] Recieved transaction from Scoreboard
+# T: 16850 [Transaction] port: 10 tag_out: 10
+# T: 16850 [Checker] Recieved transaction from Scoreboard
+# T: 16850 [Transaction] port: 10 tag_out: 01
+# T: 16850 [Checker] Recieved transaction from Scoreboard
+# T: 16850 [Transaction] port: 10 tag_out: 00
+# T: 16850 [Monitor] watching port Two
+# T: 17200 [Driver] receiving transaction from Generator
+# T: 17200 [Driver] port: 00 cmd: 0110 Data1: 74 Data2: 86 Tag: 11
+# T: 17200 [Driver] receiving transaction from Generator
+# T: 17200 [Driver] port: 00 cmd: 0010 Data1: 33 Data2: 86 Tag: 10
+# T: 17200 [Driver] receiving transaction from Generator
+# T: 17200 [Driver] port: 00 cmd: 0110 Data1: 44 Data2: 9 Tag: 01
+# T: 17200 [Driver] receiving transaction from Generator
+# T: 17200 [Driver] port: 00 cmd: 0001 Data1: 73 Data2: 42 Tag: 00
+# T: 17200 [Driver] receiving transaction from Generator
+# T: 17200 [Driver] port: 01 cmd: 0101 Data1: 15 Data2: 83 Tag: 11
+# T: 17200 [Driver] receiving transaction from Generator
+# T: 17200 [Driver] port: 01 cmd: 0010 Data1: 37 Data2: 15 Tag: 10
+# T: 17200 [Driver] receiving transaction from Generator
+# T: 17200 [Driver] port: 01 cmd: 0101 Data1: 93 Data2: 94 Tag: 01
+# T: 17200 [Driver] receiving transaction from Generator
+# T: 17200 [Driver] port: 01 cmd: 0101 Data1: 15 Data2: 11 Tag: 00
+# T: 17200 [Driver] receiving transaction from Generator
+# T: 17200 [Driver] port: 10 cmd: 0010 Data1: 21 Data2: 26 Tag: 11
+# T: 17200 [Driver] receiving transaction from Generator
+# T: 17200 [Driver] port: 10 cmd: 0001 Data1: 88 Data2: 20 Tag: 10
+# T: 17200 [Driver] receiving transaction from Generator
+# T: 17200 [Driver] port: 10 cmd: 0110 Data1: 99 Data2: 11 Tag: 01
+# T: 17200 [Driver] receiving transaction from Generator
+# T: 17200 [Driver] port: 10 cmd: 0101 Data1: 43 Data2: 85 Tag: 00
+# T: 17250 [Driver] Driving set of commands
+# T: 17250 [Monitor] seeing new transaction on port Two with Tag : 3
+# T: 17250 [Monitor] seeing new transaction on port Tag total trans: 3
+# T: 17350 [Driver] LOOP
+# T: 17450 [Monitor] seeing new transaction on port R
+# T: 17450 [Transaction] port: 10 cmd: 0010 data_in_1: 21 data_in_2: 26 tag_in: 11
+# T: 17450 [Transaction] port: 01 cmd: 0101 data_in_1: 15 data_in_2: 83 tag_in: 11
+# T: 17450 [Monitor] watching port Two
+# T: 17450 [Transaction] port: 00 cmd: 0110 data_in_1: 74 data_in_2: 86 tag_in: 11
+# T: 17450 [Monitor] watching port one
+# T: 17450 [Driver] Driving set of commands
+# T: 17450 [Monitor] seeing new transaction on port Two with Tag : 2
+# T: 17450 [Monitor] seeing new transaction on port Tag total trans: 2
+# T: 17550 [Driver] LOOP
+# T: 17650 [Monitor] seeing new transaction on port R
+# T: 17650 [Transaction] port: 10 cmd: 0001 data_in_1: 88 data_in_2: 20 tag_in: 10
+# T: 17650 [Transaction] port: 01 cmd: 0010 data_in_1: 37 data_in_2: 15 tag_in: 10
+# T: 17650 [Monitor] watching port Two
+# T: 17650 [Transaction] port: 00 cmd: 0010 data_in_1: 33 data_in_2: 86 tag_in: 10
+# T: 17650 [Monitor] watching port one
+# T: 17650 [Monitor]Port Three Response Asserted 1
+# T: 17650 [Monitor] received response on port 3
+# T: 17650 [Monitor]Port One Response Asserted 1
+# T: 17650 [Driver] Driving set of commands
+# T: 17650 [Checker] Recieved transaction from Monitor
+# T: 17650 [Transaction] port: 10 tag_out: 11
+# T: 17650 [Checker] Recieved transaction from Monitor
+# T: 17650 [Transaction] port: 00 tag_out: 11
+# T: 17650 [Monitor] seeing new transaction on port Two with Tag : 1
+# T: 17650 [Monitor] seeing new transaction on port Tag total trans: 1
+# T: 17750 [Monitor]Port Two Response Asserted 1
+# T: 17750 [Monitor] received response on port 2
+# T: 17750 [Driver] LOOP
+# T: 17750 [Checker] Recieved transaction from Monitor
+# T: 17750 [Transaction] port: 01 tag_out: 11
+# T: 17850 [Monitor] seeing new transaction on port R
+# T: 17850 [Transaction] port: 10 cmd: 0110 data_in_1: 99 data_in_2: 11 tag_in: 01
+# T: 17850 [Transaction] port: 01 cmd: 0101 data_in_1: 93 data_in_2: 94 tag_in: 01
+# T: 17850 [Monitor] watching port Two
+# T: 17850 [Transaction] port: 00 cmd: 0110 data_in_1: 44 data_in_2: 9 tag_in: 01
+# T: 17850 [Monitor] watching port one
+# T: 17850 [Monitor]Port One Response Asserted 1
+# T: 17850 [Driver] Driving set of commands
+# T: 17850 [Checker] Recieved transaction from Monitor
+# T: 17850 [Transaction] port: 00 tag_out: 10
+# T: 17850 [Monitor] seeing new transaction on port Two with Tag : 0
+# T: 17850 [Monitor] seeing new transaction on port Tag total trans: 0
+# T: 17950 [Monitor]Port Three Response Asserted 2
+# T: 17950 [Monitor] received response on port 3
+# T: 17950 [Monitor]Port Two Response Asserted 1
+# T: 17950 [Monitor] received response on port 2
+# T: 17950 [Monitor]Port One Response Asserted 2
+# T: 17950 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 17950 [Driver] LOOP
+# T: 17950 [Checker] Recieved transaction from Monitor
+# T: 17950 [Transaction] port: 10 tag_out: 10
+# T: 17950 [Checker] Recieved transaction from Monitor
+# T: 17950 [Transaction] port: 01 tag_out: 10
+# T: 18050 [Monitor] seeing new transaction on port R
+# T: 18050 [Transaction] port: 10 cmd: 0101 data_in_1: 43 data_in_2: 85 tag_in: 00
+# T: 18050 [Transaction] port: 01 cmd: 0101 data_in_1: 15 data_in_2: 11 tag_in: 00
+# T: 18050 [Monitor] watching port Two
+# T: 18050 [Transaction] port: 00 cmd: 0001 data_in_1: 73 data_in_2: 42 tag_in: 00
+# T: 18050 [Monitor] watching port one
+# T: 18050 [Monitor]Port Three Response Asserted 1
+# T: 18050 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 18050 [Monitor]Port Two Response Asserted 2
+# T: 18050 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 18150 [Monitor]Port Three Response Asserted 2
+# T: 18150 [Monitor] received response on port 3
+# T: 18150 [Checker] Recieved transaction from Monitor
+# T: 18150 [Transaction] port: 10 tag_out: 01
+# T: 18650 [Monitor]Port One Response Asserted 1
+# T: 18650 [Checker] Recieved transaction from Monitor
+# T: 18650 [Transaction] port: 00 tag_out: 00
+# T: 18750 [Monitor]Port One Response Asserted 2
+# T: 18750 [Monitor]Port One: ERROR Response Recieved with No matching command
+# 
+# 
+# T: 18950 [Coverage] Current total coverage is 67.19
+# 
+# 
+# T: 18950 [Coverage] Port One:
+# T: 18950 [Coverage] CMD coverage is 100.00
+# T: 18950 [Coverage] TAG coverage is 100.00
+# T: 18950 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 18950 [Coverage] Port Two:
+# T: 18950 [Coverage] CMD coverage is 100.00
+# T: 18950 [Coverage] TAG coverage is 100.00
+# T: 18950 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 18950 [Coverage] Port Three:
+# T: 18950 [Coverage] CMD coverage is 100.00
+# T: 18950 [Coverage] TAG coverage is 100.00
+# T: 18950 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 18950 [Coverage] Port Four:
+# T: 18950 [Coverage] CMD coverage is 100.00
+# T: 18950 [Coverage] TAG coverage is 100.00
+# T: 18950 [Coverage] DATA coverage is 1.56
+# T: 18950 [Driver] Drive done asserted
+# 
+# 
+# T: 18950 [Monitor]Port One Commands not responded to: 
+# T: 18950 [Transaction] port: 00 cmd: 0110 data_in_1: 44 data_in_2: 9 tag_in: 01 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# T: 18950 [Monitor]Port Two Commands not responded to: 
+# T: 18950 [Transaction] port: 01 cmd: 0101 data_in_1: 15 data_in_2: 11 tag_in: 00 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# T: 18950 [Transaction] port: 01 cmd: 0101 data_in_1: 93 data_in_2: 94 tag_in: 01 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# T: 18950 [Monitor]Port Three Commands not responded to: 
+# T: 18950 [Transaction] port: 10 cmd: 0101 data_in_1: 43 data_in_2: 85 tag_in: 00 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# [Checker] Transactions from scoreboard seen : 12 
+# [Checker] Transactions from monitor seen : 8 
+# [Checker] Running Comparison  : 8 
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 18950 [Transaction] port: 10 cmd: 0010 data_in_1: 21 data_in_2: 26 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# T: 18950 [Checker] Comparing with Scoreboard reference:
+# T: 18950 [Transaction] port: 10 cmd: 0010 data_in_1: 21 data_in_2: 26 tag_in: 11 , resp: 10  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 1 should be 2
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 18950 [Transaction] port: 00 cmd: 0110 data_in_1: 74 data_in_2: 86 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# T: 18950 [Checker] Comparing with Scoreboard reference:
+# T: 18950 [Transaction] port: 00 cmd: 0110 data_in_1: 74 data_in_2: 86 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 18950 [Transaction] port: 01 cmd: 0101 data_in_1: 15 data_in_2: 83 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000010100110000000000000000000 ,
+# T: 18950 [Checker] Comparing with Scoreboard reference:
+# T: 18950 [Transaction] port: 01 cmd: 0101 data_in_1: 15 data_in_2: 83 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker]ERROR, data is 43515904 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 18950 [Transaction] port: 00 cmd: 0010 data_in_1: 33 data_in_2: 86 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000010000 ,
+# T: 18950 [Checker] Comparing with Scoreboard reference:
+# T: 18950 [Transaction] port: 00 cmd: 0010 data_in_1: 33 data_in_2: 86 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker]ERROR, data is 16 should be 0
+# [Checker]ERROR, Resp is 1 should be 2
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 18950 [Transaction] port: 10 cmd: 0001 data_in_1: 88 data_in_2: 20 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 18950 [Checker] Comparing with Scoreboard reference:
+# T: 18950 [Transaction] port: 10 cmd: 0001 data_in_1: 88 data_in_2: 20 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000001101100 ,
+# [Checker]ERROR, data is 0 should be 108
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 18950 [Transaction] port: 01 cmd: 0010 data_in_1: 37 data_in_2: 15 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000010010100000 ,
+# T: 18950 [Checker] Comparing with Scoreboard reference:
+# T: 18950 [Transaction] port: 01 cmd: 0010 data_in_1: 37 data_in_2: 15 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000010110 ,
+# [Checker]ERROR, data is 1184 should be 22
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 18950 [Transaction] port: 10 cmd: 0110 data_in_1: 99 data_in_2: 11 tag_in: 01 , resp: 10  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# T: 18950 [Checker] Comparing with Scoreboard reference:
+# T: 18950 [Transaction] port: 10 cmd: 0110 data_in_1: 99 data_in_2: 11 tag_in: 01 , resp: 01  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 18950 [Transaction] port: 00 cmd: 0001 data_in_1: 73 data_in_2: 42 tag_in: 00 , resp: 01  tag_out: 0 data_out: 00000000000000000000000000000000 ,
+# T: 18950 [Checker] Comparing with Scoreboard reference:
+# T: 18950 [Transaction] port: 00 cmd: 0001 data_in_1: 73 data_in_2: 42 tag_in: 00 , resp: 01  tag_out: 0 data_out: 00000000000000000000000001110011 ,
+# [Checker]ERROR, data is 0 should be 115
+# [Checker]CORRECT, Resp is 1 should be 1
+# T: 18950 [Generator] Making Test # 1001
+# T: 18950 [Transaction] port: 00 cmd: 0001 data_in_1: 24 data_in_2: 41 tag_in: 11
+# T: 18950 [Transaction] port: 00 cmd: 0010 data_in_1: 21 data_in_2: 48 tag_in: 10
+# T: 18950 [Transaction] port: 01 cmd: 0110 data_in_1: 69 data_in_2: 79 tag_in: 11
+# T: 18950 [Transaction] port: 01 cmd: 0001 data_in_1: 92 data_in_2: 64 tag_in: 10
+# T: 18950 [Transaction] port: 01 cmd: 0110 data_in_1: 47 data_in_2: 59 tag_in: 01
+# T: 18950 [Transaction] port: 10 cmd: 0110 data_in_1: 76 data_in_2: 71 tag_in: 11
+# T: 18950 [Transaction] port: 10 cmd: 0101 data_in_1: 71 data_in_2: 42 tag_in: 10
+# T: 18950 [Transaction] port: 10 cmd: 0010 data_in_1: 4 data_in_2: 67 tag_in: 01
+# T: 18950 [Transaction] port: 11 cmd: 0001 data_in_1: 13 data_in_2: 39 tag_in: 11
+# T: 18950 [Driver] Driver Reseting DUT
+# [Scoreboard] cmd: 1 data1: 24 data2: 41
+# [Scoreboard] cmd: 2 data1: 21 data2: 48
+# [Scoreboard] cmd: 6 data1: 69 data2: 79
+# [Scoreboard] cmd: 1 data1: 92 data2: 64
+# [Scoreboard] cmd: 6 data1: 47 data2: 59
+# [Scoreboard] cmd: 6 data1: 76 data2: 71
+# [Scoreboard] cmd: 5 data1: 71 data2: 42
+# [Scoreboard] cmd: 2 data1: 4 data2: 67
+# [Scoreboard] cmd: 1 data1: 13 data2: 39
+# T: 18950 [Checker] Recieved transaction from Scoreboard
+# T: 18950 [Transaction] port: 00 tag_out: 11
+# T: 18950 [Checker] Recieved transaction from Scoreboard
+# T: 18950 [Transaction] port: 00 tag_out: 10
+# T: 18950 [Checker] Recieved transaction from Scoreboard
+# T: 18950 [Transaction] port: 01 tag_out: 11
+# T: 18950 [Checker] Recieved transaction from Scoreboard
+# T: 18950 [Transaction] port: 01 tag_out: 10
+# T: 18950 [Checker] Recieved transaction from Scoreboard
+# T: 18950 [Transaction] port: 01 tag_out: 01
+# T: 18950 [Checker] Recieved transaction from Scoreboard
+# T: 18950 [Transaction] port: 10 tag_out: 11
+# T: 18950 [Checker] Recieved transaction from Scoreboard
+# T: 18950 [Transaction] port: 10 tag_out: 10
+# T: 18950 [Checker] Recieved transaction from Scoreboard
+# T: 18950 [Transaction] port: 10 tag_out: 01
+# T: 18950 [Checker] Recieved transaction from Scoreboard
+# T: 18950 [Transaction] port: 11 tag_out: 11
+# T: 19300 [Driver] receiving transaction from Generator
+# T: 19300 [Driver] port: 00 cmd: 0001 Data1: 24 Data2: 41 Tag: 11
+# T: 19300 [Driver] receiving transaction from Generator
+# T: 19300 [Driver] port: 00 cmd: 0010 Data1: 21 Data2: 48 Tag: 10
+# T: 19300 [Driver] receiving transaction from Generator
+# T: 19300 [Driver] port: 01 cmd: 0110 Data1: 69 Data2: 79 Tag: 11
+# T: 19300 [Driver] receiving transaction from Generator
+# T: 19300 [Driver] port: 01 cmd: 0001 Data1: 92 Data2: 64 Tag: 10
+# T: 19300 [Driver] receiving transaction from Generator
+# T: 19300 [Driver] port: 01 cmd: 0110 Data1: 47 Data2: 59 Tag: 01
+# T: 19300 [Driver] receiving transaction from Generator
+# T: 19300 [Driver] port: 10 cmd: 0110 Data1: 76 Data2: 71 Tag: 11
+# T: 19300 [Driver] receiving transaction from Generator
+# T: 19300 [Driver] port: 10 cmd: 0101 Data1: 71 Data2: 42 Tag: 10
+# T: 19300 [Driver] receiving transaction from Generator
+# T: 19300 [Driver] port: 10 cmd: 0010 Data1: 4 Data2: 67 Tag: 01
+# T: 19300 [Driver] receiving transaction from Generator
+# T: 19300 [Driver] port: 11 cmd: 0001 Data1: 13 Data2: 39 Tag: 11
+# T: 19350 [Driver] Driving set of commands
+# T: 19350 [Monitor] seeing new transaction on port 4 with tag: 3
+# T: 19350 [Monitor] seeing new transaction on port Two with Tag : 3
+# T: 19350 [Monitor] seeing new transaction on port Tag total trans: 3
+# T: 19450 [Driver] LOOP
+# T: 19550 [Transaction] port: 11 cmd: 0001 data_in_1: 13 data_in_2: 39 tag_in: 11
+# T: 19550 [Monitor] seeing new transaction on port R
+# T: 19550 [Transaction] port: 10 cmd: 0110 data_in_1: 76 data_in_2: 71 tag_in: 11
+# T: 19550 [Transaction] port: 01 cmd: 0110 data_in_1: 69 data_in_2: 79 tag_in: 11
+# T: 19550 [Monitor] watching port Two
+# T: 19550 [Transaction] port: 00 cmd: 0001 data_in_1: 24 data_in_2: 41 tag_in: 11
+# T: 19550 [Monitor] watching port one
+# T: 19550 [Driver] Driving set of commands
+# T: 19550 [Monitor] seeing new transaction on port Two with Tag : 2
+# T: 19550 [Monitor] seeing new transaction on port Tag total trans: 2
+# T: 19650 [Driver] LOOP
+# T: 19750 [Monitor] seeing new transaction on port R
+# T: 19750 [Transaction] port: 10 cmd: 0101 data_in_1: 71 data_in_2: 42 tag_in: 10
+# T: 19750 [Transaction] port: 01 cmd: 0001 data_in_1: 92 data_in_2: 64 tag_in: 10
+# T: 19750 [Monitor] watching port Two
+# T: 19750 [Transaction] port: 00 cmd: 0010 data_in_1: 21 data_in_2: 48 tag_in: 10
+# T: 19750 [Monitor] watching port one
+# T: 19750 [Monitor]Port Two Response Asserted 1
+# T: 19750 [Monitor] received response on port 2
+# T: 19750 [Monitor]Port One Response Asserted 1
+# T: 19750 [Driver] Driving set of commands
+# T: 19750 [Checker] Recieved transaction from Monitor
+# T: 19750 [Transaction] port: 01 tag_out: 11
+# T: 19750 [Checker] Recieved transaction from Monitor
+# T: 19750 [Transaction] port: 00 tag_out: 11
+# T: 19750 [Monitor] seeing new transaction on port Two with Tag : 1
+# T: 19850 [Monitor]Port Four Response Asserted 1
+# T: 19850 [Monitor] received response on port 4
+# T: 19850 [Monitor]Port Three Response Asserted 1
+# T: 19850 [Monitor] received response on port 3
+# T: 19850 [Driver] LOOP
+# T: 19850 [Checker] Recieved transaction from Monitor
+# T: 19850 [Transaction] port: 11 tag_out: 11
+# T: 19850 [Checker] Recieved transaction from Monitor
+# T: 19850 [Transaction] port: 10 tag_out: 11
+# T: 19950 [Monitor] seeing new transaction on port R
+# T: 19950 [Transaction] port: 10 cmd: 0010 data_in_1: 4 data_in_2: 67 tag_in: 01
+# T: 19950 [Transaction] port: 01 cmd: 0110 data_in_1: 47 data_in_2: 59 tag_in: 01
+# T: 19950 [Monitor] watching port Two
+# T: 19950 [Monitor]Port Two Response Asserted 1
+# T: 19950 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 19950 [Monitor]Port One Response Asserted 1
+# T: 19950 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 19950 [Driver] Driving set of commands
+# T: 20050 [Monitor]Port Four Response Asserted 1
+# T: 20050 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 20050 [Monitor]Port Three Response Asserted 1
+# T: 20050 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 20050 [Monitor]Port Two Response Asserted 2
+# T: 20050 [Monitor] received response on port 2
+# T: 20050 [Monitor]Port One Response Asserted 2
+# T: 20050 [Driver] LOOP
+# T: 20050 [Checker] Recieved transaction from Monitor
+# T: 20050 [Transaction] port: 01 tag_out: 10
+# T: 20050 [Checker] Recieved transaction from Monitor
+# T: 20050 [Transaction] port: 00 tag_out: 10
+# T: 20150 [Monitor]Port One Response Asserted 1
+# T: 20150 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 20250 [Monitor]Port Three Response Asserted 2
+# T: 20250 [Monitor] received response on port 3
+# T: 20250 [Monitor]Port Two Response Asserted 1
+# T: 20250 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 20250 [Monitor]Port One Response Asserted 2
+# T: 20250 [Monitor]Port One: ERROR Response Recieved with No matching command
+# T: 20250 [Checker] Recieved transaction from Monitor
+# T: 20250 [Transaction] port: 10 tag_out: 10
+# T: 20350 [Monitor]Port Four Response Asserted 1
+# T: 20350 [Monitor]Port Two: ERROR Response Recieved with No matching command
+# T: 20350 [Monitor]Port Two Response Asserted 2
+# T: 20350 [Monitor] received response on port 2
+# T: 20350 [Checker] Recieved transaction from Monitor
+# T: 20350 [Transaction] port: 01 tag_out: 01
+# 
+# 
+# T: 21050 [Coverage] Current total coverage is 67.19
+# 
+# 
+# T: 21050 [Coverage] Port One:
+# T: 21050 [Coverage] CMD coverage is 100.00
+# T: 21050 [Coverage] TAG coverage is 100.00
+# T: 21050 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 21050 [Coverage] Port Two:
+# T: 21050 [Coverage] CMD coverage is 100.00
+# T: 21050 [Coverage] TAG coverage is 100.00
+# T: 21050 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 21050 [Coverage] Port Three:
+# T: 21050 [Coverage] CMD coverage is 100.00
+# T: 21050 [Coverage] TAG coverage is 100.00
+# T: 21050 [Coverage] DATA coverage is 1.56
+# 
+# 
+# T: 21050 [Coverage] Port Four:
+# T: 21050 [Coverage] CMD coverage is 100.00
+# T: 21050 [Coverage] TAG coverage is 100.00
+# T: 21050 [Coverage] DATA coverage is 1.56
+# T: 21050 [Driver] Drive done asserted
+# 
+# 
+# T: 21050 [Monitor]Port Three Commands not responded to: 
+# T: 21050 [Transaction] port: 10 cmd: 0010 data_in_1: 4 data_in_2: 67 tag_in: 01 , resp: xx  tag_out: x data_out: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ,
+# [Checker] Transactions from scoreboard seen : 9 
+# [Checker] Transactions from monitor seen : 8 
+# [Checker] Running Comparison  : 8 
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 21050 [Transaction] port: 01 cmd: 0110 data_in_1: 69 data_in_2: 79 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# T: 21050 [Checker] Comparing with Scoreboard reference:
+# T: 21050 [Transaction] port: 01 cmd: 0110 data_in_1: 69 data_in_2: 79 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 21050 [Transaction] port: 00 cmd: 0001 data_in_1: 24 data_in_2: 41 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000001010010 ,
+# T: 21050 [Checker] Comparing with Scoreboard reference:
+# T: 21050 [Transaction] port: 00 cmd: 0001 data_in_1: 24 data_in_2: 41 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000001000001 ,
+# [Checker]ERROR, data is 82 should be 65
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 21050 [Transaction] port: 11 cmd: 0001 data_in_1: 13 data_in_2: 39 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000001001110 ,
+# T: 21050 [Checker] Comparing with Scoreboard reference:
+# T: 21050 [Transaction] port: 11 cmd: 0001 data_in_1: 13 data_in_2: 39 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000110100 ,
+# [Checker]ERROR, data is 78 should be 52
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 21050 [Transaction] port: 10 cmd: 0110 data_in_1: 76 data_in_2: 71 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# T: 21050 [Checker] Comparing with Scoreboard reference:
+# T: 21050 [Transaction] port: 10 cmd: 0110 data_in_1: 76 data_in_2: 71 tag_in: 11 , resp: 01  tag_out: 3 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]CORRECT, Resp is 1 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 21050 [Transaction] port: 01 cmd: 0001 data_in_1: 92 data_in_2: 64 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 21050 [Checker] Comparing with Scoreboard reference:
+# T: 21050 [Transaction] port: 01 cmd: 0001 data_in_1: 92 data_in_2: 64 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000010011100 ,
+# [Checker]ERROR, data is 0 should be 156
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 21050 [Transaction] port: 00 cmd: 0010 data_in_1: 21 data_in_2: 48 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 21050 [Checker] Comparing with Scoreboard reference:
+# T: 21050 [Transaction] port: 00 cmd: 0010 data_in_1: 21 data_in_2: 48 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]CORRECT, Resp is 2 should be 2
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 21050 [Transaction] port: 10 cmd: 0101 data_in_1: 71 data_in_2: 42 tag_in: 10 , resp: 10  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# T: 21050 [Checker] Comparing with Scoreboard reference:
+# T: 21050 [Transaction] port: 10 cmd: 0101 data_in_1: 71 data_in_2: 42 tag_in: 10 , resp: 01  tag_out: 2 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# 
+# 
+# [Checker] Monitor Transaction recieved:
+# T: 21050 [Transaction] port: 01 cmd: 0110 data_in_1: 47 data_in_2: 59 tag_in: 01 , resp: 10  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# T: 21050 [Checker] Comparing with Scoreboard reference:
+# T: 21050 [Transaction] port: 01 cmd: 0110 data_in_1: 47 data_in_2: 59 tag_in: 01 , resp: 01  tag_out: 1 data_out: 00000000000000000000000000000000 ,
+# [Checker] CORRECT,data is 0 should be 0
+# [Checker]ERROR, Resp is 2 should be 1
+# T: 21050 [Generator] Test finished
+# ** Note: $finish    : classPackage.sv(1024)
+#    Time: 21050 ns  Iteration: 2  Region: /Top/TEST/environment::run

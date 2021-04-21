@@ -1,0 +1,115 @@
+/nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/alu_input_stage.v {1 {vlog -work work -vopt /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/alu_input_stage.v
+QuestaSim-64 vlog 10.1e Compiler 2013.06 Jun 11 2013
+-- Compiling module alu_input_stage
+
+Top level modules:
+	alu_input_stage
+
+} {} {}} /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/alu_output_stage.v {1 {vlog -work work -vopt /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/alu_output_stage.v
+QuestaSim-64 vlog 10.1e Compiler 2013.06 Jun 11 2013
+-- Compiling module alu_output_stage
+
+Top level modules:
+	alu_output_stage
+
+} {} {}} /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/holdreg.v {1 {vlog -work work -vopt /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/holdreg.v
+QuestaSim-64 vlog 10.1e Compiler 2013.06 Jun 11 2013
+-- Compiling module holdreg
+
+Top level modules:
+	holdreg
+
+} {} {}} /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/calc2_top.v {1 {vlog -work work -vopt /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/calc2_top.v
+QuestaSim-64 vlog 10.1e Compiler 2013.06 Jun 11 2013
+-- Compiling module adder
+-- Compiling module alu_input_stage
+-- Compiling module alu_output_stage
+-- Compiling module holdreg
+-- Compiling module mux_out
+-- Compiling module priority
+-- Compiling module shifter
+-- Compiling module calc2_top
+
+Top level modules:
+	calc2_top
+
+} {} {}} /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/adder.v {1 {vlog -work work -vopt /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/adder.v
+QuestaSim-64 vlog 10.1e Compiler 2013.06 Jun 11 2013
+-- Compiling module adder
+
+Top level modules:
+	adder
+
+} {} {}} /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/mux_out.v {1 {vlog -work work -vopt /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/mux_out.v
+QuestaSim-64 vlog 10.1e Compiler 2013.06 Jun 11 2013
+-- Compiling module mux_out
+
+Top level modules:
+	mux_out
+
+} {} {}} /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/priority.v {1 {vlog -work work -vopt /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/priority.v
+QuestaSim-64 vlog 10.1e Compiler 2013.06 Jun 11 2013
+-- Compiling module priority
+
+Top level modules:
+	priority
+
+} {} {}} /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv {2 {vlog -work work -vopt -sv /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv
+QuestaSim-64 vlog 10.1e Compiler 2013.06 Jun 11 2013
+-- Compiling package classes
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(653): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(668): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(371): (vlog-2240) Treating stand-alone use of function 'displayInputs' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(397): (vlog-2240) Treating stand-alone use of function 'displayInputs' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(423): (vlog-2240) Treating stand-alone use of function 'displayInputs' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(449): (vlog-2240) Treating stand-alone use of function 'displayInputs' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(318): (vlog-2240) Treating stand-alone use of function 'displayAll' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(325): (vlog-2240) Treating stand-alone use of function 'displayAll' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(332): (vlog-2240) Treating stand-alone use of function 'displayAll' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(339): (vlog-2240) Treating stand-alone use of function 'displayAll' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(780): (vlog-2240) Treating stand-alone use of function 'displayTagPort' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(767): (vlog-2240) Treating stand-alone use of function 'displayTagPort' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(748): (vlog-2240) Treating stand-alone use of function 'displayAll' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(804): (vlog-2240) Treating stand-alone use of function 'displayAll' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(914): (vlog-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(916): (vlog-2240) Treating stand-alone use of function 'displayInputs' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(930): (vlog-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(931): (vlog-2240) Treating stand-alone use of function 'displayInputs' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(946): (vlog-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(947): (vlog-2240) Treating stand-alone use of function 'displayInputs' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(961): (vlog-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+** Warning: /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/classPackage.sv(962): (vlog-2240) Treating stand-alone use of function 'displayInputs' as an implicit VOID cast.
+
+Top level modules:
+	--none--
+
+} {} {}} /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/shifter.v {1 {vlog -work work -vopt /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/shifter.v
+QuestaSim-64 vlog 10.1e Compiler 2013.06 Jun 11 2013
+-- Compiling module shifter
+
+Top level modules:
+	shifter
+
+} {} {}} /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/testCvrDriven.sv {1 {vlog -work work -vopt -sv /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/testCvrDriven.sv
+QuestaSim-64 vlog 10.1e Compiler 2013.06 Jun 11 2013
+-- Compiling program test
+-- Importing package classes
+
+Top level modules:
+	test
+
+} {} {}} /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/top.sv {1 {vlog -work work -vopt -sv /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/top.sv
+QuestaSim-64 vlog 10.1e Compiler 2013.06 Jun 11 2013
+-- Compiling module Top
+-- Compiling interface dut_IF
+
+Top level modules:
+	Top
+
+} {} {}} /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/environment.sv {1 {vlog -work work -vopt -sv /nfs/home/e/e_mcneil/COEN413/ProjectTwo_extendedGen/environment.sv
+QuestaSim-64 vlog 10.1e Compiler 2013.06 Jun 11 2013
+
+Top level modules:
+	--none--
+
+} {} {}}

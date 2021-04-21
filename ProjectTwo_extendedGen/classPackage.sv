@@ -89,6 +89,27 @@ package classes;
 		event drv_done;
 		event gen_done;
 
+		covergroup cg;
+			CMD1: coverpoint IF.cb.req1_cmd_in {bins CMD = {4'b0001,4'b0010,4'b0101,4'b0110};}
+			CMD2: coverpoint IF.cb.req2_cmd_in {bins CMD = {4'b0001,4'b0010,4'b0101,4'b0110};}
+			CMD3: coverpoint IF.cb.req3_cmd_in {bins CMD = {4'b0001,4'b0010,4'b0101,4'b0110};}
+			CMD4: coverpoint IF.cb.req4_cmd_in {bins CMD = {4'b0001,4'b0010,4'b0101,4'b0110};}
+			DATA1: coverpoint IF.cb.req1_data_in;
+			DATA2: coverpoint IF.cb.req2_data_in;
+			DATA3: coverpoint IF.cb.req3_data_in;
+			DATA4: coverpoint IF.cb.req4_data_in;
+			TAG1: coverpoint IF.cb.req1_tag_in;
+			TAG2: coverpoint IF.cb.req2_tag_in;
+			TAG3: coverpoint IF.cb.req3_tag_in;
+			TAG4: coverpoint IF.cb.req4_tag_in;
+
+		endgroup
+		
+
+		function new();
+			cg = new();
+		endfunction
+
 
 		task run();
 			$display("T: %0t [Driver] starting...", $time);
@@ -180,9 +201,11 @@ package classes;
 					IF.cb.req4_tag_in <= tranFour.tag_in;
 					IF.cb.req4_data_in <= tranFour.data_in_1;
 				end
+			
+				//sample for data and commands 
+				cg.sample();
 
-				//check if this is right because before they were being driven off of @(IF.cb) which I dont think is right
-				//@(IF.cb);
+				
 				@(posedge IF.c_clk)
 				
 				if(driveOne == 1)begin
@@ -201,6 +224,9 @@ package classes;
 				IF.cb.req4_data_in <= tranFour.data_in_2;
 				end
 
+				//sample for data and commands 
+				cg.sample();
+
 			
 			$display("T: %0t [Driver] LOOP", $time);
 				end
@@ -209,6 +235,34 @@ package classes;
 			for(int i =0; i < 10; i++)begin
 				@(posedge IF.c_clk);
 			end
+	
+			
+
+			$display("\n");
+			$display("T: %0t [Coverage] Current total coverage is %0.2f",$time, cg.get_coverage());
+			$display("\n");
+			$display("T: %0t [Coverage] Port One:",$time);
+			$display("T: %0t [Coverage] CMD coverage is %0.2f",$time, cg.CMD1.get_coverage());
+			$display("T: %0t [Coverage] TAG coverage is %0.2f",$time, cg.TAG1.get_coverage());
+			$display("T: %0t [Coverage] DATA coverage is %0.2f",$time, cg.DATA1.get_coverage());
+			$display("\n");
+			$display("T: %0t [Coverage] Port Two:",$time);
+			$display("T: %0t [Coverage] CMD coverage is %0.2f",$time, cg.CMD2.get_coverage());
+			$display("T: %0t [Coverage] TAG coverage is %0.2f",$time, cg.TAG2.get_coverage());
+			$display("T: %0t [Coverage] DATA coverage is %0.2f",$time, cg.DATA2.get_coverage());
+			$display("\n");
+			$display("T: %0t [Coverage] Port Three:",$time);
+			$display("T: %0t [Coverage] CMD coverage is %0.2f",$time, cg.CMD3.get_coverage());
+			$display("T: %0t [Coverage] TAG coverage is %0.2f",$time, cg.TAG3.get_coverage());
+			$display("T: %0t [Coverage] DATA coverage is %0.2f",$time, cg.DATA3.get_coverage());
+			$display("\n");
+			$display("T: %0t [Coverage] Port Four:",$time);
+			$display("T: %0t [Coverage] CMD coverage is %0.2f",$time, cg.CMD4.get_coverage());
+			$display("T: %0t [Coverage] TAG coverage is %0.2f",$time, cg.TAG4.get_coverage());
+			$display("T: %0t [Coverage] DATA coverage is %0.2f",$time, cg.DATA4.get_coverage());
+
+			
+		
 
 			$display("T: %0t [Driver] Drive done asserted", $time);
 			->drv_done;
@@ -298,6 +352,8 @@ package classes;
 				
 				@(drv_done);
 
+				$display("\n");
+
 				if (portOne.size() > 0)begin
 				$display("T: %0t [Monitor]Port One Commands not responded to: ", $time);
 				foreach(portOne[i])begin 
@@ -320,7 +376,7 @@ package classes;
 				portThree.delete();
 				end
 				if (portFour.size() > 0)begin
-				$display("T: %0t [Monitor]Port One Commands not responded to: ", $time);
+				$display("T: %0t [Monitor]Port Four Commands not responded to: ", $time);
 				foreach(portFour[i])begin 
 					portFour[i].displayAll();
 				end
@@ -382,7 +438,7 @@ package classes;
 				fresh.data_in_2 = IF.cb.req2_data_in;
 				fresh.displayInputs();
 
-		  		portOne.push_front(fresh);
+		  		portTwo.push_front(fresh);
 				end
 	         	end
 		endtask
@@ -617,6 +673,7 @@ package classes;
 		mailbox scoreboardMB;
 		mailbox SBtocheckerMB;
 		int i = 1;
+		logic [32:0] addCheck;
  		task run();
 
    			forever begin
@@ -629,26 +686,41 @@ package classes;
 
 				//Calculate the expected results
 				if (ref_item.cmd == 1) begin
-					ref_item.data_out = ref_item.data_in_1 + ref_item.data_in_2;
+					addCheck = ref_item.data_in_1 + ref_item.data_in_2;
+					
+					if(addCheck[32] == 0)begin
+						ref_item.data_out = ref_item.data_in_1 + ref_item.data_in_2;
+						ref_item.resp = 2'b01;
+					end else begin
+						ref_item.data_out = 2'h0000000;
+						ref_item.resp = 2'b10;
+					end
+
+				
 				end
 
 				else if (ref_item.cmd == 2) begin
 					if (ref_item.data_in_1 >= ref_item.data_in_2) begin
 						ref_item.data_out = ref_item.data_in_1 - ref_item.data_in_2;
+						ref_item.resp = 2'b01;
 					end
 
 					else begin
 						i = 0;
-						$display("[Scoreboard] can't subtract %0d from %0d", ref_item.data_in_2, ref_item.data_in_1);
+						ref_item.data_out = 2'h0000000;
+						ref_item.resp = 2'b10;
+						
 					end
 				end
 
 				else if (ref_item.cmd == 5) begin
 					ref_item.data_out = ref_item.data_in_1 << ref_item.data_in_2;
+					ref_item.resp = 2'b01;
 				end
 
 				else if (ref_item.cmd == 6) begin
 					ref_item.data_out = ref_item.data_in_1 >> ref_item.data_in_2;
+					ref_item.resp = 2'b01;
 				end
 				
 				if (i == 1) begin
@@ -713,6 +785,7 @@ package classes;
 				
 				while(monitorQueue.size > 0)begin 
 					compare = monitorQueue.pop_front();
+					$display("\n");
 					$display("[Checker] Monitor Transaction recieved:");
 					compare.displayAll();
 					compareTrans(compare);
@@ -772,12 +845,17 @@ package classes;
 					compareTo =  fromScore.pop_front();
 					compareTo.displayAll();
 					if(compareTo.data_out != fromDUT.data_out)begin
-						$display("T: %0t [Checker]ERROR, port %0d with tag %0d data is %0d should be %0d", $time, fromDUT.port,fromDUT.tag_out,fromDUT.data_out,compareTo.data_out);
+						$display("[Checker]ERROR, data is %0d should be %0d",fromDUT.data_out,compareTo.data_out);
 					end
 					else begin
-						$display("T: %0t [Checker] CORRECT, port  %0d with tag %0d data is %0d should be %0d", $time, fromDUT.port,fromDUT.tag_out,fromDUT.data_out,compareTo.data_out);
+						$display("[Checker] CORRECT,data is %0d should be %0d",fromDUT.data_out,compareTo.data_out);
 					end
-					
+					if(compareTo.resp != fromDUT.resp)begin
+						$display("[Checker]ERROR, Resp is %0d should be %0d",fromDUT.resp,compareTo.resp);
+					end
+					else begin
+						$display("[Checker]CORRECT, Resp is %0d should be %0d",fromDUT.resp,compareTo.resp);
+					end
 					
 					//compareTranQueue.delete(index);
 					//dont need to delete
@@ -815,35 +893,20 @@ package classes;
 		int noTests;
 		int configFile;
 
+		
+
 		function new(mailbox driver, mailbox scoreboard, event check, event gen, event test);
 			driverSingleMB = driver;
 			scoreboardMB = scoreboard;
 			check_done = check;
 			gen_done = gen;
 			test_done = test;
+		
 			
 		endfunction
 		
-		/*covergroup transCovergroup;
-			PORTS: coverpoint this.trans.port;//{bins ports =  {2'b00, 2'b01, 2'b10, 2'b11};}
-			COMMANDS: coverpoint this.trans.cmd;//{bins cmds = {4'b0001, 4'b0010, 4'b0101, 4'b0110};}
-
-			PORTS_COMMANDS: cross PORTS, COMMANDS;
-		endgroup
-
 		
 		
-
-
-		function new();
-			
-			transCovergroup = new();
-		
-		endfunction
-
-		function displayCoverage();
-			$display("Current coverage is %0.2f", transCovergroup.get_inst_coverage()); 
-		endfunction */
 
 
 		task run();
@@ -855,7 +918,7 @@ package classes;
 			$fgets(line,configFile);
 			
 			//noTests = line.atoi();
-			noTests = 1;
+			noTests = 10;
 			//if second line exists then hat is the input scenerio to be run -> no random sernario
 			$fgets(line,configFile);
 			
@@ -867,15 +930,17 @@ package classes;
 			else begin
 				$display("T: %0t [Generator] Running %0d random scenerio", $time,noTests);
 			//TODO randomize a number 1-16 to run	
-			for(int j = 0; j< 3; j++)begin
+			for(int j = 0; j< noTests; j++)begin
 				$display("T: %0t [Generator] Making Test # %0b", $time,j);
+
+
 			
 			//Max of 16 possible commands running at once
 			//doing it so theres always min of two
-			portOneCount = $urandom_range(1,2);
-			portTwoCount = $urandom_range(1,2);
-			portThreeCount = $urandom_range(1,2);
-			portFourCount = $urandom_range(1,2);
+			portOneCount = $urandom_range(0,4);
+			portTwoCount = $urandom_range(0,4);
+			portThreeCount = $urandom_range(0,4);
+			portFourCount = $urandom_range(0,4);
 			portOneTagCount = 2'b11;
 			portTwoTagCount = 2'b11;
 			portThreeTagCount= 2'b11;
